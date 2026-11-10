@@ -3,6 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+from time import perf_counter
 
 import numpy as np
 import torch
@@ -73,15 +74,21 @@ class Recognizer:
         self.identifier = metadata['id']
         self.threshold = checkpoint['settings']['confidence_threshold']
 
-    def predict(self, request):
+    def predict(self, request, timings=None):
+        started = perf_counter()
         x, lengths, coverage, normalized = prepare(request.landmarks, request.point_mask,
                                                   request.timestamps_ms, request.width, request.height)
+        if timings is not None:
+            timings['preprocess'] = (perf_counter() - started) * 1000
         base = dict(experimental=True, modelo=self.identifier, desconocidas_validadas=False)
         if coverage < .5 or normalized < .5:
             return dict(base, estado='captura_insuficiente', glosa=None, confidence=None,
                         probabilidades=[], mensaje='No se detectaron manos utilizables en suficiente parte de la captura.')
+        started = perf_counter()
         with torch.inference_mode():
             probabilities = torch.softmax(self.model(x, lengths), dim=1)[0].numpy()
+        if timings is not None:
+            timings['inference'] = (perf_counter() - started) * 1000
         index = int(probabilities.argmax())
         confidence = float(probabilities[index])
         accepted = confidence >= self.threshold

@@ -5,7 +5,7 @@ import os
 from pathlib import Path
 from threading import Lock
 from typing import Annotated, Literal
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
@@ -63,7 +63,7 @@ class BodyLimit:
 app.add_middleware(BodyLimit)
 app.add_middleware(CORSMiddleware,
     allow_origins=[v.strip() for v in os.environ.get('LSP_CORS_ORIGINS', 'http://localhost:3000,http://127.0.0.1:3000').split(',') if v.strip()],
-    allow_methods=['GET', 'POST'], allow_headers=['Content-Type'])
+    allow_methods=['GET', 'POST'], allow_headers=['Content-Type'], expose_headers=['Server-Timing'])
 
 Coordinate = Annotated[FiniteFloat, Field(ge=-10, le=10)]
 Frame = Annotated[list[Coordinate], Field(min_length=126, max_length=126)]
@@ -119,13 +119,17 @@ def classes():
     return {'clases': info['clases'], 'total': len(info['clases']), 'experimental': True}
 
 @app.post('/api/predict')
-def predict(request: LandmarksRequest):
+def predict(request: LandmarksRequest, response: Response):
     model = getattr(app.state, 'recognizer', None)
     if model is None:
         raise HTTPException(503, 'Modelo no disponible.')
     if not lock.acquire(blocking=False):
         raise HTTPException(429, 'Servidor ocupado. Intenta nuevamente.', headers={'Retry-After': '2'})
     try:
-        return model.predict(request)
+        timings = {}
+        result = model.predict(request, timings)
+        # Duraciones internas; no incluyen red, validación HTTP ni espera de arranque.
+        response.headers['Server-Timing'] = ', '.join(f'{name};dur={duration:.3f}' for name, duration in timings.items())
+        return result
     finally:
         lock.release()
