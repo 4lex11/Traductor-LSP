@@ -1,0 +1,5 @@
+Catálogo de demostración: 17 clips del recurso AEC / PeruSIL.
+Fuente: https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH
+Licencia declarada por el recurso: CC0-1.0.
+Etiquetas originales sin revisión lingüística adicional; no equivalencias validadas con PUCP 305.
+Procedencia y hashes de cada clip: index.json.

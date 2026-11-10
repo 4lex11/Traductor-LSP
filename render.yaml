@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: capstone-lsp-api
+    runtime: python
+    plan: free
+    buildCommand: pip install --no-cache-dir -r Backend/requirements-render.txt
+    startCommand: python -m uvicorn Backend.main:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /readyz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.14.10
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: MKL_NUM_THREADS
+        value: "1"
+      - key: LSP_CORS_ORIGINS
+        sync: false

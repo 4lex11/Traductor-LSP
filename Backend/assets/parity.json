@@ -1,0 +1,210 @@
+{
+  "runtime": "holistic-wasm-1.2.0-cpu-v1",
+  "passed": true,
+  "reference": "Extracción offline WASM dirigida desde Python; no equivalencia con MediaPipe nativo",
+  "samples": [
+    {
+      "id": "004580e8ca308eec3b3f",
+      "dataset": "Videos1",
+      "frames": 10,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "00a1f6472b521b8240fe",
+      "dataset": "Videos1",
+      "frames": 7,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "00ffd2d94eef5afe8c4d",
+      "dataset": "Videos2",
+      "frames": 5,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "01873871676bb55a2b53",
+      "dataset": "Videos2",
+      "frames": 7,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "01eec8233071e706ac81",
+      "dataset": "Videos2",
+      "frames": 9,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "02c8212755bb3c1e0e2b",
+      "dataset": "Videos1",
+      "frames": 8,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "03a9c8199d90133e07ee",
+      "dataset": "Videos1",
+      "frames": 3,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "03d1856581622e4bcf01",
+      "dataset": "Videos1",
+      "frames": 5,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "04387e16f6ce815457cd",
+      "dataset": "Videos2",
+      "frames": 7,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "0481c0edbf91d496c0b6",
+      "dataset": "Videos1",
+      "frames": 8,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "04b0710761e7f5d65d30",
+      "dataset": "Videos1",
+      "frames": 14,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "0515296fbf541c43eca8",
+      "dataset": "Videos1",
+      "frames": 5,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "05714c8b4bb084907197",
+      "dataset": "Videos2",
+      "frames": 5,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "05c81a1cba78cae99d60",
+      "dataset": "Videos2",
+      "frames": 7,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "073a5197ff1c17315095",
+      "dataset": "Videos2",
+      "frames": 8,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "07feaa9a6e1346ccc908",
+      "dataset": "Videos2",
+      "frames": 9,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "081cda961d14ba86cba1",
+      "dataset": "Videos2",
+      "frames": 3,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "084617d8b7bd85b3da8b",
+      "dataset": "Videos1",
+      "frames": 4,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "088758acf2ba43459bdb",
+      "dataset": "Videos1",
+      "frames": 6,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "0b078ea38c0aea080883",
+      "dataset": "Videos2",
+      "frames": 4,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "0b385cb1955a1988ceec",
+      "dataset": "Videos2",
+      "frames": 13,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "0b61065e8a421541a52a",
+      "dataset": "Videos2",
+      "frames": 7,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "0bfaf7ca73a00c135eca",
+      "dataset": "Videos2",
+      "frames": 8,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "0d2e2abae04425833498",
+      "dataset": "Videos2",
+      "frames": 5,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "0e3b39c9dd21f9e3cff5",
+      "dataset": "Videos2",
+      "frames": 5,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "10acb91e96992eafc87d",
+      "dataset": "Videos2",
+      "frames": 9,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    },
+    {
+      "id": "1211d453c8e5228bdb11",
+      "dataset": "Videos2",
+      "frames": 5,
+      "max_coordinate_error": 0.0,
+      "differing_mask_points": 0
+    }
+  ],
+  "source_hashes": {
+    "interfaz-traductor-lsp/lib/holistic-extractor.ts": "409184eed010d6c505c88ca1ec43eafde9a044ef37b83e2fe102585132d555a5",
+    "interfaz-traductor-lsp/lib/recognition-contract.ts": "7dca362e60beee44da1a4f8be290ab7b4927482435055675de82d974c77b7133",
+    "interfaz-traductor-lsp/node_modules/@mediapipe/tasks-vision/vision_bundle.mjs": "870da5cfc43bfcf2a8b0f14e8152dae8c7e701722e1191b0e592b94b81b4127a",
+    "interfaz-traductor-lsp/node_modules/@mediapipe/tasks-vision/package.json": "bf558f63285c8b46b8a6ce6344f38453dcfec741e79dc2ebf124feac74a7288b",
+    "interfaz-traductor-lsp/public/mediapipe/holistic_landmarker.task": "e2dab61191e2dcd0a15f943d8e3ed1dce13c82dfa597b9dd39f562975a50c3f8",
+    "interfaz-traductor-lsp/public/mediapipe/wasm/vision_wasm_internal.js": "85c1a342be70427987f900969a5f26e17557351111364e6585e97fb03e93e108",
+    "interfaz-traductor-lsp/public/mediapipe/wasm/vision_wasm_internal.wasm": "bcc13df22d3d69ec8cbe8e280989356d844ae00f4523eb82072d2484f44134dc",
+    "interfaz-traductor-lsp/public/mediapipe/wasm/vision_wasm_module_internal.js": "60384c9014750321c0fc1d489b3329e5eaed0fcf3c328d404ecb1a6c75e89d17",
+    "interfaz-traductor-lsp/public/mediapipe/wasm/vision_wasm_module_internal.wasm": "2e326b9d9584ac22e230c263f47e6fe694a7df1ce22a8546c72df0e5c0fc1066",
+    "interfaz-traductor-lsp/public/mediapipe/wasm/vision_wasm_nosimd_internal.js": "e9b2b799e0f1078f5538b300a57835b823742c37e2646308a03f0f25b39fdcdc",
+    "interfaz-traductor-lsp/public/mediapipe/wasm/vision_wasm_nosimd_internal.wasm": "ed5e5e5812490bd90d6a440290845ff9e4c516f696847a28a0c0e0573470d469"
+  },
+  "extraction_manifest_sha256": "75c1649d3efac81c055a8e322dc271bc277a59b531c32129911c0d68badd0225"
+}

@@ -1,0 +1,12 @@
+{
+  "id": "sprint5-wasm-fold1-hands-demo",
+  "sha256": "71458d561059de4f1e8b4dea2f30f090850339f29a6ac7ddcb8db60172e3b195",
+  "source": "ML/processed/sprint_5/wasm_v1/fold_1_hands/model.pt",
+  "selection": "Fold 1 fijo, misma configuraci\u00f3n y miembros; demostraci\u00f3n experimental, sin selecci\u00f3n por holdout.",
+  "extractor_runtime": "holistic-wasm-1.2.0-cpu-v1",
+  "parity_sha256": "852afbb436f389d931a2a9279ec05140ca3e2c1e1b913fab3c31443673e2b864",
+  "codigo_ml_sha256": {
+    "preprocessing_lsp.py": "f7518b7483d920d994e9a707486e04616e4881ae8fd1c758aa5665dcd736284c",
+    "train_sprint4.py": "5b44f45d1fe9978a2d5d46341814d17b0dd248c7929679c0244efd9b0cb885f7"
+  }
+}
