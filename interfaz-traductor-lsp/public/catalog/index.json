@@ -1,257 +1,376 @@
 [
   {
+    "palabra": "ahora",
+    "videos": [
+      {
+        "nombre": "ahora",
+        "url": "/catalog/v2/a19072c01b4d54bf59f9.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "a19072c01b4d54bf59f9",
+    "archivo_fuente": "Videos2/proteinas_porcentajes/ahora_1351.mp4",
+    "sha256_fuente": "3cba305e9c85417d4a4035c1352e1b7bd8a973330d256b8a81dcf3abf97f3c28",
+    "sha256": "ace870065609b809582a42f4b656619aca18f8e14a3eef0f73c4bc1b2916ed34",
+    "bytes": 23192,
+    "frames": 28,
+    "duration_seconds": 0.9342676009342676,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
     "palabra": "bien",
     "videos": [
       {
         "nombre": "bien",
-        "url": "/catalog/007777344a1857a96347.mp4"
+        "url": "/catalog/v2/69e8777bf387d725a4b8.mp4"
       }
     ],
     "total": 1,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
-    "id": "007777344a1857a96347",
-    "sha256": "7e979213c7e2649e3d11e662412ed5d4e27a83bc1e98524a7f04f5a3d5661adf",
-    "bytes": 4084
-  },
-  {
-    "palabra": "hacer",
-    "videos": [
-      {
-        "nombre": "hacer",
-        "url": "/catalog/00ffd2d94eef5afe8c4d.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "00ffd2d94eef5afe8c4d",
-    "sha256": "44300f3c1e146fe46f2c58ca9090aa4775218e4b656cbbb7cbe908ee97bf8dcf",
-    "bytes": 15975
-  },
-  {
-    "palabra": "diferente",
-    "videos": [
-      {
-        "nombre": "diferente",
-        "url": "/catalog/01873871676bb55a2b53.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "01873871676bb55a2b53",
-    "sha256": "adf7b89502f6b406612a2d4f41f2b96ff2ad012e83585680445998e0f05f59ad",
-    "bytes": 29572
-  },
-  {
-    "palabra": "ver",
-    "videos": [
-      {
-        "nombre": "ver",
-        "url": "/catalog/01eec8233071e706ac81.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "01eec8233071e706ac81",
-    "sha256": "591286a99b493a60baef20b8f14937c10e574dd248be148dde27f83f88434168",
-    "bytes": 26779
-  },
-  {
-    "palabra": "no",
-    "videos": [
-      {
-        "nombre": "no",
-        "url": "/catalog/04387e16f6ce815457cd.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "04387e16f6ce815457cd",
-    "sha256": "f4dccb306a623e43cd525f428130a48216cf529ae8b43fe83a0bf1e7d6d1374a",
-    "bytes": 18335
-  },
-  {
-    "palabra": "decir",
-    "videos": [
-      {
-        "nombre": "decir",
-        "url": "/catalog/05714c8b4bb084907197.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "05714c8b4bb084907197",
-    "sha256": "da4d85237e6e75dce38ac533f4a304ca9e44c647cee39cd0d315f84f843f0afd",
-    "bytes": 13000
-  },
-  {
-    "palabra": "pensar",
-    "videos": [
-      {
-        "nombre": "pensar",
-        "url": "/catalog/05c81a1cba78cae99d60.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "05c81a1cba78cae99d60",
-    "sha256": "9508c6e1e96c3f9e4027ed002a4becbeaf33220181cd073234c3d6495f12d88b",
-    "bytes": 29046
-  },
-  {
-    "palabra": "yo",
-    "videos": [
-      {
-        "nombre": "yo",
-        "url": "/catalog/073a5197ff1c17315095.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "073a5197ff1c17315095",
-    "sha256": "c7f9512c7972de44ef4f41133434bf76d72c3c78511e3f716a6179afb30a9962",
-    "bytes": 38691
-  },
-  {
-    "palabra": "igual",
-    "videos": [
-      {
-        "nombre": "igual",
-        "url": "/catalog/07feaa9a6e1346ccc908.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "07feaa9a6e1346ccc908",
-    "sha256": "b8f92e8789ba1ee549aed58cb0683e610431779c6233ee2eb0987de0eb093bb7",
-    "bytes": 34508
-  },
-  {
-    "palabra": "niño",
-    "videos": [
-      {
-        "nombre": "niño",
-        "url": "/catalog/0b078ea38c0aea080883.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "0b078ea38c0aea080883",
-    "sha256": "16c6b6785c5f781474fba6a046e07ca9363ce1f3e0cff1cb5cc344c4353c2767",
-    "bytes": 14122
-  },
-  {
-    "palabra": "dos",
-    "videos": [
-      {
-        "nombre": "dos",
-        "url": "/catalog/0b385cb1955a1988ceec.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "0b385cb1955a1988ceec",
-    "sha256": "e1c20febeea474d2e2728927b223500311ff5379cbb83d9f12edc58b50fb49fc",
-    "bytes": 40167
-  },
-  {
-    "palabra": "fuerte",
-    "videos": [
-      {
-        "nombre": "fuerte",
-        "url": "/catalog/0b61065e8a421541a52a.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "0b61065e8a421541a52a",
-    "sha256": "8c4d7ad33cbcee1bf6e2d86d6fd1013445ec07171e8270d9eb75a50842e9d9b3",
-    "bytes": 21983
-  },
-  {
-    "palabra": "sentir",
-    "videos": [
-      {
-        "nombre": "sentir",
-        "url": "/catalog/0bfaf7ca73a00c135eca.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "0bfaf7ca73a00c135eca",
-    "sha256": "064f5e72df8dd39a064a5313cf25217648dd55fe9ae20a750fa1c03ab4a46bed",
-    "bytes": 38285
-  },
-  {
-    "palabra": "saber",
-    "videos": [
-      {
-        "nombre": "saber",
-        "url": "/catalog/0d2e2abae04425833498.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "0d2e2abae04425833498",
-    "sha256": "373626858ca9a0f97fb48ec3e8d5b7005df489d71e9b89bea85f13d64469e0d5",
-    "bytes": 19314
-  },
-  {
-    "palabra": "escribir",
-    "videos": [
-      {
-        "nombre": "escribir",
-        "url": "/catalog/0e3b39c9dd21f9e3cff5.mp4"
-      }
-    ],
-    "total": 1,
-    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
-    "licencia": "CC0-1.0",
-    "id": "0e3b39c9dd21f9e3cff5",
-    "sha256": "6669ffa8a583cb8ef2a8d8419f53d0298cffd4f457bc1ebf348d46c95a5d5f3c",
-    "bytes": 15335
+    "id": "69e8777bf387d725a4b8",
+    "archivo_fuente": "Videos2/ira_alegria/bien_656.mp4",
+    "sha256_fuente": "e7ddc4749bbd10eb5a0eb22041f89319ff6b0727328f4a3cfc711e4c00cc2a24",
+    "sha256": "f2fda8a06dfcea6b2e736e203f7700350f00734b64edb192640b67536e0232d0",
+    "bytes": 29075,
+    "frames": 36,
+    "duration_seconds": 1.2012012012012012,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
   },
   {
     "palabra": "casa",
     "videos": [
       {
         "nombre": "casa",
-        "url": "/catalog/10acb91e96992eafc87d.mp4"
+        "url": "/catalog/v2/41dac56c195a132668fa.mp4"
       }
     ],
     "total": 1,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
-    "id": "10acb91e96992eafc87d",
-    "sha256": "086643a4acb26f81a7396d1af4b3f47c3ac5b5cac432435f221e32c5110cdc30",
-    "bytes": 25510
+    "id": "41dac56c195a132668fa",
+    "archivo_fuente": "Videos2/ira_alegria/casa_53.mp4",
+    "sha256_fuente": "52eedc07ba71a7d965aeebb86ae3721e7f03a3d65542d3a252cc1195ed6564bb",
+    "sha256": "a60092edc0f8b98002f18a029727eba4e02c362ce72ba08dcea0af8d85e9a608",
+    "bytes": 21794,
+    "frames": 28,
+    "duration_seconds": 0.9342676009342676,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
   },
   {
-    "palabra": "ahora",
+    "palabra": "decir",
     "videos": [
       {
-        "nombre": "ahora",
-        "url": "/catalog/1211d453c8e5228bdb11.mp4"
+        "nombre": "decir",
+        "url": "/catalog/v2/98f350a9c17442b3ecd7.mp4"
       }
     ],
     "total": 1,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
-    "id": "1211d453c8e5228bdb11",
-    "sha256": "e10c2289f4f725e52bc11c82aa292ae7d879f1c52fa5a30b3b9216bd064b8f52",
-    "bytes": 14531
+    "id": "98f350a9c17442b3ecd7",
+    "archivo_fuente": "Videos2/ira_alegria/decir_740.mp4",
+    "sha256_fuente": "8e247ea15d8868710793f231c4fafd6f834af58c56fd6042774a8a053198a66e",
+    "sha256": "d4ebbf729bbee1e6f3ad090d6947825a98937e2499026a180968671a49b7555a",
+    "bytes": 19594,
+    "frames": 27,
+    "duration_seconds": 0.9009009009009009,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "diferente",
+    "videos": [
+      {
+        "nombre": "diferente",
+        "url": "/catalog/v2/cfb6ff89f1b26246f2f3.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "cfb6ff89f1b26246f2f3",
+    "archivo_fuente": "Videos2/ira_alegria/diferente_774.mp4",
+    "sha256_fuente": "b7d64fa2b098b573d673e920964953105481998cb46bb70c1df36baa1fb8852c",
+    "sha256": "65dbcf96d48a4c328a9978fb3a6d11e377fc436ee9995d1fe917e6cee3d76d95",
+    "bytes": 15761,
+    "frames": 19,
+    "duration_seconds": 0.6339673006339673,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "dos",
+    "videos": [
+      {
+        "nombre": "dos",
+        "url": "/catalog/v2/0b385cb1955a1988ceec.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "0b385cb1955a1988ceec",
+    "archivo_fuente": "Videos2/proteinas_porcentajes/dos_1088.mp4",
+    "sha256_fuente": "e1c20febeea474d2e2728927b223500311ff5379cbb83d9f12edc58b50fb49fc",
+    "sha256": "58a3a99aad04cb2858935999e06411284ba42d0312b0445920cc799d38fab615",
+    "bytes": 20324,
+    "frames": 25,
+    "duration_seconds": 0.8341675008341676,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "escribir",
+    "videos": [
+      {
+        "nombre": "escribir",
+        "url": "/catalog/v2/63c40dee27b4e3499931.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "63c40dee27b4e3499931",
+    "archivo_fuente": "Videos2/proteinas_porcentajes/escribir_2010.mp4",
+    "sha256_fuente": "5241b3c7400c70ee47430703c8023b63ef88fac6ba29386e32d238f6fcdb9ae5",
+    "sha256": "810a4b0a33285ead2ca78087ee38271e93653a75250a5f9798ced8953219fbd0",
+    "bytes": 21293,
+    "frames": 31,
+    "duration_seconds": 1.0343677010343677,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "fuerte",
+    "videos": [
+      {
+        "nombre": "fuerte",
+        "url": "/catalog/v2/9704dddb3f08a61f564f.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "9704dddb3f08a61f564f",
+    "archivo_fuente": "Videos2/proteinas_porcentajes/fuerte_2025.mp4",
+    "sha256_fuente": "feaead61e595bf89360074ccb2e2eda745a0a8fdd38808ca5dd548f70cd8ea16",
+    "sha256": "c386f0c03d54dcfae50f1b1ce24a53d0d598f7ebffc87a4e35b6ddbcbb0c4210",
+    "bytes": 20942,
+    "frames": 34,
+    "duration_seconds": 1.1344678011344678,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "hacer",
+    "videos": [
+      {
+        "nombre": "hacer",
+        "url": "/catalog/v2/6f2741c2d47ba6dadd1a.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "6f2741c2d47ba6dadd1a",
+    "archivo_fuente": "Videos2/proteinas_porcentajes/hacer_1234.mp4",
+    "sha256_fuente": "836c9b5f7da08a5f848c487c52a76d6d358a21f7353fedf31e673dd66093af60",
+    "sha256": "cbd937e63af7b8eaa1afe690b34b79928488f2e71d87682fef5a8460676c2dc0",
+    "bytes": 19049,
+    "frames": 23,
+    "duration_seconds": 0.7674341007674341,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "igual",
+    "videos": [
+      {
+        "nombre": "igual",
+        "url": "/catalog/v2/a87a41e8df60169e2ada.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "a87a41e8df60169e2ada",
+    "archivo_fuente": "Videos2/proteinas_porcentajes/igual_1005.mp4",
+    "sha256_fuente": "0762d6a3395aa6242a3e47cd6dd26d0d5bd54a3aeb1fef6f3d1d9d336e7c1173",
+    "sha256": "8bf4a9a7148411e06bb303ff677037f8b228542d8d8c715ea2e6a9c45e3343dc",
+    "bytes": 14841,
+    "frames": 21,
+    "duration_seconds": 0.7007007007007007,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "niño",
+    "videos": [
+      {
+        "nombre": "niño",
+        "url": "/catalog/v2/9b97fec3ed471a495676.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "9b97fec3ed471a495676",
+    "archivo_fuente": "Videos2/proteinas_porcentajes/niño_2189.mp4",
+    "sha256_fuente": "e8cf8b4d565479812f86fb023176a5909d6f3fdcc01afd3fa40ec73498cc7d84",
+    "sha256": "78601affe57e568c19240a7bfacb8257d32281e9334e12655dcf133e4ba9d680",
+    "bytes": 14081,
+    "frames": 22,
+    "duration_seconds": 0.7340674007340674,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "no",
+    "videos": [
+      {
+        "nombre": "no",
+        "url": "/catalog/v2/6af592c78ec81967b27f.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "6af592c78ec81967b27f",
+    "archivo_fuente": "Videos2/proteinas_porcentajes/no_1640.mp4",
+    "sha256_fuente": "eb891c410e5dd03a283a5f0a04040933f36a66cbacab7b54aea4b1364fe585e1",
+    "sha256": "8669649731fc438429520281f4532781d28c46bc7d2137433b6a45d6d5a8f354",
+    "bytes": 26818,
+    "frames": 43,
+    "duration_seconds": 1.4347681014347682,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "pensar",
+    "videos": [
+      {
+        "nombre": "pensar",
+        "url": "/catalog/v2/e1a0120adf356bdca86d.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "e1a0120adf356bdca86d",
+    "archivo_fuente": "Videos2/proteinas_porcentajes/pensar_2062.mp4",
+    "sha256_fuente": "1e6f49d029071a43cf835122e1e4634f10cbe4599aa8a0923416d1fb802cb4e5",
+    "sha256": "4688f5414b8ab16242ed2c76e1f5d1d7a8e1396cef86b1f483e9670abb51c2bf",
+    "bytes": 24206,
+    "frames": 35,
+    "duration_seconds": 1.1678345011678346,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "saber",
+    "videos": [
+      {
+        "nombre": "saber",
+        "url": "/catalog/v2/85ec81778d06da57453f.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "85ec81778d06da57453f",
+    "archivo_fuente": "Videos2/proteinas_porcentajes/saber_2122.mp4",
+    "sha256_fuente": "043d8b6fcfa500848c738b9e7d4450a28cfc039c5afe024b099d3f324df1274a",
+    "sha256": "8c68c0a1e3ef25acd3fb7eea249e8ba8a7d5fd8510e5efef0c0cbcd1b71be2d7",
+    "bytes": 17819,
+    "frames": 21,
+    "duration_seconds": 0.7007007007007007,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "sentir",
+    "videos": [
+      {
+        "nombre": "sentir",
+        "url": "/catalog/v2/3f9cd0f24e01997c29a9.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "3f9cd0f24e01997c29a9",
+    "archivo_fuente": "Videos2/proteinas_porcentajes/sentir_2107.mp4",
+    "sha256_fuente": "fc853114fa8f8cc623b0edeff374fa33321996860edcd838ea6612b07a7ecfa4",
+    "sha256": "340b1c97a106b4b7188d4735605ca041e726fe409e37f505221f938279ec62d5",
+    "bytes": 17745,
+    "frames": 25,
+    "duration_seconds": 0.8341675008341676,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "ver",
+    "videos": [
+      {
+        "nombre": "ver",
+        "url": "/catalog/v2/55eba6d5a3fa56c1ee7a.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "55eba6d5a3fa56c1ee7a",
+    "archivo_fuente": "Videos2/ira_alegria/ver_173.mp4",
+    "sha256_fuente": "bae933e98d9a8475458aa7855438d640fe05ed7770c9a7cfd8627c7a993ec9f2",
+    "sha256": "43bd65625a3ffddc1af27802500c0d417519cd7f3b0fd69e4187a175f1afb507",
+    "bytes": 25971,
+    "frames": 35,
+    "duration_seconds": 1.1678345011678346,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
+  },
+  {
+    "palabra": "yo",
+    "videos": [
+      {
+        "nombre": "yo",
+        "url": "/catalog/v2/33be849470f7402c0eb0.mp4"
+      }
+    ],
+    "total": 1,
+    "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+    "licencia": "CC0-1.0",
+    "id": "33be849470f7402c0eb0",
+    "archivo_fuente": "Videos2/ira_alegria/yo_727.mp4",
+    "sha256_fuente": "baf9c60349e6e60895616a7363822fff345b41a376661336babe34f46b116e39",
+    "sha256": "f4901bdb0b5cb198ee87c6bda43d59a48187e09dc5e949f13cc820828e6e77f4",
+    "bytes": 23818,
+    "frames": 24,
+    "duration_seconds": 0.8008008008008008,
+    "codec": "H.264/yuv420p",
+    "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
+    "validacion_linguistica": "Anotación original, sin revisión adicional"
   }
 ]

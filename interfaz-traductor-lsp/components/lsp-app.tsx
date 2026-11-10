@@ -308,7 +308,6 @@ function Dictionary({
   onWordConsumed?: () => void
 }) {
   const [term, setTerm] = useState('')
-  const [filter, setFilter] = useState<'principales' | 'todas'>('principales')
   const [items, setItems] = useState<SenaCatalogo[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -324,7 +323,6 @@ function Dictionary({
         if (active) {
           setItems(data)
           if (initialWord) {
-            setFilter('todas')
             setTerm(initialWord)
             void abrirSena(initialWord)
             onWordConsumed?.()
@@ -336,18 +334,10 @@ function Dictionary({
     return () => { active = false }
   }, [initialWord])
 
-  // Orden propuesto para el catálogo inicial; solo se muestran carpetas reales del backend.
-  const principales = ['HOLA', 'CHAU', 'AMIGO', 'ESPERAR', 'ENTENDER', 'PREGUNTAR', 'BIEN', 'DONDE', 'CUANDO', 'AYUDA', 'DECIRME', 'HOY']
-  const prioritarias = new Set(principales)
+  // Mostrar el catálogo real completo; una lista fija ocultaba casi todas las señas.
   const lista = items
-    .filter(item => (filter === 'todas' || prioritarias.has(item.nombre.toUpperCase())))
     .filter(item => item.nombre.toLocaleLowerCase('es').includes(term.trim().toLocaleLowerCase('es')))
-    .sort((a, b) => {
-      const ia = principales.indexOf(a.nombre.toUpperCase())
-      const ib = principales.indexOf(b.nombre.toUpperCase())
-      if (filter === 'principales' && ia !== ib) return ia - ib
-      return a.nombre.localeCompare(b.nombre, 'es')
-    })
+    .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'))
 
   async function abrirSena(palabra: string) {
     setDetailError('')
@@ -371,10 +361,6 @@ function Dictionary({
           <Search className="absolute left-3 top-3 size-4 text-slate-400" />
           <input value={term} onChange={e => setTerm(e.target.value)} placeholder="Buscar una seña" aria-label="Buscar en el diccionario" className="h-10 w-full rounded-lg border border-slate-200 pl-9 pr-3 text-sm outline-none focus:border-blue-500" />
         </div>
-        <div className="flex gap-2">
-          <Button variant={filter === 'principales' ? 'default' : 'outline'} onClick={() => setFilter('principales')}>Principales</Button>
-          <Button variant={filter === 'todas' ? 'default' : 'outline'} onClick={() => setFilter('todas')}>Todas</Button>
-        </div>
       </div>
       <p className="mt-4 text-sm text-slate-500">{loading ? 'Cargando catálogo…' : `${lista.length} señas disponibles en esta vista`}</p>
       {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p>}
@@ -388,7 +374,7 @@ function Dictionary({
           </div>
         </article>)}
       </div>}
-      {!loading && !error && lista.length === 0 && <p className="mt-6 rounded-xl border border-dashed p-8 text-center text-slate-500">No hay señas que coincidan. Prueba «Todas» o modifica la búsqueda.</p>}
+      {!loading && !error && lista.length === 0 && <p className="mt-6 rounded-xl border border-dashed p-8 text-center text-slate-500">No hay señas que coincidan. Modifica o borra la búsqueda.</p>}
       {(selected || detailLoading || detailError) && <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4" onClick={() => { setSelected(null); setDetailError('') }}>
         <section role="dialog" aria-modal="true" aria-label="Video de la seña" className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-white p-5 shadow-xl sm:p-7" onClick={e => e.stopPropagation()}>
           <div className="mb-4 flex items-center justify-between gap-3">
@@ -398,9 +384,9 @@ function Dictionary({
           {detailLoading && <p role="status">Cargando video…</p>}
           {detailError && <p role="alert" className="text-red-700">{detailError}</p>}
           {selected && <>
-            <video key={selected.videos[videoIndex]?.url} src={selected.videos[videoIndex]?.url} controls playsInline preload="metadata" className="aspect-video w-full rounded-xl bg-slate-900 object-contain" />
+            <video key={selected.videos[videoIndex]?.url} src={selected.videos[videoIndex]?.url} controls playsInline preload="metadata" onError={() => setDetailError('No se pudo reproducir el video. Vuelve a abrir la referencia o prueba otro navegador.')} className="aspect-video w-full rounded-xl bg-slate-900 object-contain" />
             {selected.videos.length > 1 && <div className="mt-3 flex flex-wrap gap-2">{selected.videos.map((video, i) => <Button key={video.url} size="sm" variant={videoIndex === i ? 'default' : 'outline'} onClick={() => setVideoIndex(i)}>Video {i + 1}</Button>)}</div>}
-            <p className="mt-4 text-sm text-amber-700">Referencia del dataset. Su etiqueta, validez lingüística y permisos de publicación requieren revisión.</p>
+            <p className="mt-4 text-sm text-amber-700">Referencia del catálogo. La etiqueta proviene del dataset y aún requiere revisión lingüística.</p>
           </>}
         </section>
       </div>}

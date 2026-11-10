@@ -3,3 +3,6 @@ Fuente: https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%
 Licencia declarada por el recurso: CC0-1.0.
 Etiquetas originales sin revisión lingüística adicional; no equivalencias validadas con PUCP 305.
 Procedencia y hashes de cada clip: index.json.
+Versión web v2: copias H.264/yuv420p con faststart, sin audio, sin recorte ni cambio de velocidad.
+Se excluyen referencias de un solo fotograma; selección técnica, no validación lingüística.
+Los archivos originales de ML/Videos2 permanecen intactos.
