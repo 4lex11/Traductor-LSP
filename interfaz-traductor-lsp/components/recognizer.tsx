@@ -8,6 +8,7 @@ import { EXTRACTOR_RUNTIME } from '@/lib/runtime-contract'
 import { Button } from '@/components/ui/button'
 import { requestCamera, cameraError } from '@/lib/camera'
 import { AutomaticRecognizer } from '@/components/automatic-recognizer'
+import { FingerTracker } from '@/components/finger-tracker'
 
 type Phase = 'idle' | 'camera' | 'preparing' | 'capturing' | 'sending'
 
@@ -25,7 +26,7 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
   const [phase, setPhase] = useState<Phase>('idle')
   const [model, setModel] = useState<ModelState | null>(null)
   const [cameraOn, setCameraOn] = useState(false)
-  const [mode, setMode] = useState<'manual' | 'auto'>('manual')
+  const [mode, setMode] = useState<'manual' | 'auto' | 'fingers'>('manual')
   const [connecting, setConnecting] = useState(false)
   const [connectionError, setConnectionError] = useState('')
   const [message, setMessage] = useState('Activa la cámara para comprobar la imagen. Conecta el servidor cuando quieras reconocer una seña.')
@@ -87,7 +88,7 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
       video.current.srcObject = media
       await video.current.play()
       if (token !== generation.current) return
-      setCameraOn(true); setMessage('Cámara activa. Conecta el servidor y elige captura manual o automática.')
+      setCameraOn(true); setMessage(mode === 'fingers' ? 'Cámara activa. Muestra las manos completas para ver sus puntos.' : 'Cámara activa. Conecta el servidor y elige captura manual o automática.')
       media.getVideoTracks().forEach(track => track.addEventListener('ended', () => {
         if (stream.current !== media) return
         stop()
@@ -179,19 +180,22 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
     <div role="group" aria-label="Modo de reconocimiento" className="flex flex-wrap gap-3">
       <Button variant={mode === 'manual' ? 'default' : 'outline'} aria-pressed={mode === 'manual'} disabled={phase !== 'idle'} onClick={() => { setMode('manual'); setResult(null) }}>Manual</Button>
       <Button variant={mode === 'auto' ? 'default' : 'outline'} aria-pressed={mode === 'auto'} disabled={phase !== 'idle'} onClick={() => { setMode('auto'); setResult(null) }}>Automático experimental</Button>
+      <Button variant={mode === 'fingers' ? 'default' : 'outline'} aria-pressed={mode === 'fingers'} disabled={phase !== 'idle'} onClick={() => { setMode('fingers'); setResult(null); setMessage('Activa la cámara. Este modo muestra los dedos sin conectar el servidor.') }}>Ver dedos</Button>
     </div>
+    {mode === 'fingers' && <p className="rounded-xl border border-blue-200 bg-blue-50 p-4 text-blue-900">21 puntos por mano: muñeca y articulaciones de los cinco dedos, unidos por líneas verdes. Detecta ambas manos; este modo visualiza su posición, no identifica palabras ni cuenta dedos extendidos.</p>}
     <div className="flex flex-wrap gap-3">
       <Button onClick={() => void activate()} disabled={cameraOn || phase !== 'idle'}>{phase === 'camera' ? 'Esperando permiso…' : 'Activar cámara'}</Button>
-      <Button variant="outline" onClick={() => void connect()} disabled={phase !== 'idle' || connecting}>{connecting ? 'Conectando…' : 'Conectar servidor'}</Button>
+      {mode !== 'fingers' && <Button variant="outline" onClick={() => void connect()} disabled={phase !== 'idle' || connecting}>{connecting ? 'Conectando…' : 'Conectar servidor'}</Button>}
       <Button variant="outline" onClick={stop}>Detener / cancelar</Button>
     </div>
     <p role="status" aria-live="polite">{message}</p>
-    <p className="text-sm text-slate-600" role="status">{connecting ? 'Iniciando servidor… puede tardar alrededor de un minuto. Puedes activar la cámara mientras esperas.' : model?.ready ? 'Servidor listo para reconocer.' : 'Servidor sin conectar. Puedes probar la cámara sin conectarlo.'}</p>
-    {connectionError && <p role="alert" className="rounded-xl bg-amber-50 p-4 text-amber-900">{connectionError} La cámara funciona independientemente del servidor.</p>}
+    {mode !== 'fingers' && <p className="text-sm text-slate-600" role="status">{connecting ? 'Iniciando servidor… puede tardar alrededor de un minuto. Puedes activar la cámara mientras esperas.' : model?.ready ? 'Servidor listo para reconocer.' : 'Servidor sin conectar. Puedes probar la cámara sin conectarlo.'}</p>}
+    {mode !== 'fingers' && connectionError && <p role="alert" className="rounded-xl bg-amber-50 p-4 text-amber-900">{connectionError} La cámara funciona independientemente del servidor.</p>}
     {error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-800">{error}</p>}
     <div className="relative aspect-video overflow-hidden rounded-xl bg-slate-900">
       <video ref={video} autoPlay playsInline muted className="h-full w-full object-contain" />
       {!cameraOn && <div className="absolute inset-0 flex items-center justify-center text-white">La cámara está desactivada</div>}
+      {mode === 'fingers' && <FingerTracker video={video.current} enabled={cameraOn} />}
     </div>
     {mode === 'auto' && <AutomaticRecognizer video={video.current} enabled={cameraOn && !!model?.ready} onResult={setResult} />}
     {mode === 'manual' && <div className="flex flex-wrap items-center gap-3">
@@ -205,7 +209,7 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
       {result.confidence !== null && <p>Confianza del modelo: {(result.confidence * 100).toFixed(1)} % (no calibrada).</p>}
       {result.glosa && onVerEnDiccionario && <Button variant="outline" className="mt-3" onClick={() => onVerEnDiccionario(result.glosa!)}>Consultar en diccionario</Button>}
     </section>}
-    {model && <section><h2 className="font-semibold">Vocabulario experimental</h2><p className="mt-2 text-slate-600">{model.clases.join(', ')}</p></section>}
-    <p className="text-sm text-slate-500">La cámara se procesa en tu dispositivo. Se envían puntos y tiempos al servidor para reconocer la seña; no se envía el video.</p>
+    {mode !== 'fingers' && model && <section><h2 className="font-semibold">Vocabulario experimental</h2><p className="mt-2 text-slate-600">{model.clases.join(', ')}</p></section>}
+    <p className="text-sm text-slate-500">{mode === 'fingers' ? 'El seguimiento de dedos se procesa en tu dispositivo. Este modo no envía puntos ni imágenes al servidor.' : 'La cámara se procesa en tu dispositivo. Se envían puntos y tiempos al servidor para reconocer la seña; no se envía el video.'}</p>
   </div>
 }
