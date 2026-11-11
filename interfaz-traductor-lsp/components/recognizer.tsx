@@ -6,8 +6,9 @@ import { conectarModelo, predecirSena, type ModelState, type PrediccionLSP } fro
 import { CONTRACT, EXTRACTOR_SHA, packHands, type Capture } from '@/lib/recognition-contract'
 import { EXTRACTOR_RUNTIME } from '@/lib/runtime-contract'
 import { Button } from '@/components/ui/button'
+import { requestCamera, cameraError } from '@/lib/camera'
 
-type Phase = 'idle' | 'connecting' | 'camera' | 'preparing' | 'capturing' | 'sending'
+type Phase = 'idle' | 'camera' | 'preparing' | 'capturing' | 'sending'
 
 export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa: string) => void }) {
   const video = useRef<HTMLVideoElement>(null)
@@ -15,13 +16,17 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
   const detector = useRef<HolisticLandmarker | null>(null)
   const raf = useRef<number | null>(null)
   const abort = useRef<AbortController | null>(null)
+  const connectionAbort = useRef<AbortController | null>(null)
+  const connectionGeneration = useRef(0)
   const generation = useRef(0)
   const running = useRef(false)
   const capture = useRef<Capture | null>(null)
   const [phase, setPhase] = useState<Phase>('idle')
   const [model, setModel] = useState<ModelState | null>(null)
   const [cameraOn, setCameraOn] = useState(false)
-  const [message, setMessage] = useState('Conecta el servidor para consultar el vocabulario disponible.')
+  const [connecting, setConnecting] = useState(false)
+  const [connectionError, setConnectionError] = useState('')
+  const [message, setMessage] = useState('Activa la cámara para comprobar la imagen. Conecta el servidor cuando quieras reconocer una seña.')
   const [error, setError] = useState('')
   const [count, setCount] = useState(0)
   const [hands, setHands] = useState(0)
@@ -29,8 +34,10 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
 
   const release = () => {
     generation.current++
+    connectionGeneration.current++
     running.current = false
     abort.current?.abort()
+    connectionAbort.current?.abort()
     if (raf.current !== null) cancelAnimationFrame(raf.current)
     raf.current = null
     detector.current?.close()
@@ -45,43 +52,50 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
     release()
     if (video.current) video.current.srcObject = null
     setCameraOn(false); setPhase('idle'); setCount(0); setHands(0); setResult(null)
+    setConnecting(false); setError(''); setConnectionError('')
     setMessage('Captura detenida. Puedes volver a activar la cámara.')
   }
 
   const connect = async () => {
-    const token = ++generation.current
-    abort.current?.abort()
-    const controller = new AbortController(); abort.current = controller
-    setPhase('connecting'); setError(''); setModel(null)
-    setMessage('Iniciando servidor… puede tardar alrededor de un minuto.')
+    const token = ++connectionGeneration.current
+    connectionAbort.current?.abort()
+    const controller = new AbortController(); connectionAbort.current = controller
+    setConnecting(true); setConnectionError(''); setModel(null)
     try {
       const state = await conectarModelo(controller.signal)
-      if (token !== generation.current) return
+      if (token !== connectionGeneration.current) return
       if (!state.ready || state.contract !== CONTRACT || state.extractor_sha256 !== EXTRACTOR_SHA) throw new Error('La versión del servidor no es compatible con esta interfaz.')
-      setModel(state); setMessage('Servidor listo. Activa la cámara y realiza una sola seña por intento.')
+      setModel(state)
     } catch (e) {
-      if (token === generation.current) setError(e instanceof Error ? e.message : 'No se pudo conectar.')
+      if (token === connectionGeneration.current) setConnectionError(e instanceof Error ? e.message : 'No se pudo conectar.')
     } finally {
-      if (token === generation.current) setPhase('idle')
+      if (token === connectionGeneration.current) setConnecting(false)
     }
   }
 
   const activate = async () => {
     const token = ++generation.current
     setPhase('camera'); setError('')
+    setMessage('Esperando permiso de cámara. Revisa el aviso del navegador; puedes cancelar si no aparece.')
     try {
-      const media = await navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 }, audio: false })
+      const media = await requestCamera(navigator.mediaDevices, window.isSecureContext)
       if (token !== generation.current) { media.getTracks().forEach(t => t.stop()); return }
       stream.current = media
       if (!video.current) throw new Error('No se pudo preparar la vista de cámara.')
       video.current.srcObject = media
       await video.current.play()
       if (token !== generation.current) return
-      setCameraOn(true); setMessage('Pulsa «Iniciar seña» cuando estés preparado.')
+      setCameraOn(true); setMessage('Cámara activa. Con el servidor listo, pulsa «Iniciar seña» cuando estés preparado.')
+      media.getVideoTracks().forEach(track => track.addEventListener('ended', () => {
+        if (stream.current !== media) return
+        stop()
+        setError('La cámara se desconectó o se retiró el permiso. Comprueba la conexión y vuelve a activarla.')
+      }, { once: true }))
     } catch (e) {
       if (token === generation.current) {
         stream.current?.getTracks().forEach(t => t.stop()); stream.current = null
-        setCameraOn(false); setError(e instanceof Error ? e.message : 'No se pudo activar la cámara.')
+        if (video.current) video.current.srcObject = null
+        setCameraOn(false); setError(cameraError(e)); setMessage('No se pudo activar la cámara. Revisa el aviso y vuelve a intentarlo.')
       }
     } finally { if (token === generation.current) setPhase('idle') }
   }
@@ -161,11 +175,13 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
     <h1 className="text-3xl font-bold">Reconocimiento de señas aisladas</h1>
     <p className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-900">Prototipo experimental de baja precisión. La validación con personas nuevas está pendiente. Puede equivocarse incluso cuando muestra confianza alta. No traduce conversaciones.</p>
     <div className="flex flex-wrap gap-3">
-      <Button onClick={() => void connect()} disabled={phase !== 'idle' || cameraOn}>{phase === 'connecting' ? 'Conectando…' : 'Conectar servidor'}</Button>
-      <Button variant="outline" onClick={() => void activate()} disabled={!model?.ready || cameraOn || phase !== 'idle'}>Activar cámara</Button>
+      <Button onClick={() => void activate()} disabled={cameraOn || phase !== 'idle'}>{phase === 'camera' ? 'Esperando permiso…' : 'Activar cámara'}</Button>
+      <Button variant="outline" onClick={() => void connect()} disabled={phase !== 'idle' || connecting}>{connecting ? 'Conectando…' : 'Conectar servidor'}</Button>
       <Button variant="outline" onClick={stop}>Detener / cancelar</Button>
     </div>
     <p role="status" aria-live="polite">{message}</p>
+    <p className="text-sm text-slate-600" role="status">{connecting ? 'Iniciando servidor… puede tardar alrededor de un minuto. Puedes activar la cámara mientras esperas.' : model?.ready ? 'Servidor listo para reconocer.' : 'Servidor sin conectar. Puedes probar la cámara sin conectarlo.'}</p>
+    {connectionError && <p role="alert" className="rounded-xl bg-amber-50 p-4 text-amber-900">{connectionError} La cámara funciona independientemente del servidor.</p>}
     {error && <p role="alert" className="rounded-xl bg-red-50 p-4 text-red-800">{error}</p>}
     <div className="relative aspect-video overflow-hidden rounded-xl bg-slate-900">
       <video ref={video} autoPlay playsInline muted className="h-full w-full object-contain" />
