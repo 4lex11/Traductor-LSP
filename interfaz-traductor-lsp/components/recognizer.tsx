@@ -7,6 +7,7 @@ import { CONTRACT, EXTRACTOR_SHA, packHands, type Capture } from '@/lib/recognit
 import { EXTRACTOR_RUNTIME } from '@/lib/runtime-contract'
 import { Button } from '@/components/ui/button'
 import { requestCamera, cameraError } from '@/lib/camera'
+import { AutomaticRecognizer } from '@/components/automatic-recognizer'
 
 type Phase = 'idle' | 'camera' | 'preparing' | 'capturing' | 'sending'
 
@@ -24,6 +25,7 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
   const [phase, setPhase] = useState<Phase>('idle')
   const [model, setModel] = useState<ModelState | null>(null)
   const [cameraOn, setCameraOn] = useState(false)
+  const [mode, setMode] = useState<'manual' | 'auto'>('manual')
   const [connecting, setConnecting] = useState(false)
   const [connectionError, setConnectionError] = useState('')
   const [message, setMessage] = useState('Activa la cámara para comprobar la imagen. Conecta el servidor cuando quieras reconocer una seña.')
@@ -85,7 +87,7 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
       video.current.srcObject = media
       await video.current.play()
       if (token !== generation.current) return
-      setCameraOn(true); setMessage('Cámara activa. Con el servidor listo, pulsa «Iniciar seña» cuando estés preparado.')
+      setCameraOn(true); setMessage('Cámara activa. Conecta el servidor y elige captura manual o automática.')
       media.getVideoTracks().forEach(track => track.addEventListener('ended', () => {
         if (stream.current !== media) return
         stop()
@@ -174,6 +176,10 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
   return <div className="mx-auto max-w-5xl space-y-6 px-5 py-10">
     <h1 className="text-3xl font-bold">Reconocimiento de señas aisladas</h1>
     <p className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-amber-900">Prototipo experimental de baja precisión. La validación con personas nuevas está pendiente. Puede equivocarse incluso cuando muestra confianza alta. No traduce conversaciones.</p>
+    <div role="group" aria-label="Modo de reconocimiento" className="flex flex-wrap gap-3">
+      <Button variant={mode === 'manual' ? 'default' : 'outline'} aria-pressed={mode === 'manual'} disabled={phase !== 'idle'} onClick={() => { setMode('manual'); setResult(null) }}>Manual</Button>
+      <Button variant={mode === 'auto' ? 'default' : 'outline'} aria-pressed={mode === 'auto'} disabled={phase !== 'idle'} onClick={() => { setMode('auto'); setResult(null) }}>Automático experimental</Button>
+    </div>
     <div className="flex flex-wrap gap-3">
       <Button onClick={() => void activate()} disabled={cameraOn || phase !== 'idle'}>{phase === 'camera' ? 'Esperando permiso…' : 'Activar cámara'}</Button>
       <Button variant="outline" onClick={() => void connect()} disabled={phase !== 'idle' || connecting}>{connecting ? 'Conectando…' : 'Conectar servidor'}</Button>
@@ -187,11 +193,12 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
       <video ref={video} autoPlay playsInline muted className="h-full w-full object-contain" />
       {!cameraOn && <div className="absolute inset-0 flex items-center justify-center text-white">La cámara está desactivada</div>}
     </div>
-    <div className="flex flex-wrap items-center gap-3">
+    {mode === 'auto' && <AutomaticRecognizer video={video.current} enabled={cameraOn && !!model?.ready} onResult={setResult} />}
+    {mode === 'manual' && <div className="flex flex-wrap items-center gap-3">
       <Button onClick={() => void start()} disabled={!cameraOn || phase !== 'idle' || !model?.ready}>Iniciar seña</Button>
       <Button onClick={() => void finish()} disabled={phase !== 'capturing'}>Terminar y reconocer</Button>
       <span>{phase === 'capturing' ? `${count} fotogramas · ${hands} mano(s) detectada(s)` : 'Una seña por intento'}</span>
-    </div>
+    </div>}
     {result && <section aria-live="polite" className="rounded-xl border bg-white p-6">
       <h2 className="font-semibold">Resultado experimental</h2>
       <p className="my-3 text-3xl">{result.glosa ?? (result.estado === 'captura_insuficiente' ? 'Captura insuficiente' : 'No concluyente')}</p>
