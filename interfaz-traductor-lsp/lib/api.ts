@@ -22,6 +22,7 @@ export interface VideoLSP {
   glosa_original?: string
   credito?: string
   cambios?: string
+  duration_seconds?: number
 }
 
 export interface ResultadoLSP {

@@ -14,7 +14,7 @@ Prototipo universitario de vocabulario cerrado (17 clases). No traduce conversac
 
 ## Recursos y atribución
 
-Catálogo mínimo: 17 clips del dataset de Bejarano, Gissella; Huamani-Malca; Cerna-Herrera; Alva-Manchego; Rivas (2022), «Lengua de Señas Peruana (LSP) - Aprendo En Casa 2020», Portal de Datos Abiertos PUCP, V1: https://hdl.handle.net/20.500.12534/HDOAGH. Licencia CC0 1.0 indicada en el recurso. Procedencia y hashes en `public/catalog/index.json`. Anotaciones originales sin revisión lingüística adicional.
+Catálogo visual independiente del modelo: 824 entradas (95,4 % de las 864 etiquetas no vacías ELAN/JSON, comparadas por texto normalizado), con 475 referencias Full HD. Incluye segmentos PUCP 305 (CC BY-NC 4.0, uso no comercial) y AEC (CC0 1.0). Se prioriza la resolución real, sin ampliación artificial. Fuentes, autores, licencias y cambios: `public/catalog/ATRIBUCION.txt` y cada video en `public/catalog/index.json`. Las etiquetas no tienen validación lingüística adicional. Las coincidencias escritas entre fuentes no prueban equivalencia. El reconocedor conserva sus 17 clases.
 
 MediaPipe Tasks Vision 1.2.0 y Holistic se usan con sus licencias respectivas; https://github.com/google-ai-edge/mediapipe. El CSS de variantes de shadcn conserva su licencia MIT dentro de `app/shadcn-variants.css`.
 

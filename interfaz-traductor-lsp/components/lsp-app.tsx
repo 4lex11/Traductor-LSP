@@ -308,6 +308,7 @@ function Dictionary({
   onWordConsumed?: () => void
 }) {
   const [term, setTerm] = useState('')
+  const [page, setPage] = useState(0)
   const [items, setItems] = useState<SenaCatalogo[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -338,6 +339,9 @@ function Dictionary({
   const lista = items
     .filter(item => item.nombre.toLocaleLowerCase('es').includes(term.trim().toLocaleLowerCase('es')))
     .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'))
+  const pages = Math.max(1, Math.ceil(lista.length / 24))
+  const currentPage = Math.min(page, pages - 1)
+  const visibleItems = lista.slice(currentPage * 24, (currentPage + 1) * 24)
 
   async function abrirSena(palabra: string) {
     setDetailError('')
@@ -355,17 +359,17 @@ function Dictionary({
 
   return (
     <div className="mx-auto max-w-[1280px] px-5 py-12 lg:px-8">
-      <PageIntro eyebrow="Catálogo visual" title="Diccionario de LSP" description="Explora las señas disponibles en el dataset y reproduce sus videos de referencia." />
+      <PageIntro eyebrow="Catálogo visual" title="Diccionario de LSP" description="Explora las referencias de ambos datasets. El diccionario es más amplio que las 17 clases del reconocedor; sus etiquetas aún requieren revisión lingüística." />
       <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-row sm:items-center">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-3 size-4 text-slate-400" />
-          <input value={term} onChange={e => setTerm(e.target.value)} placeholder="Buscar una seña" aria-label="Buscar en el diccionario" className="h-10 w-full rounded-lg border border-slate-200 pl-9 pr-3 text-sm outline-none focus:border-blue-500" />
+          <input value={term} onChange={e => { setTerm(e.target.value); setPage(0) }} placeholder="Buscar una seña" aria-label="Buscar en el diccionario" className="h-10 w-full rounded-lg border border-slate-200 pl-9 pr-3 text-sm outline-none focus:border-blue-500" />
         </div>
       </div>
-      <p className="mt-4 text-sm text-slate-500">{loading ? 'Cargando catálogo…' : `${lista.length} señas disponibles en esta vista`}</p>
+      <p role="status" className="mt-4 text-sm text-slate-500">{loading ? 'Cargando catálogo…' : `${lista.length} resultados de ${items.length} entradas del catálogo`}</p>
       {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p>}
       {!loading && !error && <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {lista.map(item => <article key={item.nombre} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
+        {visibleItems.map(item => <article key={item.nombre} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
           <div className="flex aspect-[1.6] items-center justify-center bg-slate-900"><Video className="size-12 text-blue-300" /></div>
           <div className="p-5">
             <h2 className="font-semibold text-slate-900">{item.nombre.replaceAll('-', ' ')}</h2>
@@ -374,6 +378,11 @@ function Dictionary({
           </div>
         </article>)}
       </div>}
+      {!loading && !error && pages > 1 && <nav aria-label="Páginas del diccionario" className="mt-6 flex items-center justify-center gap-4">
+        <Button variant="outline" disabled={currentPage === 0} onClick={() => setPage(currentPage - 1)}>Anterior</Button>
+        <span className="text-sm text-slate-600">Página {currentPage + 1} de {pages}</span>
+        <Button variant="outline" disabled={currentPage === pages - 1} onClick={() => setPage(currentPage + 1)}>Siguiente</Button>
+      </nav>}
       {!loading && !error && lista.length === 0 && <p className="mt-6 rounded-xl border border-dashed p-8 text-center text-slate-500">No hay señas que coincidan. Modifica o borra la búsqueda.</p>}
       {(selected || detailLoading || detailError) && <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4" onClick={() => { setSelected(null); setDetailError('') }}>
         <section role="dialog" aria-modal="true" aria-label="Video de la seña" className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-white p-5 shadow-xl sm:p-7" onClick={e => e.stopPropagation()}>
@@ -385,6 +394,7 @@ function Dictionary({
           {detailError && <p role="alert" className="text-red-700">{detailError}</p>}
           {selected && <>
             <video key={selected.videos[videoIndex]?.url} src={selected.videos[videoIndex]?.url} controls playsInline preload="metadata" onError={() => setDetailError('No se pudo reproducir el video. Vuelve a abrir la referencia o prueba otro navegador.')} className="aspect-video w-full rounded-xl bg-slate-900 object-contain" />
+            {(selected.videos[videoIndex]?.duration_seconds ?? 1) < 0.5 && <p className="mt-3 text-sm text-amber-700">El segmento original es muy breve. Se conserva sin ralentizarlo; su utilidad como referencia requiere revisión.</p>}
             {selected.videos.length > 1 && <div className="mt-3 flex flex-wrap gap-2">{selected.videos.map((video, i) => <Button key={video.url} size="sm" variant={videoIndex === i ? 'default' : 'outline'} onClick={() => { setDetailError(''); setVideoIndex(i) }}>{video.nombre}</Button>)}</div>}
             {selected.videos[videoIndex]?.fuente && <div className="mt-3 space-y-1 text-xs leading-5 text-slate-600">
               <p>{selected.videos[videoIndex].nombre} · Glosa original: {selected.videos[videoIndex].glosa_original}</p>
