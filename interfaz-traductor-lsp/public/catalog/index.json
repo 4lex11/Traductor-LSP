@@ -3,11 +3,41 @@
     "palabra": "ahora",
     "videos": [
       {
-        "nombre": "ahora",
-        "url": "/catalog/v2/a19072c01b4d54bf59f9.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/fa0f168e1e88f74f761b.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "AHORA",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "fa0f168e1e88f74f761b",
+        "archivo_fuente": "Videos1/AHORA/AHORA_1.mp4",
+        "sha256_fuente": "5b8cf936bf1407999c5fdf7c88351ae4c092116883edbb4a11e24af46f056a91",
+        "inicio_ms": 701,
+        "fin_ms": 2184,
+        "sha256": "aa1216b178af8f23385fa7dd8866ac49dd24caf940d637d6594c7a797cffdc25",
+        "bytes": 526949,
+        "frames": 44,
+        "duration_seconds": 1.4681348014681348
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/a19072c01b4d54bf59f9.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "ahora",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "a19072c01b4d54bf59f9",
@@ -19,17 +49,48 @@
     "duration_seconds": 0.9342676009342676,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "bien",
     "videos": [
       {
-        "nombre": "bien",
-        "url": "/catalog/v2/69e8777bf387d725a4b8.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/0bfe03fa1fd1fdaa46ed.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "BIEN",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "0bfe03fa1fd1fdaa46ed",
+        "archivo_fuente": "Videos1/BIEN/BIEN_3.mp4",
+        "sha256_fuente": "21c5cf482ac65fdde2a93730f01e31b64e689862b160417b4756b23d8ea9b259",
+        "inicio_ms": 400,
+        "fin_ms": 1830,
+        "sha256": "1e46822e6b791a6306d3a4bea210a9c05d50d640d1055486e0fff310baad26b9",
+        "bytes": 363967,
+        "frames": 43,
+        "duration_seconds": 1.4347681014347682
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/69e8777bf387d725a4b8.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "bien",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "69e8777bf387d725a4b8",
@@ -41,17 +102,48 @@
     "duration_seconds": 1.2012012012012012,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "casa",
     "videos": [
       {
-        "nombre": "casa",
-        "url": "/catalog/v2/41dac56c195a132668fa.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/a3a95793cd17692a453c.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "CASA",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "a3a95793cd17692a453c",
+        "archivo_fuente": "Videos1/CASA/CASA_1.mp4",
+        "sha256_fuente": "2df2e85d5773b58a2dc428445215299bcd768703bd7b8cc0bf8127ce52e4a336",
+        "inicio_ms": 942,
+        "fin_ms": 1938,
+        "sha256": "79a924d3c359bdc46b5bdfa3f698168e6c836d582ec5c03f34e62c0f912d158d",
+        "bytes": 295142,
+        "frames": 30,
+        "duration_seconds": 1.001001001001001
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/41dac56c195a132668fa.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "casa",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "41dac56c195a132668fa",
@@ -63,17 +155,48 @@
     "duration_seconds": 0.9342676009342676,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "decir",
     "videos": [
       {
-        "nombre": "decir",
-        "url": "/catalog/v2/98f350a9c17442b3ecd7.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/c841f3b27211ee018b82.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "DECIR",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "c841f3b27211ee018b82",
+        "archivo_fuente": "Videos1/IMPOSIBLE/IMPOSIBLE_ORACION_1.mp4",
+        "sha256_fuente": "2dca437ea7fe183a070dc6b1991b4be49fb59ffbc39539a4e62018af3477cf7d",
+        "inicio_ms": 2190,
+        "fin_ms": 3410,
+        "sha256": "2ba6ed3f0adee4e4c9c4c2bfa81bcb0b75b64fc961f2df4dc6703112234ee177",
+        "bytes": 344173,
+        "frames": 37,
+        "duration_seconds": 1.234567901234568
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/98f350a9c17442b3ecd7.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "decir",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "98f350a9c17442b3ecd7",
@@ -85,17 +208,48 @@
     "duration_seconds": 0.9009009009009009,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "diferente",
     "videos": [
       {
-        "nombre": "diferente",
-        "url": "/catalog/v2/cfb6ff89f1b26246f2f3.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/bc2748e932ac77977d91.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "DIFERENTE",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "bc2748e932ac77977d91",
+        "archivo_fuente": "Videos1/IGUAL/IGUAL_ORACION_8.mp4",
+        "sha256_fuente": "dcaebd205a944448bc222b227b62a018d4dfd2a7a5152889f4580a89e438d55f",
+        "inicio_ms": 3580,
+        "fin_ms": 4220,
+        "sha256": "d4cb28af2a092dac4a7796c9efc1f8fda4dc3828e144c2bb01dbba2b1c87420b",
+        "bytes": 286567,
+        "frames": 19,
+        "duration_seconds": 0.6339673006339673
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/cfb6ff89f1b26246f2f3.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "diferente",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "cfb6ff89f1b26246f2f3",
@@ -107,17 +261,48 @@
     "duration_seconds": 0.6339673006339673,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "dos",
     "videos": [
       {
-        "nombre": "dos",
-        "url": "/catalog/v2/0b385cb1955a1988ceec.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/b74d8230e7a4e866549a.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "DOS",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "b74d8230e7a4e866549a",
+        "archivo_fuente": "Videos1/DOS/DOS_1.mp4",
+        "sha256_fuente": "47d2a0d7fd2aedadb8a46d2bbd052e4aae02386eb47eda82e1ef5edff63020bc",
+        "inicio_ms": 970,
+        "fin_ms": 1830,
+        "sha256": "0d16f869f8f961b3c9a6c91d3086e1b39317664debbf2fbb04d2ab9fba1e938b",
+        "bytes": 226143,
+        "frames": 25,
+        "duration_seconds": 0.8341675008341676
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/0b385cb1955a1988ceec.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "dos",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "0b385cb1955a1988ceec",
@@ -129,17 +314,48 @@
     "duration_seconds": 0.8341675008341676,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "escribir",
     "videos": [
       {
-        "nombre": "escribir",
-        "url": "/catalog/v2/63c40dee27b4e3499931.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/3a5d37114e0f95bc2994.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "ESCRIBIR",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "3a5d37114e0f95bc2994",
+        "archivo_fuente": "Videos1/FUNDAR/FUNDAR_ORACION_1.mp4",
+        "sha256_fuente": "328efce48ff5a7f01ddc238eb88a18caf7f439eb30e6330c6e46db61cbf35212",
+        "inicio_ms": 7430,
+        "fin_ms": 8550,
+        "sha256": "8e27eded07df2928b605188b62b962bd04025511d3f522216b3ddeba7be0aed5",
+        "bytes": 388407,
+        "frames": 34,
+        "duration_seconds": 1.1344678011344678
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/63c40dee27b4e3499931.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "escribir",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "63c40dee27b4e3499931",
@@ -151,17 +367,48 @@
     "duration_seconds": 1.0343677010343677,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "fuerte",
     "videos": [
       {
-        "nombre": "fuerte",
-        "url": "/catalog/v2/9704dddb3f08a61f564f.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/af76ee75e678ef8a8f22.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "FUERTE",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "af76ee75e678ef8a8f22",
+        "archivo_fuente": "Videos1/ABURRIDO/ABURRIDO_ORACION_2.mp4",
+        "sha256_fuente": "33481f26561f79244a9b4ef701f6826bb918be5b0941c60b7e4d044e9229a7eb",
+        "inicio_ms": 3230,
+        "fin_ms": 3790,
+        "sha256": "bac33e86d9e9974721dbb4f3509a0c19ff209dc6fa70ac85fa06d6c68af7ec8a",
+        "bytes": 166882,
+        "frames": 17,
+        "duration_seconds": 0.5672339005672339
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/9704dddb3f08a61f564f.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "fuerte",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "9704dddb3f08a61f564f",
@@ -173,17 +420,48 @@
     "duration_seconds": 1.1344678011344678,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "hacer",
     "videos": [
       {
-        "nombre": "hacer",
-        "url": "/catalog/v2/6f2741c2d47ba6dadd1a.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/c1a9682e2df1d4fc8bdc.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "HACER",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "c1a9682e2df1d4fc8bdc",
+        "archivo_fuente": "Videos1/HACER/HACER_1.mp4",
+        "sha256_fuente": "9650b4e4d362ec6a8ccf12fb71d8fe1a098b66eb90361dfe1ef62873b6fee007",
+        "inicio_ms": 580,
+        "fin_ms": 1520,
+        "sha256": "994b28f6d4c962ac9bae861398cab09ab243f9d39095ec704a2cab293fde97d2",
+        "bytes": 328772,
+        "frames": 28,
+        "duration_seconds": 0.9342676009342676
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/6f2741c2d47ba6dadd1a.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "hacer",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "6f2741c2d47ba6dadd1a",
@@ -195,17 +473,48 @@
     "duration_seconds": 0.7674341007674341,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "igual",
     "videos": [
       {
-        "nombre": "igual",
-        "url": "/catalog/v2/a87a41e8df60169e2ada.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/e5fb888db7da799f22c4.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "IGUAL",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "e5fb888db7da799f22c4",
+        "archivo_fuente": "Videos1/IGUAL/IGUAL_ORACION_8.mp4",
+        "sha256_fuente": "dcaebd205a944448bc222b227b62a018d4dfd2a7a5152889f4580a89e438d55f",
+        "inicio_ms": 6430,
+        "fin_ms": 8060,
+        "sha256": "969abef14057ed6c59bc608c0bed3561d67d9869913b99fa7b73a86f4b955618",
+        "bytes": 663382,
+        "frames": 49,
+        "duration_seconds": 1.6349683016349683
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/a87a41e8df60169e2ada.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "igual",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "a87a41e8df60169e2ada",
@@ -217,14 +526,23 @@
     "duration_seconds": 0.7007007007007007,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "niño",
     "videos": [
       {
-        "nombre": "niño",
-        "url": "/catalog/v2/9b97fec3ed471a495676.mp4"
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/9b97fec3ed471a495676.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "niño",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
     "total": 1,
@@ -245,11 +563,41 @@
     "palabra": "no",
     "videos": [
       {
-        "nombre": "no",
-        "url": "/catalog/v2/6af592c78ec81967b27f.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/41d6d1450dfc128caf12.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "NO",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "41d6d1450dfc128caf12",
+        "archivo_fuente": "Videos1/PRESENTE/PRESENTE_ORACION_1.mp4",
+        "sha256_fuente": "e5debcc09bfbf78f3ac980c9dbb3617f85635878c068f98570647ee963905bd4",
+        "inicio_ms": 2950,
+        "fin_ms": 3620,
+        "sha256": "f66dc538655bd7e05455280621f0a311c17d0698fb6f0c993f55aff31b47dd4e",
+        "bytes": 218095,
+        "frames": 20,
+        "duration_seconds": 0.6673340006673341
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/6af592c78ec81967b27f.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "no",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "6af592c78ec81967b27f",
@@ -261,17 +609,48 @@
     "duration_seconds": 1.4347681014347682,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "pensar",
     "videos": [
       {
-        "nombre": "pensar",
-        "url": "/catalog/v2/e1a0120adf356bdca86d.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/bd6c656a7b5a96221237.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "PENSAR",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "bd6c656a7b5a96221237",
+        "archivo_fuente": "Videos1/IDEA/IDEA_ORACION_1.mp4",
+        "sha256_fuente": "c510835c37afb2c73ff78fc199b93941c965e3d66083566f1f6c4f6fcbe3a3cd",
+        "inicio_ms": 2350,
+        "fin_ms": 3330,
+        "sha256": "841de3c5e454797240141ecc1bddc9bf3f65da80b395be15f8e0438507f091fc",
+        "bytes": 370098,
+        "frames": 29,
+        "duration_seconds": 0.9676343009676344
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/e1a0120adf356bdca86d.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "pensar",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "e1a0120adf356bdca86d",
@@ -283,17 +662,48 @@
     "duration_seconds": 1.1678345011678346,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "saber",
     "videos": [
       {
-        "nombre": "saber",
-        "url": "/catalog/v2/85ec81778d06da57453f.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/5b80abbf23f91810da51.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "SABER",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "5b80abbf23f91810da51",
+        "archivo_fuente": "Videos1/ADIVINA/ADIVINA_ORACION_1.mp4",
+        "sha256_fuente": "99b6144fce81c2d14437debd2555053e1efd7254b9be3aed316e567b74990371",
+        "inicio_ms": 1518,
+        "fin_ms": 2248,
+        "sha256": "3528ffbd2663f8ccb2e6960fcd90f4e8a4c3adb35b42def2a14a4b1f73c78fab",
+        "bytes": 241537,
+        "frames": 22,
+        "duration_seconds": 0.7340674007340674
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/85ec81778d06da57453f.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "saber",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "85ec81778d06da57453f",
@@ -305,14 +715,23 @@
     "duration_seconds": 0.7007007007007007,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "sentir",
     "videos": [
       {
-        "nombre": "sentir",
-        "url": "/catalog/v2/3f9cd0f24e01997c29a9.mp4"
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/3f9cd0f24e01997c29a9.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "sentir",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
     "total": 1,
@@ -333,11 +752,41 @@
     "palabra": "ver",
     "videos": [
       {
-        "nombre": "ver",
-        "url": "/catalog/v2/55eba6d5a3fa56c1ee7a.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/5e09673289fbf0c2b3aa.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "VER",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "5e09673289fbf0c2b3aa",
+        "archivo_fuente": "Videos1/VER/VER_1.mp4",
+        "sha256_fuente": "7b0fbcbcafce265b1c2fca95f690aca6cfaa9651c19d8efce0fe5959aff72f4d",
+        "inicio_ms": 696,
+        "fin_ms": 2178,
+        "sha256": "91bd704424fb3ba2bc9b78a31dead0193af88c80bfe1e190f83f7ace709be498",
+        "bytes": 334191,
+        "frames": 45,
+        "duration_seconds": 1.5015015015015016
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/55eba6d5a3fa56c1ee7a.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "ver",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "55eba6d5a3fa56c1ee7a",
@@ -349,17 +798,48 @@
     "duration_seconds": 1.1678345011678346,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   },
   {
     "palabra": "yo",
     "videos": [
       {
-        "nombre": "yo",
-        "url": "/catalog/v2/33be849470f7402c0eb0.mp4"
+        "nombre": "PUCP 305 · 1920 × 1080",
+        "url": "/catalog/hd-v3/e630a5336a537956f0d4.mp4",
+        "fuente": "https://www.datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FJU4OLG",
+        "licencia": "CC-BY-NC-4.0",
+        "licencia_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "ancho": 1920,
+        "alto": 1080,
+        "glosa_original": "YO",
+        "credito": "Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina; Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024)",
+        "titulo_fuente": "Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)",
+        "cambios": "Segmento según anotación ELAN; conversión H.264 sin cambio de velocidad.",
+        "id": "e630a5336a537956f0d4",
+        "archivo_fuente": "Videos1/DOCE/DOCE_ORACION_1.mp4",
+        "sha256_fuente": "b53c29ac776c975da461c00919fd61bdd3915ca068c728a2d6dddfd3f95042ab",
+        "inicio_ms": 1370,
+        "fin_ms": 2490,
+        "sha256": "e9fceea3188e699c64dc195475746df86154e4b7e08ed5dbb4ba1292d94a30ea",
+        "bytes": 293912,
+        "frames": 33,
+        "duration_seconds": 1.1011011011011012
+      },
+      {
+        "nombre": "AEC · 220 × 220",
+        "url": "/catalog/v2/33be849470f7402c0eb0.mp4",
+        "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
+        "licencia": "CC0-1.0",
+        "licencia_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "ancho": 220,
+        "alto": 220,
+        "glosa_original": "yo",
+        "credito": "Bejarano y colaboradores (2022), Aprendo En Casa 2020",
+        "cambios": "Conversión H.264 sin recorte ni cambio de velocidad."
       }
     ],
-    "total": 1,
+    "total": 2,
     "fuente": "https://datos.pucp.edu.pe/dataset.xhtml?persistentId=hdl%3A20.500.12534%2FHDOAGH",
     "licencia": "CC0-1.0",
     "id": "33be849470f7402c0eb0",
@@ -371,6 +851,7 @@
     "duration_seconds": 0.8008008008008008,
     "codec": "H.264/yuv420p",
     "conversion": "Sin recorte ni cambio de velocidad; sin audio; faststart",
-    "validacion_linguistica": "Anotación original, sin revisión adicional"
+    "validacion_linguistica": "Anotación original, sin revisión adicional",
+    "equivalencia_entre_fuentes_validada": false
   }
 ]

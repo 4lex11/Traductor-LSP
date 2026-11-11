@@ -14,6 +14,14 @@ function staticCatalog() {
 export interface VideoLSP {
   nombre: string
   url: string
+  fuente?: string
+  licencia?: string
+  licencia_url?: string
+  ancho?: number
+  alto?: number
+  glosa_original?: string
+  credito?: string
+  cambios?: string
 }
 
 export interface ResultadoLSP {

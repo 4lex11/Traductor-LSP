@@ -6,3 +6,16 @@ Procedencia y hashes de cada clip: index.json.
 Versión web v2: copias H.264/yuv420p con faststart, sin audio, sin recorte ni cambio de velocidad.
 Se excluyen referencias de un solo fotograma; selección técnica, no validación lingüística.
 Los archivos originales de ML/Videos2 permanecen intactos.
+
+Referencias HD de PUCP 305 (prioridad por resolución real):
+Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Héctor Velasquez; Oporto, Sabina;
+Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024).
+"Lengua de Señas Peruana (LSP) - PUCP 305 (glosas)". Portal de Datos Abiertos PUCP.
+Fuente: https://hdl.handle.net/20.500.12534/JU4OLG
+Licencia CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/
+Uso académico y de investigación no comercial. No se implica respaldo de los autores.
+Cambios: segmentos extraídos según anotaciones ELAN, conversión H.264/yuv420p,
+sin audio ni cambio de velocidad; resolución conservada de 1920x1080.
+Glosa original, intervalo, archivo de origen y hashes: index.json, en cada video.
+Las fuentes se agrupan por coincidencia textual; no se afirma equivalencia lingüística validada.
+Los archivos originales de ML/Videos1 permanecen intactos.

@@ -101,7 +101,7 @@ export function LspApp() {
         {view === 'admin' && <Admin />}
         {view === 'ayuda' && <Help />}
       </main>
-      <footer className="border-t border-slate-200 bg-white"><div className="mx-auto flex max-w-[1280px] flex-col gap-3 px-5 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8"><span>© 2026 LSP · Herramienta académica de apoyo</span><span className="flex items-center gap-2"><ShieldCheck className="size-4 text-teal-600" /> Tus datos no se almacenan</span></div></footer>
+      <footer className="border-t border-slate-200 bg-white"><div className="mx-auto flex max-w-[1280px] flex-col gap-3 px-5 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8"><span>© 2026 LSP · Herramienta académica de apoyo</span><a href="/catalog/ATRIBUCION.txt" className="underline" target="_blank" rel="noreferrer">Fuentes y licencias de los videos</a><span className="flex items-center gap-2"><ShieldCheck className="size-4 text-teal-600" /> Tus datos no se almacenan</span></div></footer>
     </div>
   )
 }
@@ -385,7 +385,14 @@ function Dictionary({
           {detailError && <p role="alert" className="text-red-700">{detailError}</p>}
           {selected && <>
             <video key={selected.videos[videoIndex]?.url} src={selected.videos[videoIndex]?.url} controls playsInline preload="metadata" onError={() => setDetailError('No se pudo reproducir el video. Vuelve a abrir la referencia o prueba otro navegador.')} className="aspect-video w-full rounded-xl bg-slate-900 object-contain" />
-            {selected.videos.length > 1 && <div className="mt-3 flex flex-wrap gap-2">{selected.videos.map((video, i) => <Button key={video.url} size="sm" variant={videoIndex === i ? 'default' : 'outline'} onClick={() => setVideoIndex(i)}>Video {i + 1}</Button>)}</div>}
+            {selected.videos.length > 1 && <div className="mt-3 flex flex-wrap gap-2">{selected.videos.map((video, i) => <Button key={video.url} size="sm" variant={videoIndex === i ? 'default' : 'outline'} onClick={() => { setDetailError(''); setVideoIndex(i) }}>{video.nombre}</Button>)}</div>}
+            {selected.videos[videoIndex]?.fuente && <div className="mt-3 space-y-1 text-xs leading-5 text-slate-600">
+              <p>{selected.videos[videoIndex].nombre} · Glosa original: {selected.videos[videoIndex].glosa_original}</p>
+              <p>{selected.videos[videoIndex].credito}</p>
+              <p><a className="underline" href={selected.videos[videoIndex].fuente} target="_blank" rel="noreferrer">Fuente del video</a> · <a className="underline" href={selected.videos[videoIndex].licencia_url} target="_blank" rel="noreferrer">{selected.videos[videoIndex].licencia}</a></p>
+              <p>{selected.videos[videoIndex].cambios}</p>
+            </div>}
+            {selected.videos.length > 1 && <p className="mt-3 text-xs text-slate-500">Referencias agrupadas por coincidencia de etiqueta. La equivalencia entre fuentes aún no está validada.</p>}
             <p className="mt-4 text-sm text-amber-700">Referencia del catálogo. La etiqueta proviene del dataset y aún requiere revisión lingüística.</p>
           </>}
         </section>
