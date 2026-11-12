@@ -1,0 +1,20 @@
+{
+  "classes_requested": 493,
+  "classes_with_usable_references": 490,
+  "reference_count": 1614,
+  "source_samples": 1650,
+  "missing_classes": [
+    "DESCANSAR",
+    "PUCHA",
+    "LEVANTAR"
+  ],
+  "recognition_accuracy": null,
+  "signer_validation": false,
+  "approved_for_deployment": false,
+  "available_as_optional_reference_demo": true,
+  "reference_sha256": "76448a18b069269da00f16c6d8e8836f42164155b8903796daed4b926699ed73",
+  "code_sha256": {
+    "videos1_reference_model.py": "a4c7ac72160cc9e8c9b5fc9922cb0ab70aaa7830bd34070277cd10ff75e1b03a",
+    "geometry_videos1_reference.py": "7b6812850662be7174fad4ce757d8ab1e76f67019bc595075a26333a971e1ba7"
+  }
+}

@@ -8,7 +8,8 @@ import { EXTRACTOR_RUNTIME } from '@/lib/runtime-contract'
 import { predecirSena, type PrediccionLSP } from '@/lib/api'
 import { Button } from '@/components/ui/button'
 
-export function AutomaticRecognizer({ video, enabled, onResult }: {
+export function AutomaticRecognizer({ video, enabled, onResult, reference = false }: {
+  reference?: boolean
   video: HTMLVideoElement | null
   enabled: boolean
   onResult: (result: PrediccionLSP) => void
@@ -70,7 +71,7 @@ export function AutomaticRecognizer({ video, enabled, onResult }: {
                   landmarks: frames.map(f => f.values), point_mask: frames.map(f => f.mask),
                   timestamps_ms: frames.map(f => f.time - frames[0].time),
                   width: video.videoWidth, height: video.videoHeight,
-                }, controller.signal)
+                }, controller.signal, reference)
                 if (disposed) return
                 onResult(prediction); setAttempt(n => n + 1)
                 segmenter.resetAfterResult(Math.round(video.currentTime * 1000))
@@ -92,7 +93,7 @@ export function AutomaticRecognizer({ video, enabled, onResult }: {
     }
     void boot()
     return () => { cleanup(); document.removeEventListener('visibilitychange', visibility) }
-  }, [enabled, video, paused, onResult])
+  }, [enabled, video, paused, onResult, reference])
 
   return <section className="space-y-3 rounded-xl border border-blue-200 bg-blue-50 p-4" aria-label="Modo automático">
     <p className="font-semibold">Automático experimental</p>

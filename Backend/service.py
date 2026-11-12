@@ -19,13 +19,22 @@ lock = Lock()
 @asynccontextmanager
 async def lifespan(app):
     app.state.recognizer = None
+    app.state.reference_model = None
     torch.set_num_threads(1)
     try:
         app.state.recognizer = Recognizer(Path(os.environ.get('LSP_MODEL_PATH', str(BASE_DIR / 'assets/model.pt'))))
     except Exception:
         logging.exception('No se pudo cargar el modelo experimental')
+    reference_dir = Path(os.environ.get('LSP_REFERENCE_MODEL_DIR', str(BASE_DIR / 'assets/videos1_reference')))
+    if (reference_dir / 'model_status.json').is_file():
+        try:
+            from videos1_reference_model import Videos1ReferenceModel
+            app.state.reference_model = Videos1ReferenceModel(reference_dir)
+        except Exception:
+            logging.exception('No se pudo cargar el banco de referencias Videos1')
     yield
     app.state.recognizer = None
+    app.state.reference_model = None
 
 app = FastAPI(title='LSP: reconocimiento experimental', lifespan=lifespan)
 
@@ -39,7 +48,7 @@ class BodyLimit:
     def __init__(self, app):
         self.app = app
     async def __call__(self, scope, receive, send):
-        if scope['type'] != 'http' or scope['path'] != '/api/predict':
+        if scope['type'] != 'http' or scope['path'] not in ('/api/predict', '/api/predict-reference'):
             return await self.app(scope, receive, send)
         body = bytearray()
         while True:
@@ -97,8 +106,11 @@ def health():
 
 def state():
     model = getattr(app.state, 'recognizer', None)
+    reference = getattr(app.state, 'reference_model', None)
     return dict(ready=model is not None, experimental=True, extractor_parity_validated=model.parity_validated if model else False, extractor_runtime=EXTRACTOR_RUNTIME, contract=CONTRACT, extractor_sha256=EXTRACTOR_SHA,
                 modelo=model.identifier if model else None, clases=model.classes if model else [],
+                referencias_disponibles=reference is not None,
+                clases_referencia=[c['gloss'] for c in reference.classes if c['usable_references'] > 0] if reference else [],
                 mensaje='Prototipo experimental de baja precisión.' if model else 'Modelo no disponible.')
 
 @app.get('/readyz')
@@ -131,5 +143,22 @@ def predict(request: LandmarksRequest, response: Response):
         # Duraciones internas; no incluyen red, validación HTTP ni espera de arranque.
         response.headers['Server-Timing'] = ', '.join(f'{name};dur={duration:.3f}' for name, duration in timings.items())
         return result
+    finally:
+        lock.release()
+
+
+@app.post('/api/predict-reference')
+def predict_reference(request: LandmarksRequest):
+    model = getattr(app.state, 'reference_model', None)
+    if model is None:
+        raise HTTPException(503, 'Las referencias de Videos1 todavía no están disponibles.')
+    if not lock.acquire(blocking=False):
+        raise HTTPException(429, 'Servidor ocupado. Intenta nuevamente.', headers={'Retry-After': '2'})
+    try:
+        result = model.predict(request.landmarks, request.point_mask, request.timestamps_ms, request.width, request.height)
+        insufficient = result['estado'] == 'captura_insuficiente'
+        return dict(estado='captura_insuficiente' if insufficient else 'no_concluyente', glosa=None, confidence=None,
+                    experimental=True, referencias=result['candidatos'],
+                    mensaje='No se detectaron manos suficientes.' if insufficient else result['mensaje'])
     finally:
         lock.release()

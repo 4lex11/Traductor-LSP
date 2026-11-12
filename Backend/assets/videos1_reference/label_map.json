@@ -1,0 +1,2960 @@
+[
+  {
+    "index": 0,
+    "class_id": "Videos1:002c1ee5cd554e08694f",
+    "gloss": "BOLSILLO",
+    "usable_references": 1
+  },
+  {
+    "index": 1,
+    "class_id": "Videos1:00abdbff0960ba49e623",
+    "gloss": "TROPEZAR",
+    "usable_references": 1
+  },
+  {
+    "index": 2,
+    "class_id": "Videos1:00f76f7ce1f57adec5be",
+    "gloss": "PEZ",
+    "usable_references": 1
+  },
+  {
+    "index": 3,
+    "class_id": "Videos1:03582f4d9e6302894ae7",
+    "gloss": "JUNTO",
+    "usable_references": 1
+  },
+  {
+    "index": 4,
+    "class_id": "Videos1:037514c353354c8445fd",
+    "gloss": "LLEVAR",
+    "usable_references": 2
+  },
+  {
+    "index": 5,
+    "class_id": "Videos1:038c3d4e60f3d9e699f2",
+    "gloss": "SOBRINA",
+    "usable_references": 1
+  },
+  {
+    "index": 6,
+    "class_id": "Videos1:0496acc05c3a8896d79a",
+    "gloss": "ENCONTRAR",
+    "usable_references": 7
+  },
+  {
+    "index": 7,
+    "class_id": "Videos1:04a564ddc5d0770bfd83",
+    "gloss": "MAMÁ",
+    "usable_references": 1
+  },
+  {
+    "index": 8,
+    "class_id": "Videos1:05649fe715402bd88891",
+    "gloss": "NADA MÁS",
+    "usable_references": 1
+  },
+  {
+    "index": 9,
+    "class_id": "Videos1:06184e6cdf72570c5c59",
+    "gloss": "SICK",
+    "usable_references": 1
+  },
+  {
+    "index": 10,
+    "class_id": "Videos1:07ed452fa794c6b20e95",
+    "gloss": "DORMIR",
+    "usable_references": 11
+  },
+  {
+    "index": 11,
+    "class_id": "Videos1:089985c0b13f0acfc558",
+    "gloss": "CHOCAR",
+    "usable_references": 1
+  },
+  {
+    "index": 12,
+    "class_id": "Videos1:08db2afac0743df19fd1",
+    "gloss": "HELADO",
+    "usable_references": 1
+  },
+  {
+    "index": 13,
+    "class_id": "Videos1:08f271887ce94707da82",
+    "gloss": "M",
+    "usable_references": 1
+  },
+  {
+    "index": 14,
+    "class_id": "Videos1:0963031e322084bbf394",
+    "gloss": "BARRER",
+    "usable_references": 1
+  },
+  {
+    "index": 15,
+    "class_id": "Videos1:099179176d0ab58d522d",
+    "gloss": "SUDAR-MUCHO",
+    "usable_references": 2
+  },
+  {
+    "index": 16,
+    "class_id": "Videos1:09acc149b937c1ae1d39",
+    "gloss": "CURIOSIDAD",
+    "usable_references": 2
+  },
+  {
+    "index": 17,
+    "class_id": "Videos1:0ad332f3a10ab3ae3122",
+    "gloss": "DIBUJAR",
+    "usable_references": 2
+  },
+  {
+    "index": 18,
+    "class_id": "Videos1:0c070b44f91dab78f499",
+    "gloss": "OFICINA",
+    "usable_references": 2
+  },
+  {
+    "index": 19,
+    "class_id": "Videos1:0cd0585061d852b7afcc",
+    "gloss": "QUÉ",
+    "usable_references": 1
+  },
+  {
+    "index": 20,
+    "class_id": "Videos1:0d8b1eaf613adfeff42e",
+    "gloss": "DOCTOR",
+    "usable_references": 1
+  },
+  {
+    "index": 21,
+    "class_id": "Videos1:0e86293e711d6b35e496",
+    "gloss": "VER_1",
+    "usable_references": 1
+  },
+  {
+    "index": 22,
+    "class_id": "Videos1:0fa66d633cbf4c9fc8ac",
+    "gloss": "PELEA",
+    "usable_references": 2
+  },
+  {
+    "index": 23,
+    "class_id": "Videos1:110bc395d0b7dd908d36",
+    "gloss": "MATRIMONIO",
+    "usable_references": 4
+  },
+  {
+    "index": 24,
+    "class_id": "Videos1:115d068b4c515869c57c",
+    "gloss": "HOMBRE",
+    "usable_references": 9
+  },
+  {
+    "index": 25,
+    "class_id": "Videos1:11d10bf2bcdf297b843a",
+    "gloss": "ATENCION",
+    "usable_references": 1
+  },
+  {
+    "index": 26,
+    "class_id": "Videos1:13062de2ca03889c458f",
+    "gloss": "ENVIAR",
+    "usable_references": 2
+  },
+  {
+    "index": 27,
+    "class_id": "Videos1:134bfa324abd0b70a844",
+    "gloss": "CAJA-GRANDE",
+    "usable_references": 1
+  },
+  {
+    "index": 28,
+    "class_id": "Videos1:14bd120c3e58d63d9dbf",
+    "gloss": "DIECINUEVE",
+    "usable_references": 6
+  },
+  {
+    "index": 29,
+    "class_id": "Videos1:14cd6ea6b943c3df928b",
+    "gloss": "DAR-PASOS",
+    "usable_references": 4
+  },
+  {
+    "index": 30,
+    "class_id": "Videos1:14ce1aee45e9674785ec",
+    "gloss": "SU",
+    "usable_references": 1
+  },
+  {
+    "index": 31,
+    "class_id": "Videos1:159c120d77f3a8170182",
+    "gloss": "FIRMAR",
+    "usable_references": 3
+  },
+  {
+    "index": 32,
+    "class_id": "Videos1:15b744cf5a94fe07f788",
+    "gloss": "ESOS",
+    "usable_references": 1
+  },
+  {
+    "index": 33,
+    "class_id": "Videos1:164e5c3dee863003ff8b",
+    "gloss": "TELEVISIÓN",
+    "usable_references": 1
+  },
+  {
+    "index": 34,
+    "class_id": "Videos1:16675e9715e9af301ca4",
+    "gloss": "CERRAR-CIERRE",
+    "usable_references": 1
+  },
+  {
+    "index": 35,
+    "class_id": "Videos1:176710c1788be9660b5f",
+    "gloss": "CATORCE",
+    "usable_references": 5
+  },
+  {
+    "index": 36,
+    "class_id": "Videos1:176f7254b803f38a0359",
+    "gloss": "MI",
+    "usable_references": 16
+  },
+  {
+    "index": 37,
+    "class_id": "Videos1:181a760446c194bdd4cd",
+    "gloss": "ABRIR-POR-LAS-ASAS",
+    "usable_references": 1
+  },
+  {
+    "index": 38,
+    "class_id": "Videos1:183682b42a0f753b1c9f",
+    "gloss": "VENDER",
+    "usable_references": 1
+  },
+  {
+    "index": 39,
+    "class_id": "Videos1:18f5384d58bcb1bba0bc",
+    "gloss": "Y",
+    "usable_references": 1
+  },
+  {
+    "index": 40,
+    "class_id": "Videos1:193847f5de98a986bc8f",
+    "gloss": "ENTRENAR",
+    "usable_references": 1
+  },
+  {
+    "index": 41,
+    "class_id": "Videos1:1a265f9128fb5c16b6e8",
+    "gloss": "COLEGIO",
+    "usable_references": 5
+  },
+  {
+    "index": 42,
+    "class_id": "Videos1:1ba0dc7a4b2a6fb3c677",
+    "gloss": "PASAR-AVE",
+    "usable_references": 1
+  },
+  {
+    "index": 43,
+    "class_id": "Videos1:1cbacbe421077add6fba",
+    "gloss": "FELIZ",
+    "usable_references": 6
+  },
+  {
+    "index": 44,
+    "class_id": "Videos1:1ccf158c52fe24473922",
+    "gloss": "ABRIR-VENTANA",
+    "usable_references": 3
+  },
+  {
+    "index": 45,
+    "class_id": "Videos1:1d28868ffa363008f35b",
+    "gloss": "DINOSAURIO",
+    "usable_references": 1
+  },
+  {
+    "index": 46,
+    "class_id": "Videos1:1d9ea7b7538852b2de3f",
+    "gloss": "PERRO",
+    "usable_references": 3
+  },
+  {
+    "index": 47,
+    "class_id": "Videos1:1d9eed9a8d69b0d310d2",
+    "gloss": "CORNUDO",
+    "usable_references": 6
+  },
+  {
+    "index": 48,
+    "class_id": "Videos1:1de38bc3ca3d82dc720f",
+    "gloss": "SIRENA",
+    "usable_references": 1
+  },
+  {
+    "index": 49,
+    "class_id": "Videos1:1e22d7dcd88590af307f",
+    "gloss": "ADIVINA",
+    "usable_references": 2
+  },
+  {
+    "index": 50,
+    "class_id": "Videos1:1e8204b06fe49f6f9880",
+    "gloss": "DIFICIL",
+    "usable_references": 6
+  },
+  {
+    "index": 51,
+    "class_id": "Videos1:1e87b3f2255e02e8bcde",
+    "gloss": "PERSONA",
+    "usable_references": 5
+  },
+  {
+    "index": 52,
+    "class_id": "Videos1:1fee6978938255e14cb1",
+    "gloss": "LIBRO",
+    "usable_references": 5
+  },
+  {
+    "index": 53,
+    "class_id": "Videos1:20a428882a309a7aeb39",
+    "gloss": "NO-CAPTAR",
+    "usable_references": 1
+  },
+  {
+    "index": 54,
+    "class_id": "Videos1:219af9476f170eeeef15",
+    "gloss": "CELULAR",
+    "usable_references": 1
+  },
+  {
+    "index": 55,
+    "class_id": "Videos1:21c41604ce0bc3eac3bf",
+    "gloss": "MANDAR",
+    "usable_references": 2
+  },
+  {
+    "index": 56,
+    "class_id": "Videos1:23794d91c53ae875c8e2",
+    "gloss": "NO",
+    "usable_references": 11
+  },
+  {
+    "index": 57,
+    "class_id": "Videos1:23b4cb6d0be744f7b4c3",
+    "gloss": "CUIDADO",
+    "usable_references": 1
+  },
+  {
+    "index": 58,
+    "class_id": "Videos1:2432be55ff11ba6deaa7",
+    "gloss": "IX_1",
+    "usable_references": 2
+  },
+  {
+    "index": 59,
+    "class_id": "Videos1:2514c94483aecebe327f",
+    "gloss": "ENTRAR",
+    "usable_references": 7
+  },
+  {
+    "index": 60,
+    "class_id": "Videos1:253277fd272348577596",
+    "gloss": "CINCUENTA",
+    "usable_references": 2
+  },
+  {
+    "index": 61,
+    "class_id": "Videos1:26ada06d7e761002040f",
+    "gloss": "MOCHILA",
+    "usable_references": 1
+  },
+  {
+    "index": 62,
+    "class_id": "Videos1:274b60b7d1cc73d2b806",
+    "gloss": "SORPRESA",
+    "usable_references": 1
+  },
+  {
+    "index": 63,
+    "class_id": "Videos1:27b7763159e47d18fd5b",
+    "gloss": "DISCULPA",
+    "usable_references": 2
+  },
+  {
+    "index": 64,
+    "class_id": "Videos1:281317f5a54d671f07e3",
+    "gloss": "XI",
+    "usable_references": 2
+  },
+  {
+    "index": 65,
+    "class_id": "Videos1:2866f192fde4a2a841dc",
+    "gloss": "CORTINA",
+    "usable_references": 2
+  },
+  {
+    "index": 66,
+    "class_id": "Videos1:29296c07a5ba406f8105",
+    "gloss": "SOL",
+    "usable_references": 3
+  },
+  {
+    "index": 67,
+    "class_id": "Videos1:2972a2b0d1ab8f8d17ee",
+    "gloss": "BUENO",
+    "usable_references": 5
+  },
+  {
+    "index": 68,
+    "class_id": "Videos1:297c20fb3f7111643585",
+    "gloss": "CONTRICANTES",
+    "usable_references": 1
+  },
+  {
+    "index": 69,
+    "class_id": "Videos1:297e10e9e0c28c0302a4",
+    "gloss": "UNIVERSIDAD",
+    "usable_references": 2
+  },
+  {
+    "index": 70,
+    "class_id": "Videos1:2ab3f6706e3a4d3e9b03",
+    "gloss": "ENRROSCAR/CERRAR-TAPA",
+    "usable_references": 1
+  },
+  {
+    "index": 71,
+    "class_id": "Videos1:2ad3f9b24687cb49413a",
+    "gloss": "INFIEL",
+    "usable_references": 2
+  },
+  {
+    "index": 72,
+    "class_id": "Videos1:2aded7edd56907a08465",
+    "gloss": "LIMPIAR",
+    "usable_references": 2
+  },
+  {
+    "index": 73,
+    "class_id": "Videos1:2c47a198dad96496904b",
+    "gloss": "ECHADO",
+    "usable_references": 5
+  },
+  {
+    "index": 74,
+    "class_id": "Videos1:2cbbef80afe2dca76927",
+    "gloss": "FUNDAR",
+    "usable_references": 4
+  },
+  {
+    "index": 75,
+    "class_id": "Videos1:2cde942e8dd713278adb",
+    "gloss": "ENTRAR-PERSONA",
+    "usable_references": 1
+  },
+  {
+    "index": 76,
+    "class_id": "Videos1:2ef919b8ede615355dfb",
+    "gloss": "LLEGAR",
+    "usable_references": 1
+  },
+  {
+    "index": 77,
+    "class_id": "Videos1:2f7aa18665a5d91b8b02",
+    "gloss": "PENSAR",
+    "usable_references": 6
+  },
+  {
+    "index": 78,
+    "class_id": "Videos1:2ff0dec0bc12f5c2bb29",
+    "gloss": "INTERACTUAR",
+    "usable_references": 2
+  },
+  {
+    "index": 79,
+    "class_id": "Videos1:304b92780769163b3836",
+    "gloss": "NIÑO",
+    "usable_references": 6
+  },
+  {
+    "index": 80,
+    "class_id": "Videos1:30b19dfec2e7879356b1",
+    "gloss": "GRANDE",
+    "usable_references": 6
+  },
+  {
+    "index": 81,
+    "class_id": "Videos1:30f8ecb9826d7891dc97",
+    "gloss": "BONITO",
+    "usable_references": 4
+  },
+  {
+    "index": 82,
+    "class_id": "Videos1:311c83a484f4a141cad2",
+    "gloss": "YA-VER",
+    "usable_references": 1
+  },
+  {
+    "index": 83,
+    "class_id": "Videos1:3156f48102e9df113e02",
+    "gloss": "CUARENTA",
+    "usable_references": 4
+  },
+  {
+    "index": 84,
+    "class_id": "Videos1:31d59748e4d1c9071c4b",
+    "gloss": "GRABAR",
+    "usable_references": 1
+  },
+  {
+    "index": 85,
+    "class_id": "Videos1:3276a349b54e3b30bce9",
+    "gloss": "LUEGO",
+    "usable_references": 4
+  },
+  {
+    "index": 86,
+    "class_id": "Videos1:333e0a1e27815d0ceee5",
+    "gloss": "G",
+    "usable_references": 1
+  },
+  {
+    "index": 87,
+    "class_id": "Videos1:336256168538306f4794",
+    "gloss": "GRABAR_1",
+    "usable_references": 1
+  },
+  {
+    "index": 88,
+    "class_id": "Videos1:34bbf05c9e140d56de3f",
+    "gloss": "MUJER",
+    "usable_references": 5
+  },
+  {
+    "index": 89,
+    "class_id": "Videos1:35fc94b2b4734e547002",
+    "gloss": "HELICOPTERO_1",
+    "usable_references": 1
+  },
+  {
+    "index": 90,
+    "class_id": "Videos1:369097e67adf5ed786b4",
+    "gloss": "LIBRE",
+    "usable_references": 1
+  },
+  {
+    "index": 91,
+    "class_id": "Videos1:36ec32a5589df8d98aef",
+    "gloss": "VEN",
+    "usable_references": 1
+  },
+  {
+    "index": 92,
+    "class_id": "Videos1:37bd2527715160e46010",
+    "gloss": "PAPA",
+    "usable_references": 3
+  },
+  {
+    "index": 93,
+    "class_id": "Videos1:3885e0b0aefb80cf352b",
+    "gloss": "LEVANTAR-TAPA",
+    "usable_references": 2
+  },
+  {
+    "index": 94,
+    "class_id": "Videos1:38c9fd8204cc9961c8b2",
+    "gloss": "MAMA_1",
+    "usable_references": 1
+  },
+  {
+    "index": 95,
+    "class_id": "Videos1:39cd750a8f4374fa013f",
+    "gloss": "BUS",
+    "usable_references": 2
+  },
+  {
+    "index": 96,
+    "class_id": "Videos1:3a11228cb39dd6567ee8",
+    "gloss": "Ñ",
+    "usable_references": 1
+  },
+  {
+    "index": 97,
+    "class_id": "Videos1:3a288a411b81adf59b75",
+    "gloss": "CALOR",
+    "usable_references": 5
+  },
+  {
+    "index": 98,
+    "class_id": "Videos1:3aef163de939099a0bf0",
+    "gloss": "YA",
+    "usable_references": 19
+  },
+  {
+    "index": 99,
+    "class_id": "Videos1:3b5395aa79e135a3e611",
+    "gloss": "ECHAR-CUCHARADA",
+    "usable_references": 2
+  },
+  {
+    "index": 100,
+    "class_id": "Videos1:3ebdd8f1260d7a462fe6",
+    "gloss": "SILLA",
+    "usable_references": 4
+  },
+  {
+    "index": 101,
+    "class_id": "Videos1:3f39d5c348e5b79d06e8",
+    "gloss": "D",
+    "usable_references": 1
+  },
+  {
+    "index": 102,
+    "class_id": "Videos1:415d18846a39dfdc732d",
+    "gloss": "BAJA-TEMPERATURA",
+    "usable_references": 1
+  },
+  {
+    "index": 103,
+    "class_id": "Videos1:4215e73bd3cbbcd8ebc6",
+    "gloss": "WOW",
+    "usable_references": 1
+  },
+  {
+    "index": 104,
+    "class_id": "Videos1:423164be44ea73e46c94",
+    "gloss": "MUCHO-TIEMPO",
+    "usable_references": 1
+  },
+  {
+    "index": 105,
+    "class_id": "Videos1:42c9ce1976037ebbd59f",
+    "gloss": "COMER-MANZANA",
+    "usable_references": 1
+  },
+  {
+    "index": 106,
+    "class_id": "Videos1:434cd452f5eb9d891748",
+    "gloss": "DEMOSTRAR ",
+    "usable_references": 1
+  },
+  {
+    "index": 107,
+    "class_id": "Videos1:43c241f8ba448c1a7a5a",
+    "gloss": "AHI",
+    "usable_references": 7
+  },
+  {
+    "index": 108,
+    "class_id": "Videos1:43d8b50ac0cdd7c02f48",
+    "gloss": "DE-ACUERDO",
+    "usable_references": 1
+  },
+  {
+    "index": 109,
+    "class_id": "Videos1:44bd7ae60f478fae1061",
+    "gloss": "H",
+    "usable_references": 1
+  },
+  {
+    "index": 110,
+    "class_id": "Videos1:45fc64dc682511b1dc4b",
+    "gloss": "FORTACHON ",
+    "usable_references": 1
+  },
+  {
+    "index": 111,
+    "class_id": "Videos1:46e4f87248c29139f6db",
+    "gloss": "POLLO",
+    "usable_references": 1
+  },
+  {
+    "index": 112,
+    "class_id": "Videos1:47a1c513444958d2ecc1",
+    "gloss": "INVITAR",
+    "usable_references": 1
+  },
+  {
+    "index": 113,
+    "class_id": "Videos1:47da5cf5017f5859ef3f",
+    "gloss": "TARDE",
+    "usable_references": 1
+  },
+  {
+    "index": 114,
+    "class_id": "Videos1:484930418be8b7b2a681",
+    "gloss": "NADA",
+    "usable_references": 3
+  },
+  {
+    "index": 115,
+    "class_id": "Videos1:48f5411e9a9e5a1e7baf",
+    "gloss": "CUANTO",
+    "usable_references": 14
+  },
+  {
+    "index": 116,
+    "class_id": "Videos1:494dba6ecf3aa0a367aa",
+    "gloss": "FLACO",
+    "usable_references": 8
+  },
+  {
+    "index": 117,
+    "class_id": "Videos1:496f28578cf12416809f",
+    "gloss": "ABRIR-PUERTA",
+    "usable_references": 2
+  },
+  {
+    "index": 118,
+    "class_id": "Videos1:49771fa114d455f473d4",
+    "gloss": "DOS",
+    "usable_references": 5
+  },
+  {
+    "index": 119,
+    "class_id": "Videos1:4ae29fc94e63d1e3c9ed",
+    "gloss": "CUNA",
+    "usable_references": 5
+  },
+  {
+    "index": 120,
+    "class_id": "Videos1:4ae81572f06e1b88fd5c",
+    "gloss": "Q",
+    "usable_references": 1
+  },
+  {
+    "index": 121,
+    "class_id": "Videos1:4b203c14d463d9736805",
+    "gloss": "LINDO",
+    "usable_references": 1
+  },
+  {
+    "index": 122,
+    "class_id": "Videos1:4b68ab3847feda7d6c62",
+    "gloss": "X",
+    "usable_references": 1
+  },
+  {
+    "index": 123,
+    "class_id": "Videos1:4cb1f67bc4b38d9f93f0",
+    "gloss": "DIECISIETE",
+    "usable_references": 7
+  },
+  {
+    "index": 124,
+    "class_id": "Videos1:4d06d68c30b1896e7728",
+    "gloss": "ESTUDIAR",
+    "usable_references": 3
+  },
+  {
+    "index": 125,
+    "class_id": "Videos1:4dfa8fb104701ed631ed",
+    "gloss": "TU",
+    "usable_references": 1
+  },
+  {
+    "index": 126,
+    "class_id": "Videos1:4f88622f704ec27ce058",
+    "gloss": "OSCURO",
+    "usable_references": 1
+  },
+  {
+    "index": 127,
+    "class_id": "Videos1:4fb740de9e0a89999339",
+    "gloss": "ZAPATO",
+    "usable_references": 2
+  },
+  {
+    "index": 128,
+    "class_id": "Videos1:501fa53927c208c10d9f",
+    "gloss": "PAQUETE",
+    "usable_references": 1
+  },
+  {
+    "index": 129,
+    "class_id": "Videos1:50356086fcf1dd29ec46",
+    "gloss": "PERSONA-PEQUEÑA",
+    "usable_references": 4
+  },
+  {
+    "index": 130,
+    "class_id": "Videos1:5079b4c5baa5beac751c",
+    "gloss": "AÑO",
+    "usable_references": 1
+  },
+  {
+    "index": 131,
+    "class_id": "Videos1:514a69488e9a7ab48c06",
+    "gloss": "IX-OCULTO",
+    "usable_references": 2
+  },
+  {
+    "index": 132,
+    "class_id": "Videos1:51d48a1adfa507ce83b5",
+    "gloss": "CHANCHO",
+    "usable_references": 1
+  },
+  {
+    "index": 133,
+    "class_id": "Videos1:52724f85837f1101f493",
+    "gloss": "MANGUERA",
+    "usable_references": 1
+  },
+  {
+    "index": 134,
+    "class_id": "Videos1:52941db972e98a32470f",
+    "gloss": "ARROZ CHAUFA",
+    "usable_references": 1
+  },
+  {
+    "index": 135,
+    "class_id": "Videos1:533eb70766042d0b205f",
+    "gloss": "ACERCARSE",
+    "usable_references": 5
+  },
+  {
+    "index": 136,
+    "class_id": "Videos1:54b0d03d250b862ce79f",
+    "gloss": "TELEFONO",
+    "usable_references": 4
+  },
+  {
+    "index": 137,
+    "class_id": "Videos1:559aead08264d5795d39",
+    "gloss": "A",
+    "usable_references": 1
+  },
+  {
+    "index": 138,
+    "class_id": "Videos1:569aaed83e0ca96c960f",
+    "gloss": "DIEZ",
+    "usable_references": 5
+  },
+  {
+    "index": 139,
+    "class_id": "Videos1:56d2099d994a34434001",
+    "gloss": "DOS-PERSONAS",
+    "usable_references": 2
+  },
+  {
+    "index": 140,
+    "class_id": "Videos1:56e0610b01770b4c7352",
+    "gloss": "DONDE",
+    "usable_references": 11
+  },
+  {
+    "index": 141,
+    "class_id": "Videos1:58830cbf012aaa69030a",
+    "gloss": "VINO",
+    "usable_references": 1
+  },
+  {
+    "index": 142,
+    "class_id": "Videos1:58abf59b2b30ed65726e",
+    "gloss": "QUE",
+    "usable_references": 9
+  },
+  {
+    "index": 143,
+    "class_id": "Videos1:590e088068f61cef8c33",
+    "gloss": "SABER",
+    "usable_references": 1
+  },
+  {
+    "index": 144,
+    "class_id": "Videos1:595751f1f8fea29a1541",
+    "gloss": "IGLESIA",
+    "usable_references": 1
+  },
+  {
+    "index": 145,
+    "class_id": "Videos1:597a84804b627dae8ea3",
+    "gloss": "LEER",
+    "usable_references": 3
+  },
+  {
+    "index": 146,
+    "class_id": "Videos1:5a9ccc75b9f6890e3b5d",
+    "gloss": "BRILLO",
+    "usable_references": 1
+  },
+  {
+    "index": 147,
+    "class_id": "Videos1:5b065b0996c44ab2e641",
+    "gloss": "JUAN",
+    "usable_references": 1
+  },
+  {
+    "index": 148,
+    "class_id": "Videos1:5c246f376311b468617f",
+    "gloss": "MUCHO-SOL",
+    "usable_references": 1
+  },
+  {
+    "index": 149,
+    "class_id": "Videos1:5c62e091b8c0565f1baf",
+    "gloss": "P",
+    "usable_references": 1
+  },
+  {
+    "index": 150,
+    "class_id": "Videos1:5c7b3db37693ea79c67f",
+    "gloss": "ABRIR-CORTINA",
+    "usable_references": 3
+  },
+  {
+    "index": 151,
+    "class_id": "Videos1:5d5dbc00d5ce8d83c482",
+    "gloss": "CONTAR-MANUAL",
+    "usable_references": 6
+  },
+  {
+    "index": 152,
+    "class_id": "Videos1:5d8b654b2e4ad365fad2",
+    "gloss": "CASAR",
+    "usable_references": 2
+  },
+  {
+    "index": 153,
+    "class_id": "Videos1:5e2cecb9f28c21a169e6",
+    "gloss": "CALLE",
+    "usable_references": 1
+  },
+  {
+    "index": 154,
+    "class_id": "Videos1:5ea3781faf661590bbf2",
+    "gloss": "CRUZAR-EL-CIELO",
+    "usable_references": 1
+  },
+  {
+    "index": 155,
+    "class_id": "Videos1:5eb1f0f9433a0b6f61dd",
+    "gloss": "IX",
+    "usable_references": 114
+  },
+  {
+    "index": 156,
+    "class_id": "Videos1:5ed8a15da3a02750711f",
+    "gloss": "NECESITAR",
+    "usable_references": 3
+  },
+  {
+    "index": 157,
+    "class_id": "Videos1:5fc2b5c7f0841b79fed1",
+    "gloss": "PERDER",
+    "usable_references": 1
+  },
+  {
+    "index": 158,
+    "class_id": "Videos1:601bd45d8038729d0e38",
+    "gloss": "COMER",
+    "usable_references": 4
+  },
+  {
+    "index": 159,
+    "class_id": "Videos1:611f7f734c182a3af8ca",
+    "gloss": "PLAYA",
+    "usable_references": 2
+  },
+  {
+    "index": 160,
+    "class_id": "Videos1:61fb67ce7658b0969882",
+    "gloss": "BOLA-DE-CRISTAL",
+    "usable_references": 2
+  },
+  {
+    "index": 161,
+    "class_id": "Videos1:623e7bd038ba0758dfb1",
+    "gloss": "UNO",
+    "usable_references": 8
+  },
+  {
+    "index": 162,
+    "class_id": "Videos1:626500b83d96d6bb869b",
+    "gloss": "AVISAR",
+    "usable_references": 1
+  },
+  {
+    "index": 163,
+    "class_id": "Videos1:6286b1db865afb900850",
+    "gloss": "TIRAR",
+    "usable_references": 1
+  },
+  {
+    "index": 164,
+    "class_id": "Videos1:6349f97139a51d12b30b",
+    "gloss": "ENGORDAR",
+    "usable_references": 2
+  },
+  {
+    "index": 165,
+    "class_id": "Videos1:63551c9d7cc95818deb8",
+    "gloss": "HABER",
+    "usable_references": 2
+  },
+  {
+    "index": 166,
+    "class_id": "Videos1:63f2f35b253f18c88702",
+    "gloss": "CAJA",
+    "usable_references": 6
+  },
+  {
+    "index": 167,
+    "class_id": "Videos1:6542267bf189fafaf56d",
+    "gloss": "VISITAR",
+    "usable_references": 1
+  },
+  {
+    "index": 168,
+    "class_id": "Videos1:65d7cfa2cbb4c3ac3a99",
+    "gloss": "ESTAR-BIEN",
+    "usable_references": 5
+  },
+  {
+    "index": 169,
+    "class_id": "Videos1:667880baddf02c5cc5b3",
+    "gloss": "AVE",
+    "usable_references": 1
+  },
+  {
+    "index": 170,
+    "class_id": "Videos1:6697466a5951a250a80f",
+    "gloss": "VIEJO",
+    "usable_references": 1
+  },
+  {
+    "index": 171,
+    "class_id": "Videos1:66f8731d6c6d3715a32c",
+    "gloss": "COMPRAR",
+    "usable_references": 11
+  },
+  {
+    "index": 172,
+    "class_id": "Videos1:67213c212d75e20b0473",
+    "gloss": "CONDUCIR",
+    "usable_references": 3
+  },
+  {
+    "index": 173,
+    "class_id": "Videos1:67384de9773c61a6bfad",
+    "gloss": "TRES",
+    "usable_references": 1
+  },
+  {
+    "index": 174,
+    "class_id": "Videos1:68b847573e0131c1a127",
+    "gloss": "MUCHO-DINERO",
+    "usable_references": 3
+  },
+  {
+    "index": 175,
+    "class_id": "Videos1:69d87db22514e296392c",
+    "gloss": "ESTAR-BIEN ",
+    "usable_references": 1
+  },
+  {
+    "index": 176,
+    "class_id": "Videos1:69e13c105b2f0f4811e7",
+    "gloss": "GUARDAR",
+    "usable_references": 12
+  },
+  {
+    "index": 177,
+    "class_id": "Videos1:6b23c0d5f35d1b11f9b6",
+    "gloss": "C",
+    "usable_references": 1
+  },
+  {
+    "index": 178,
+    "class_id": "Videos1:6b4dc3bc1576fde82423",
+    "gloss": "ATRAPAR",
+    "usable_references": 4
+  },
+  {
+    "index": 179,
+    "class_id": "Videos1:6bea298c4426034baac1",
+    "gloss": "CUMPLEAÑOS",
+    "usable_references": 1
+  },
+  {
+    "index": 180,
+    "class_id": "Videos1:6d4bd8d64ae33b39bcd7",
+    "gloss": "BAÑO",
+    "usable_references": 1
+  },
+  {
+    "index": 181,
+    "class_id": "Videos1:6d9c91f073a620b704b7",
+    "gloss": "DESPUES",
+    "usable_references": 8
+  },
+  {
+    "index": 182,
+    "class_id": "Videos1:6da43b944e494e885e69",
+    "gloss": "J",
+    "usable_references": 1
+  },
+  {
+    "index": 183,
+    "class_id": "Videos1:6db1ad19ff07946701f2",
+    "gloss": "CARGAR-CAJA",
+    "usable_references": 2
+  },
+  {
+    "index": 184,
+    "class_id": "Videos1:6e03844f340ae1227974",
+    "gloss": "DEBER",
+    "usable_references": 1
+  },
+  {
+    "index": 185,
+    "class_id": "Videos1:6e415554351d931c3182",
+    "gloss": "FALTAR",
+    "usable_references": 6
+  },
+  {
+    "index": 186,
+    "class_id": "Videos1:6e713155ff531b484c9b",
+    "gloss": "FORTACHON",
+    "usable_references": 5
+  },
+  {
+    "index": 187,
+    "class_id": "Videos1:6f618f9e450455122197",
+    "gloss": "CUAL",
+    "usable_references": 3
+  },
+  {
+    "index": 188,
+    "class_id": "Videos1:6f9be22b3d6c21d3d3dd",
+    "gloss": "GORRO_1",
+    "usable_references": 1
+  },
+  {
+    "index": 189,
+    "class_id": "Videos1:703e8f8ef4e7145e3029",
+    "gloss": "DIECIOCHO",
+    "usable_references": 6
+  },
+  {
+    "index": 190,
+    "class_id": "Videos1:7074788ee6aa5a57fe0b",
+    "gloss": "UY",
+    "usable_references": 4
+  },
+  {
+    "index": 191,
+    "class_id": "Videos1:70ff34c85eb7465fc382",
+    "gloss": "FACIL",
+    "usable_references": 1
+  },
+  {
+    "index": 192,
+    "class_id": "Videos1:71be1c2400dc3fc626a8",
+    "gloss": "ODIAR",
+    "usable_references": 1
+  },
+  {
+    "index": 193,
+    "class_id": "Videos1:7272e8923e989e2abe29",
+    "gloss": "ALTO",
+    "usable_references": 1
+  },
+  {
+    "index": 194,
+    "class_id": "Videos1:728fb66af1801d62b0ea",
+    "gloss": "ABRIR-VERTICAL-OBJETO",
+    "usable_references": 1
+  },
+  {
+    "index": 195,
+    "class_id": "Videos1:72dfcfb0c470ac255cde",
+    "gloss": "L",
+    "usable_references": 1
+  },
+  {
+    "index": 196,
+    "class_id": "Videos1:7355e5d68b41b5091564",
+    "gloss": "MAÑANA",
+    "usable_references": 1
+  },
+  {
+    "index": 197,
+    "class_id": "Videos1:738aaaa748480f4c834a",
+    "gloss": "SUCIO",
+    "usable_references": 1
+  },
+  {
+    "index": 198,
+    "class_id": "Videos1:73c3de4175449987ef60",
+    "gloss": "HOLA",
+    "usable_references": 6
+  },
+  {
+    "index": 199,
+    "class_id": "Videos1:74187c798133f298f50c",
+    "gloss": "ESCONDER",
+    "usable_references": 2
+  },
+  {
+    "index": 200,
+    "class_id": "Videos1:745bd28f55e70a3d6dd1",
+    "gloss": "DESCANSAR",
+    "usable_references": 0
+  },
+  {
+    "index": 201,
+    "class_id": "Videos1:74cbc2c13ca99fe0cfba",
+    "gloss": "DOCE",
+    "usable_references": 6
+  },
+  {
+    "index": 202,
+    "class_id": "Videos1:7543891f8e0fb29c1a51",
+    "gloss": "SUBIR-PERSONA",
+    "usable_references": 1
+  },
+  {
+    "index": 203,
+    "class_id": "Videos1:76a4a81ee48bab20dc16",
+    "gloss": "ENGAÑAR",
+    "usable_references": 4
+  },
+  {
+    "index": 204,
+    "class_id": "Videos1:76bf7a99ebc5b2410218",
+    "gloss": "PRESENTE",
+    "usable_references": 1
+  },
+  {
+    "index": 205,
+    "class_id": "Videos1:76fc5db2130676231be8",
+    "gloss": "DINERO",
+    "usable_references": 14
+  },
+  {
+    "index": 206,
+    "class_id": "Videos1:77298cefe90b109f3bb8",
+    "gloss": "PRIMERO-DE-PRIMARIA",
+    "usable_references": 1
+  },
+  {
+    "index": 207,
+    "class_id": "Videos1:775ce159fc9dc7c67a8c",
+    "gloss": "MARIHUANA",
+    "usable_references": 1
+  },
+  {
+    "index": 208,
+    "class_id": "Videos1:79dabe264cd120fd4662",
+    "gloss": "CUANTO ",
+    "usable_references": 1
+  },
+  {
+    "index": 209,
+    "class_id": "Videos1:79fb8748a90aad1714dd",
+    "gloss": "QUITAR",
+    "usable_references": 1
+  },
+  {
+    "index": 210,
+    "class_id": "Videos1:7a7b513dd03e9fb23db8",
+    "gloss": "DENTRO",
+    "usable_references": 2
+  },
+  {
+    "index": 211,
+    "class_id": "Videos1:7ab4f62d323b0ca788f8",
+    "gloss": "FIN",
+    "usable_references": 7
+  },
+  {
+    "index": 212,
+    "class_id": "Videos1:7b278d4bf3f72967bbad",
+    "gloss": "COMUNICAR",
+    "usable_references": 1
+  },
+  {
+    "index": 213,
+    "class_id": "Videos1:7b4452da628757a58898",
+    "gloss": "MUY-ALTO",
+    "usable_references": 1
+  },
+  {
+    "index": 214,
+    "class_id": "Videos1:7b7ece36ad3ffea22137",
+    "gloss": "TRAER-CAJA",
+    "usable_references": 1
+  },
+  {
+    "index": 215,
+    "class_id": "Videos1:7b988b26c755b7b1a3f9",
+    "gloss": "CERRAR-CAJON",
+    "usable_references": 1
+  },
+  {
+    "index": 216,
+    "class_id": "Videos1:7bd13bce40db6f61de54",
+    "gloss": "CUERPO",
+    "usable_references": 4
+  },
+  {
+    "index": 217,
+    "class_id": "Videos1:7c53ecb67963b3749eaa",
+    "gloss": "LLAMAR-LA-ATENCION",
+    "usable_references": 1
+  },
+  {
+    "index": 218,
+    "class_id": "Videos1:7c5d00f69199b501492c",
+    "gloss": "MUNDO",
+    "usable_references": 1
+  },
+  {
+    "index": 219,
+    "class_id": "Videos1:7d51695d9a43821e9bce",
+    "gloss": "ROMPER",
+    "usable_references": 2
+  },
+  {
+    "index": 220,
+    "class_id": "Videos1:7d75bdbe5c291b59091f",
+    "gloss": "BUSCAR-RECIPENTE",
+    "usable_references": 1
+  },
+  {
+    "index": 221,
+    "class_id": "Videos1:7dde9f447381824c76be",
+    "gloss": "SOSTENER",
+    "usable_references": 4
+  },
+  {
+    "index": 222,
+    "class_id": "Videos1:7e0188877d3164be217e",
+    "gloss": "PATO",
+    "usable_references": 3
+  },
+  {
+    "index": 223,
+    "class_id": "Videos1:7e45da1c8f2ff12e5475",
+    "gloss": "VER",
+    "usable_references": 52
+  },
+  {
+    "index": 224,
+    "class_id": "Videos1:7e4926b9bf7f7715277b",
+    "gloss": "IGUAL_5",
+    "usable_references": 1
+  },
+  {
+    "index": 225,
+    "class_id": "Videos1:7eb15a11d51dc9984e75",
+    "gloss": "CAMINAR",
+    "usable_references": 3
+  },
+  {
+    "index": 226,
+    "class_id": "Videos1:7f28e758acfd594e192e",
+    "gloss": "GALLINA",
+    "usable_references": 1
+  },
+  {
+    "index": 227,
+    "class_id": "Videos1:7fbdf12f57fbc2cb18a4",
+    "gloss": "VIA-DOBLE-SENTIDO",
+    "usable_references": 6
+  },
+  {
+    "index": 228,
+    "class_id": "Videos1:8017609e7d7dd97b9212",
+    "gloss": "GRADUARSE",
+    "usable_references": 1
+  },
+  {
+    "index": 229,
+    "class_id": "Videos1:80b6e7e5f1c5ee781ab8",
+    "gloss": "CONYUGE",
+    "usable_references": 3
+  },
+  {
+    "index": 230,
+    "class_id": "Videos1:81ca08b873c0241b83e6",
+    "gloss": "BIEN",
+    "usable_references": 12
+  },
+  {
+    "index": 231,
+    "class_id": "Videos1:81e89cfd5a4470eb7036",
+    "gloss": "AHORA ",
+    "usable_references": 1
+  },
+  {
+    "index": 232,
+    "class_id": "Videos1:824b7345a95c892ace7a",
+    "gloss": "DINERO - PLATA",
+    "usable_references": 1
+  },
+  {
+    "index": 233,
+    "class_id": "Videos1:828b6669e6a7a4815047",
+    "gloss": "PELOTA",
+    "usable_references": 2
+  },
+  {
+    "index": 234,
+    "class_id": "Videos1:832fd0aa19d44488f7bb",
+    "gloss": "RELOJ",
+    "usable_references": 1
+  },
+  {
+    "index": 235,
+    "class_id": "Videos1:83fc8a60068c3f4d9aeb",
+    "gloss": "SOL_1",
+    "usable_references": 1
+  },
+  {
+    "index": 236,
+    "class_id": "Videos1:856c8e0ff29fbf8269a1",
+    "gloss": "IGUAL",
+    "usable_references": 21
+  },
+  {
+    "index": 237,
+    "class_id": "Videos1:856d9213deee0ec7c297",
+    "gloss": "JUNTOS",
+    "usable_references": 2
+  },
+  {
+    "index": 238,
+    "class_id": "Videos1:86be9a55762d316a3026",
+    "gloss": "K",
+    "usable_references": 1
+  },
+  {
+    "index": 239,
+    "class_id": "Videos1:872688fc8d4df0e23ff8",
+    "gloss": "BOTE",
+    "usable_references": 8
+  },
+  {
+    "index": 240,
+    "class_id": "Videos1:87506651920b33f21c90",
+    "gloss": "IDEA_2",
+    "usable_references": 1
+  },
+  {
+    "index": 241,
+    "class_id": "Videos1:87f696b36aee580f5916",
+    "gloss": "BESO",
+    "usable_references": 2
+  },
+  {
+    "index": 242,
+    "class_id": "Videos1:885a2b7f6b648475e53b",
+    "gloss": "SENTAR",
+    "usable_references": 1
+  },
+  {
+    "index": 243,
+    "class_id": "Videos1:88767f44654ee88c9862",
+    "gloss": "PONER",
+    "usable_references": 1
+  },
+  {
+    "index": 244,
+    "class_id": "Videos1:8904c61a98dbed62e640",
+    "gloss": "MAR",
+    "usable_references": 1
+  },
+  {
+    "index": 245,
+    "class_id": "Videos1:896422eae342d3bad961",
+    "gloss": "POLO",
+    "usable_references": 1
+  },
+  {
+    "index": 246,
+    "class_id": "Videos1:897bd58cbbf3bbec459b",
+    "gloss": "ENTENDER - COMPRENDER",
+    "usable_references": 1
+  },
+  {
+    "index": 247,
+    "class_id": "Videos1:897e3d3363234656bfe8",
+    "gloss": "PROBLEMA",
+    "usable_references": 1
+  },
+  {
+    "index": 248,
+    "class_id": "Videos1:89aeefb3e17d6e673f40",
+    "gloss": "VER ",
+    "usable_references": 2
+  },
+  {
+    "index": 249,
+    "class_id": "Videos1:89fa063f7528911f9165",
+    "gloss": "COLOCAR-BOTELLA",
+    "usable_references": 1
+  },
+  {
+    "index": 250,
+    "class_id": "Videos1:8a26e5aad94c88ffcefd",
+    "gloss": "ABRIR-OBJETO-PLANO-VERTICAL",
+    "usable_references": 1
+  },
+  {
+    "index": 251,
+    "class_id": "Videos1:8b769d096999efb63fb0",
+    "gloss": "INTENTAR",
+    "usable_references": 1
+  },
+  {
+    "index": 252,
+    "class_id": "Videos1:8c2574892063f995fdf7",
+    "gloss": "R",
+    "usable_references": 1
+  },
+  {
+    "index": 253,
+    "class_id": "Videos1:8c9e40597c6afc75fdd3",
+    "gloss": "FUTBOL",
+    "usable_references": 3
+  },
+  {
+    "index": 254,
+    "class_id": "Videos1:8cd6b1e5385eb8593595",
+    "gloss": "SACAR",
+    "usable_references": 1
+  },
+  {
+    "index": 255,
+    "class_id": "Videos1:8ce86a6ae65d3692e730",
+    "gloss": "N",
+    "usable_references": 1
+  },
+  {
+    "index": 256,
+    "class_id": "Videos1:8d42f142fdc59fafb823",
+    "gloss": "FALTA",
+    "usable_references": 3
+  },
+  {
+    "index": 257,
+    "class_id": "Videos1:8d841bbdf8baf4332449",
+    "gloss": "CAMA",
+    "usable_references": 2
+  },
+  {
+    "index": 258,
+    "class_id": "Videos1:8d8ae7c9f1d3f979165e",
+    "gloss": "CRUZAR-AVION",
+    "usable_references": 2
+  },
+  {
+    "index": 259,
+    "class_id": "Videos1:8de0b3c47f112c59745f",
+    "gloss": "S",
+    "usable_references": 1
+  },
+  {
+    "index": 260,
+    "class_id": "Videos1:8df16f7f9f98c4ccbc5b",
+    "gloss": "SORDO",
+    "usable_references": 1
+  },
+  {
+    "index": 261,
+    "class_id": "Videos1:8e2a13b1039a7e05a3ab",
+    "gloss": "ENTENDER",
+    "usable_references": 3
+  },
+  {
+    "index": 262,
+    "class_id": "Videos1:8e4d22eb5e815ba9c6ea",
+    "gloss": "MONO",
+    "usable_references": 1
+  },
+  {
+    "index": 263,
+    "class_id": "Videos1:8f39c8368d7c54e0dd9f",
+    "gloss": "ENAMORADO",
+    "usable_references": 2
+  },
+  {
+    "index": 264,
+    "class_id": "Videos1:8f3ab41732a6d2ef98a0",
+    "gloss": "SABADO",
+    "usable_references": 1
+  },
+  {
+    "index": 265,
+    "class_id": "Videos1:9039c4a22e58ddd35434",
+    "gloss": "GUSTAR",
+    "usable_references": 2
+  },
+  {
+    "index": 266,
+    "class_id": "Videos1:909de8b13f237ec1faca",
+    "gloss": "FIESTA",
+    "usable_references": 1
+  },
+  {
+    "index": 267,
+    "class_id": "Videos1:9115cebee2765bfae4c2",
+    "gloss": "DECIR",
+    "usable_references": 12
+  },
+  {
+    "index": 268,
+    "class_id": "Videos1:913acc589f99b7e03a37",
+    "gloss": "AGARRAR-ROPA",
+    "usable_references": 1
+  },
+  {
+    "index": 269,
+    "class_id": "Videos1:91e21a6682214139fbe0",
+    "gloss": "INGRESAR",
+    "usable_references": 1
+  },
+  {
+    "index": 270,
+    "class_id": "Videos1:941bb5daadd6d53e497b",
+    "gloss": "HISTORIA",
+    "usable_references": 3
+  },
+  {
+    "index": 271,
+    "class_id": "Videos1:946b0ac0f2a3637f7018",
+    "gloss": "COMO",
+    "usable_references": 1
+  },
+  {
+    "index": 272,
+    "class_id": "Videos1:94942190d1b1dc43c2bf",
+    "gloss": "MALO",
+    "usable_references": 4
+  },
+  {
+    "index": 273,
+    "class_id": "Videos1:9535fedcbd209503902d",
+    "gloss": "PARTICIPAR",
+    "usable_references": 1
+  },
+  {
+    "index": 274,
+    "class_id": "Videos1:95883e4156cb6926510a",
+    "gloss": "PREGUNTAR",
+    "usable_references": 5
+  },
+  {
+    "index": 275,
+    "class_id": "Videos1:95fb89f18c3676762748",
+    "gloss": "HERMOSA",
+    "usable_references": 1
+  },
+  {
+    "index": 276,
+    "class_id": "Videos1:967f9fe0ed1a20d1c499",
+    "gloss": "OYE",
+    "usable_references": 14
+  },
+  {
+    "index": 277,
+    "class_id": "Videos1:96a8a7782331befe139e",
+    "gloss": "AH-YA",
+    "usable_references": 1
+  },
+  {
+    "index": 278,
+    "class_id": "Videos1:973a9750876554026fd2",
+    "gloss": "POR-FAVOR",
+    "usable_references": 7
+  },
+  {
+    "index": 279,
+    "class_id": "Videos1:97b215d97a989a1c139c",
+    "gloss": "ENSEÑAR",
+    "usable_references": 1
+  },
+  {
+    "index": 280,
+    "class_id": "Videos1:97e4fa2dfb0465402528",
+    "gloss": "ESQUINA",
+    "usable_references": 1
+  },
+  {
+    "index": 281,
+    "class_id": "Videos1:98138a6fec3b3e58de6a",
+    "gloss": "HIJO",
+    "usable_references": 6
+  },
+  {
+    "index": 282,
+    "class_id": "Videos1:98282ed20269975c0568",
+    "gloss": "HOY",
+    "usable_references": 9
+  },
+  {
+    "index": 283,
+    "class_id": "Videos1:9886fec15f290e7284e4",
+    "gloss": "LUGAR",
+    "usable_references": 4
+  },
+  {
+    "index": 284,
+    "class_id": "Videos1:9905e2b0be842dccd4ba",
+    "gloss": "DESIGUALDAD",
+    "usable_references": 1
+  },
+  {
+    "index": 285,
+    "class_id": "Videos1:9a06c0c5b00027280aeb",
+    "gloss": "AL-FRENTE",
+    "usable_references": 1
+  },
+  {
+    "index": 286,
+    "class_id": "Videos1:9c54a6a48c01f24224b7",
+    "gloss": "ROLLO-DE-MONEDAS",
+    "usable_references": 3
+  },
+  {
+    "index": 287,
+    "class_id": "Videos1:9cac2c6b9cdba8fa3449",
+    "gloss": "PODER",
+    "usable_references": 1
+  },
+  {
+    "index": 288,
+    "class_id": "Videos1:9da516287dfaabf1331c",
+    "gloss": "ABURRIDO",
+    "usable_references": 9
+  },
+  {
+    "index": 289,
+    "class_id": "Videos1:9df4c7c19e33fbfb228c",
+    "gloss": "ABUELO",
+    "usable_references": 1
+  },
+  {
+    "index": 290,
+    "class_id": "Videos1:9e25eb18f8cbcc52fda6",
+    "gloss": "BAILAR",
+    "usable_references": 1
+  },
+  {
+    "index": 291,
+    "class_id": "Videos1:9e47cf6ffef757533f83",
+    "gloss": "DESPARECER",
+    "usable_references": 2
+  },
+  {
+    "index": 292,
+    "class_id": "Videos1:9e7e8dee889a8fb597f2",
+    "gloss": "CALIENTE",
+    "usable_references": 2
+  },
+  {
+    "index": 293,
+    "class_id": "Videos1:9f577f2e45a3e7202861",
+    "gloss": "CAMBIAR-ROPA",
+    "usable_references": 1
+  },
+  {
+    "index": 294,
+    "class_id": "Videos1:9f85437660dbf0d95b05",
+    "gloss": "LLAMAR",
+    "usable_references": 1
+  },
+  {
+    "index": 295,
+    "class_id": "Videos1:9f8c7b26cde59ca3dacc",
+    "gloss": "IDEA",
+    "usable_references": 4
+  },
+  {
+    "index": 296,
+    "class_id": "Videos1:9fc6c4b6104a38e6b3fb",
+    "gloss": "COMBI",
+    "usable_references": 1
+  },
+  {
+    "index": 297,
+    "class_id": "Videos1:a138158ff09e7abf2e68",
+    "gloss": "DAR-LA-ESPALDA",
+    "usable_references": 1
+  },
+  {
+    "index": 298,
+    "class_id": "Videos1:a1a37140a7d073e98ffe",
+    "gloss": "VESTIR",
+    "usable_references": 1
+  },
+  {
+    "index": 299,
+    "class_id": "Videos1:a25513c7e0f6eaa80a33",
+    "gloss": "U",
+    "usable_references": 1
+  },
+  {
+    "index": 300,
+    "class_id": "Videos1:a2822d9eaf9a12a767a1",
+    "gloss": "CAMINAR-AVE",
+    "usable_references": 3
+  },
+  {
+    "index": 301,
+    "class_id": "Videos1:a2ef9c51f1c8de490396",
+    "gloss": "EDAD",
+    "usable_references": 2
+  },
+  {
+    "index": 302,
+    "class_id": "Videos1:a39f1b4b465833a64979",
+    "gloss": "HACER",
+    "usable_references": 2
+  },
+  {
+    "index": 303,
+    "class_id": "Videos1:a60bb8a213ce1e65f4d3",
+    "gloss": "DIA",
+    "usable_references": 2
+  },
+  {
+    "index": 304,
+    "class_id": "Videos1:a64a807de21b2a10a3e1",
+    "gloss": "AYUDAR",
+    "usable_references": 1
+  },
+  {
+    "index": 305,
+    "class_id": "Videos1:a6f24c86f339207ae0a8",
+    "gloss": "CAMAROTE",
+    "usable_references": 2
+  },
+  {
+    "index": 306,
+    "class_id": "Videos1:a70d55c13c1ae3b137a2",
+    "gloss": "VIDA",
+    "usable_references": 1
+  },
+  {
+    "index": 307,
+    "class_id": "Videos1:a75a5100d54448611a3f",
+    "gloss": "EMBARAZO",
+    "usable_references": 1
+  },
+  {
+    "index": 308,
+    "class_id": "Videos1:a7623a17e7a1b4d62daa",
+    "gloss": "FUTURO",
+    "usable_references": 8
+  },
+  {
+    "index": 309,
+    "class_id": "Videos1:a7a62a77bd7dd66009d0",
+    "gloss": "LUZ",
+    "usable_references": 1
+  },
+  {
+    "index": 310,
+    "class_id": "Videos1:a7f0af790a83eefe695a",
+    "gloss": "QUERER",
+    "usable_references": 6
+  },
+  {
+    "index": 311,
+    "class_id": "Videos1:a83dd0ccbffe39d071cc",
+    "gloss": "I",
+    "usable_references": 1
+  },
+  {
+    "index": 312,
+    "class_id": "Videos1:a87df6cc540710931864",
+    "gloss": "GORRO",
+    "usable_references": 5
+  },
+  {
+    "index": 313,
+    "class_id": "Videos1:a8b300b2480a840cdd0d",
+    "gloss": "DESENRROSCAR-TAPA",
+    "usable_references": 2
+  },
+  {
+    "index": 314,
+    "class_id": "Videos1:a8c3c3b8a68fac3332b6",
+    "gloss": "FRIO",
+    "usable_references": 6
+  },
+  {
+    "index": 315,
+    "class_id": "Videos1:a8c5a86cb93458e6b76c",
+    "gloss": "LO-SIENTO",
+    "usable_references": 3
+  },
+  {
+    "index": 316,
+    "class_id": "Videos1:a9f51566bd6705f7ea6a",
+    "gloss": "E",
+    "usable_references": 1
+  },
+  {
+    "index": 317,
+    "class_id": "Videos1:aa4adc53acdb9611b420",
+    "gloss": "PILA",
+    "usable_references": 2
+  },
+  {
+    "index": 318,
+    "class_id": "Videos1:ab0b46b3352abc5717e2",
+    "gloss": "IR",
+    "usable_references": 25
+  },
+  {
+    "index": 319,
+    "class_id": "Videos1:ab1f48860e99d3fcd0b9",
+    "gloss": "PERDER ",
+    "usable_references": 1
+  },
+  {
+    "index": 320,
+    "class_id": "Videos1:ab4c3a79ffb368029031",
+    "gloss": "SUDAR",
+    "usable_references": 2
+  },
+  {
+    "index": 321,
+    "class_id": "Videos1:ab6687bf03eedd17ef19",
+    "gloss": "CORTINA-ROLLER",
+    "usable_references": 2
+  },
+  {
+    "index": 322,
+    "class_id": "Videos1:ab7702698972f93d0242",
+    "gloss": "NO-SABER",
+    "usable_references": 3
+  },
+  {
+    "index": 323,
+    "class_id": "Videos1:ada3b2403e3f078336b2",
+    "gloss": "GORDO",
+    "usable_references": 5
+  },
+  {
+    "index": 324,
+    "class_id": "Videos1:addec86dcf71eb9932ba",
+    "gloss": "CAMBIAR",
+    "usable_references": 1
+  },
+  {
+    "index": 325,
+    "class_id": "Videos1:ae018fcc2ca735b62d49",
+    "gloss": "BIEN_3",
+    "usable_references": 1
+  },
+  {
+    "index": 326,
+    "class_id": "Videos1:ae5332c1c0db4b8198a8",
+    "gloss": "NUEVE",
+    "usable_references": 1
+  },
+  {
+    "index": 327,
+    "class_id": "Videos1:ae78fe6fe30f5fa7650d",
+    "gloss": "SONAR-TELEFONO",
+    "usable_references": 2
+  },
+  {
+    "index": 328,
+    "class_id": "Videos1:af149f1c86e75d4b1d60",
+    "gloss": "VENIR ",
+    "usable_references": 1
+  },
+  {
+    "index": 329,
+    "class_id": "Videos1:af1acd1a0fa842c711e2",
+    "gloss": "GRUPO",
+    "usable_references": 1
+  },
+  {
+    "index": 330,
+    "class_id": "Videos1:af9ea7c4bac1e95f8899",
+    "gloss": "CERRAR-CAJÓN",
+    "usable_references": 3
+  },
+  {
+    "index": 331,
+    "class_id": "Videos1:afa02063f7981c5ed4d1",
+    "gloss": "BASTANTE",
+    "usable_references": 2
+  },
+  {
+    "index": 332,
+    "class_id": "Videos1:afd1ef9619d5745b4c65",
+    "gloss": "CASACA",
+    "usable_references": 1
+  },
+  {
+    "index": 333,
+    "class_id": "Videos1:b04eafc31b2ad79cef00",
+    "gloss": "CONTAR -BILLETES",
+    "usable_references": 1
+  },
+  {
+    "index": 334,
+    "class_id": "Videos1:b199b2aabde4f1ceba18",
+    "gloss": "CAMIONETA",
+    "usable_references": 1
+  },
+  {
+    "index": 335,
+    "class_id": "Videos1:b1db9a95bc9e53ecf183",
+    "gloss": "QUIEN ",
+    "usable_references": 1
+  },
+  {
+    "index": 336,
+    "class_id": "Videos1:b1f86e31bae422f064f6",
+    "gloss": "AGRUPAR",
+    "usable_references": 1
+  },
+  {
+    "index": 337,
+    "class_id": "Videos1:b23b4e71743f63a47807",
+    "gloss": "HUARAZ",
+    "usable_references": 1
+  },
+  {
+    "index": 338,
+    "class_id": "Videos1:b23bf05011a96958b32a",
+    "gloss": "ROPA",
+    "usable_references": 1
+  },
+  {
+    "index": 339,
+    "class_id": "Videos1:b24b287d394858a7cacb",
+    "gloss": "CIUDAD",
+    "usable_references": 2
+  },
+  {
+    "index": 340,
+    "class_id": "Videos1:b28b9584a67d8c0dcb79",
+    "gloss": "CASA",
+    "usable_references": 5
+  },
+  {
+    "index": 341,
+    "class_id": "Videos1:b29e5ad5fc48192747bf",
+    "gloss": "YO",
+    "usable_references": 142
+  },
+  {
+    "index": 342,
+    "class_id": "Videos1:b2c4035c0b6ff9019d1e",
+    "gloss": "ANILLO",
+    "usable_references": 3
+  },
+  {
+    "index": 343,
+    "class_id": "Videos1:b2d4689e539744294a7b",
+    "gloss": "AMANECER",
+    "usable_references": 6
+  },
+  {
+    "index": 344,
+    "class_id": "Videos1:b39b0d5d7079bc902f31",
+    "gloss": "POLICIA",
+    "usable_references": 1
+  },
+  {
+    "index": 345,
+    "class_id": "Videos1:b3a9f2809ed0c6190e31",
+    "gloss": "CLASE",
+    "usable_references": 2
+  },
+  {
+    "index": 346,
+    "class_id": "Videos1:b3fe207927f83ec41999",
+    "gloss": "ATARDECER",
+    "usable_references": 7
+  },
+  {
+    "index": 347,
+    "class_id": "Videos1:b4011aa2c8b883b7e371",
+    "gloss": "GATO",
+    "usable_references": 4
+  },
+  {
+    "index": 348,
+    "class_id": "Videos1:b460494571717c2f794d",
+    "gloss": "PUCHA",
+    "usable_references": 0
+  },
+  {
+    "index": 349,
+    "class_id": "Videos1:b4ab26309e1b29fea58f",
+    "gloss": "FANTASMA",
+    "usable_references": 1
+  },
+  {
+    "index": 350,
+    "class_id": "Videos1:b50a762f03335dc5690e",
+    "gloss": "CAMINAR-PERRO",
+    "usable_references": 1
+  },
+  {
+    "index": 351,
+    "class_id": "Videos1:b526e74b07a02ac09abb",
+    "gloss": "DESEAR",
+    "usable_references": 1
+  },
+  {
+    "index": 352,
+    "class_id": "Videos1:b53602731a193a365143",
+    "gloss": "INCOMODAR",
+    "usable_references": 1
+  },
+  {
+    "index": 353,
+    "class_id": "Videos1:b5ba8de5fd344f773613",
+    "gloss": "LEVANTAR",
+    "usable_references": 0
+  },
+  {
+    "index": 354,
+    "class_id": "Videos1:b5ee1a72b27ac4f4fd9f",
+    "gloss": "CARTAS-DE-TAROT",
+    "usable_references": 2
+  },
+  {
+    "index": 355,
+    "class_id": "Videos1:b664c8fc354f1b4d4274",
+    "gloss": "PAGAR",
+    "usable_references": 3
+  },
+  {
+    "index": 356,
+    "class_id": "Videos1:b6dca1056ea5a0665b3e",
+    "gloss": "LENTO",
+    "usable_references": 1
+  },
+  {
+    "index": 357,
+    "class_id": "Videos1:b74b28b5c51a2ad850e4",
+    "gloss": "PAIS",
+    "usable_references": 1
+  },
+  {
+    "index": 358,
+    "class_id": "Videos1:b7caf7be585c5dd39789",
+    "gloss": "PERU",
+    "usable_references": 1
+  },
+  {
+    "index": 359,
+    "class_id": "Videos1:b942b132a830cab56c86",
+    "gloss": "CAER",
+    "usable_references": 1
+  },
+  {
+    "index": 360,
+    "class_id": "Videos1:bbeebd879e1dff691854",
+    "gloss": "Z",
+    "usable_references": 1
+  },
+  {
+    "index": 361,
+    "class_id": "Videos1:bbf83b0a6478bd490cad",
+    "gloss": "PERSIANA",
+    "usable_references": 4
+  },
+  {
+    "index": 362,
+    "class_id": "Videos1:bc30c8e8014b5e9aefb4",
+    "gloss": "CAJA-PEQUEÑA",
+    "usable_references": 2
+  },
+  {
+    "index": 363,
+    "class_id": "Videos1:bca396a13c083ce5467b",
+    "gloss": "TRABAJAR",
+    "usable_references": 4
+  },
+  {
+    "index": 364,
+    "class_id": "Videos1:bdefc4eeb14b23fe9a80",
+    "gloss": "CAMINAR-PERSONA",
+    "usable_references": 24
+  },
+  {
+    "index": 365,
+    "class_id": "Videos1:bf4705377b420a24c602",
+    "gloss": "JUGAR",
+    "usable_references": 2
+  },
+  {
+    "index": 366,
+    "class_id": "Videos1:bf6282647abacae40836",
+    "gloss": "CATORCE ",
+    "usable_references": 1
+  },
+  {
+    "index": 367,
+    "class_id": "Videos1:bfbf828d384258a2a510",
+    "gloss": "LLEVAR-RECIPENTE",
+    "usable_references": 1
+  },
+  {
+    "index": 368,
+    "class_id": "Videos1:c00749e7231a9a36484c",
+    "gloss": "HUEVO",
+    "usable_references": 4
+  },
+  {
+    "index": 369,
+    "class_id": "Videos1:c039e94e9f3fcdca5b74",
+    "gloss": "DEPORTE",
+    "usable_references": 1
+  },
+  {
+    "index": 370,
+    "class_id": "Videos1:c05979becab92f24b206",
+    "gloss": "EMPUJAR",
+    "usable_references": 2
+  },
+  {
+    "index": 371,
+    "class_id": "Videos1:c09a7e2385b8c979b3a2",
+    "gloss": "CARRO",
+    "usable_references": 4
+  },
+  {
+    "index": 372,
+    "class_id": "Videos1:c11dc8e9eb7ce2738f3b",
+    "gloss": "LENTES",
+    "usable_references": 4
+  },
+  {
+    "index": 373,
+    "class_id": "Videos1:c149ec2f90b933d50940",
+    "gloss": "BUSCAR",
+    "usable_references": 7
+  },
+  {
+    "index": 374,
+    "class_id": "Videos1:c1f722ee7818149a320a",
+    "gloss": "VAMOS",
+    "usable_references": 4
+  },
+  {
+    "index": 375,
+    "class_id": "Videos1:c21b2720b72dddca9689",
+    "gloss": "TEMPRANO",
+    "usable_references": 2
+  },
+  {
+    "index": 376,
+    "class_id": "Videos1:c249250a32aee9f3fc6a",
+    "gloss": "AYUDAR ",
+    "usable_references": 1
+  },
+  {
+    "index": 377,
+    "class_id": "Videos1:c33d4704282d3534687d",
+    "gloss": "¿QUÉ-PASA?",
+    "usable_references": 1
+  },
+  {
+    "index": 378,
+    "class_id": "Videos1:c3a06ec40accd210af07",
+    "gloss": "BICICLETA",
+    "usable_references": 1
+  },
+  {
+    "index": 379,
+    "class_id": "Videos1:c426f525b2f1ce0ea5b2",
+    "gloss": "MOTOR",
+    "usable_references": 1
+  },
+  {
+    "index": 380,
+    "class_id": "Videos1:c4694f2e93d5c4e7d51f",
+    "gloss": "O",
+    "usable_references": 1
+  },
+  {
+    "index": 381,
+    "class_id": "Videos1:c4a9aa3f006fe58d21b3",
+    "gloss": "IX ",
+    "usable_references": 2
+  },
+  {
+    "index": 382,
+    "class_id": "Videos1:c4e85ad0e785ece82cc2",
+    "gloss": "VIAJAR",
+    "usable_references": 6
+  },
+  {
+    "index": 383,
+    "class_id": "Videos1:c516be667650641c3810",
+    "gloss": "MAÑANA-DEL-DIA",
+    "usable_references": 1
+  },
+  {
+    "index": 384,
+    "class_id": "Videos1:c601bbc41acbae6a9381",
+    "gloss": "VIAJE",
+    "usable_references": 1
+  },
+  {
+    "index": 385,
+    "class_id": "Videos1:c68f662dc17b4e9a3af8",
+    "gloss": "RICO",
+    "usable_references": 1
+  },
+  {
+    "index": 386,
+    "class_id": "Videos1:c69b5e06c22c88c920e2",
+    "gloss": "ABRIR-CAJÓN",
+    "usable_references": 1
+  },
+  {
+    "index": 387,
+    "class_id": "Videos1:c6b008ae1a3282215a78",
+    "gloss": "TERMINAR",
+    "usable_references": 4
+  },
+  {
+    "index": 388,
+    "class_id": "Videos1:c7152f01a305c13c725e",
+    "gloss": "PERO",
+    "usable_references": 1
+  },
+  {
+    "index": 389,
+    "class_id": "Videos1:c76eab7c501784d84acf",
+    "gloss": "FREGADO",
+    "usable_references": 3
+  },
+  {
+    "index": 390,
+    "class_id": "Videos1:c7a596316d63653b690a",
+    "gloss": "ASOMAR",
+    "usable_references": 1
+  },
+  {
+    "index": 391,
+    "class_id": "Videos1:c7d89b17be7261e0f02d",
+    "gloss": "PROTEGER",
+    "usable_references": 1
+  },
+  {
+    "index": 392,
+    "class_id": "Videos1:c849699fdafa1d4edbd5",
+    "gloss": "PERSONAS",
+    "usable_references": 1
+  },
+  {
+    "index": 393,
+    "class_id": "Videos1:c84b7401c1fa378c9ac6",
+    "gloss": "SIEMPRE",
+    "usable_references": 1
+  },
+  {
+    "index": 394,
+    "class_id": "Videos1:c8780384153b1520ee31",
+    "gloss": "BIEN/MEJOR",
+    "usable_references": 1
+  },
+  {
+    "index": 395,
+    "class_id": "Videos1:c92b7bf4017a4350587b",
+    "gloss": "ESPERAR",
+    "usable_references": 14
+  },
+  {
+    "index": 396,
+    "class_id": "Videos1:ca0534973d0e8d4ad78b",
+    "gloss": "EXAMEN",
+    "usable_references": 2
+  },
+  {
+    "index": 397,
+    "class_id": "Videos1:ca6cec908f639b08cf04",
+    "gloss": "FINO",
+    "usable_references": 2
+  },
+  {
+    "index": 398,
+    "class_id": "Videos1:caadceb1a82c5dc72158",
+    "gloss": "CUANTOS",
+    "usable_references": 1
+  },
+  {
+    "index": 399,
+    "class_id": "Videos1:caf29177198302734283",
+    "gloss": "PASADO",
+    "usable_references": 3
+  },
+  {
+    "index": 400,
+    "class_id": "Videos1:cc25d3e9c659af49da19",
+    "gloss": "ENCONTRARSE",
+    "usable_references": 1
+  },
+  {
+    "index": 401,
+    "class_id": "Videos1:cc575f244ac73319e4ba",
+    "gloss": "MEJOR",
+    "usable_references": 1
+  },
+  {
+    "index": 402,
+    "class_id": "Videos1:ccda2a0eb1600ef2ebaf",
+    "gloss": "CRUZAR-BICICLETA",
+    "usable_references": 1
+  },
+  {
+    "index": 403,
+    "class_id": "Videos1:cd10580a28a143aa0c3f",
+    "gloss": "ENFERMO (LSP) // ENFERMO",
+    "usable_references": 1
+  },
+  {
+    "index": 404,
+    "class_id": "Videos1:cd144ab2ff42f8bd12b5",
+    "gloss": "MAMA",
+    "usable_references": 4
+  },
+  {
+    "index": 405,
+    "class_id": "Videos1:cd5991d80ad8f888fdc5",
+    "gloss": "CONTAR BILLETES",
+    "usable_references": 1
+  },
+  {
+    "index": 406,
+    "class_id": "Videos1:cd6fb68446872d2bf970",
+    "gloss": "ALGUNOS",
+    "usable_references": 4
+  },
+  {
+    "index": 407,
+    "class_id": "Videos1:cdcff1341f20d6c7ccd9",
+    "gloss": "POCO",
+    "usable_references": 2
+  },
+  {
+    "index": 408,
+    "class_id": "Videos1:cf21cea607cde327a2d9",
+    "gloss": "JALAR-CORDON",
+    "usable_references": 2
+  },
+  {
+    "index": 409,
+    "class_id": "Videos1:cfd66e598d850b0a0f3f",
+    "gloss": "OJOS",
+    "usable_references": 1
+  },
+  {
+    "index": 410,
+    "class_id": "Videos1:d1f42dd560e8fa4d8c6a",
+    "gloss": "NO-IMPORTAR",
+    "usable_references": 1
+  },
+  {
+    "index": 411,
+    "class_id": "Videos1:d4008456cd59ffd7cd7d",
+    "gloss": "SOLO",
+    "usable_references": 1
+  },
+  {
+    "index": 412,
+    "class_id": "Videos1:d42799475764bab5da4d",
+    "gloss": "TIEMPO",
+    "usable_references": 5
+  },
+  {
+    "index": 413,
+    "class_id": "Videos1:d4441ddd6fe481251b40",
+    "gloss": "TIPEAR",
+    "usable_references": 1
+  },
+  {
+    "index": 414,
+    "class_id": "Videos1:d4eb3a6a11a19c620f2d",
+    "gloss": "ANTES",
+    "usable_references": 3
+  },
+  {
+    "index": 415,
+    "class_id": "Videos1:d567c2c453c92d1fa4d1",
+    "gloss": "SEÑAR",
+    "usable_references": 6
+  },
+  {
+    "index": 416,
+    "class_id": "Videos1:d67b9ef47256493e757b",
+    "gloss": "QUIEN",
+    "usable_references": 2
+  },
+  {
+    "index": 417,
+    "class_id": "Videos1:d7def6500fb12b33dcaf",
+    "gloss": "SENTIR",
+    "usable_references": 1
+  },
+  {
+    "index": 418,
+    "class_id": "Videos1:d9318828d1b56501601e",
+    "gloss": "CASUALIDAD",
+    "usable_references": 1
+  },
+  {
+    "index": 419,
+    "class_id": "Videos1:d95f9625fa82ce006ba0",
+    "gloss": "CONTAR",
+    "usable_references": 5
+  },
+  {
+    "index": 420,
+    "class_id": "Videos1:d9edd908f9582a25163c",
+    "gloss": "CARGAR",
+    "usable_references": 1
+  },
+  {
+    "index": 421,
+    "class_id": "Videos1:d9edda9cb0de437679b8",
+    "gloss": "DIECISEIS",
+    "usable_references": 6
+  },
+  {
+    "index": 422,
+    "class_id": "Videos1:d9fe01aa16de7a0ec862",
+    "gloss": "ENTREGAR",
+    "usable_references": 1
+  },
+  {
+    "index": 423,
+    "class_id": "Videos1:dabbcd7b0ee92e0870cd",
+    "gloss": "DAR",
+    "usable_references": 3
+  },
+  {
+    "index": 424,
+    "class_id": "Videos1:db8885571b2a68855491",
+    "gloss": "BOMBERO",
+    "usable_references": 1
+  },
+  {
+    "index": 425,
+    "class_id": "Videos1:db945404a29efb9cc9f5",
+    "gloss": "ELLOS",
+    "usable_references": 1
+  },
+  {
+    "index": 426,
+    "class_id": "Videos1:dc491a6d5664ceef80c6",
+    "gloss": "DIFERENTE",
+    "usable_references": 1
+  },
+  {
+    "index": 427,
+    "class_id": "Videos1:dc78c8561efb85396ba1",
+    "gloss": "ENCENDER-MOTOR",
+    "usable_references": 1
+  },
+  {
+    "index": 428,
+    "class_id": "Videos1:dca8f20403e6146f9b96",
+    "gloss": "CAMINAR-ELEFANTE",
+    "usable_references": 1
+  },
+  {
+    "index": 429,
+    "class_id": "Videos1:dcbf454ab6373997c10d",
+    "gloss": "CARGAR-MOCHILA",
+    "usable_references": 1
+  },
+  {
+    "index": 430,
+    "class_id": "Videos1:dd4a48e874f6acab4822",
+    "gloss": "BAJAR-ESCALERA",
+    "usable_references": 2
+  },
+  {
+    "index": 431,
+    "class_id": "Videos1:dd6ae4685217fa141dbe",
+    "gloss": "AMIGO",
+    "usable_references": 6
+  },
+  {
+    "index": 432,
+    "class_id": "Videos1:ddac4d810d115fcae5d8",
+    "gloss": "ARETE",
+    "usable_references": 3
+  },
+  {
+    "index": 433,
+    "class_id": "Videos1:de5a6f78116eca62d7fc",
+    "gloss": "V",
+    "usable_references": 1
+  },
+  {
+    "index": 434,
+    "class_id": "Videos1:deb82df033e13efe744d",
+    "gloss": "ABRAZAR",
+    "usable_references": 1
+  },
+  {
+    "index": 435,
+    "class_id": "Videos1:df7e70e5021544f4834b",
+    "gloss": "B",
+    "usable_references": 1
+  },
+  {
+    "index": 436,
+    "class_id": "Videos1:dfa7676d567e9363a31e",
+    "gloss": "CIEN",
+    "usable_references": 5
+  },
+  {
+    "index": 437,
+    "class_id": "Videos1:dfc17fb0a996e977bf62",
+    "gloss": "REFRESCAR",
+    "usable_references": 1
+  },
+  {
+    "index": 438,
+    "class_id": "Videos1:e142df1475c74b267c1c",
+    "gloss": "CORRER",
+    "usable_references": 2
+  },
+  {
+    "index": 439,
+    "class_id": "Videos1:e2494df714f126f248b5",
+    "gloss": "CUANDO",
+    "usable_references": 4
+  },
+  {
+    "index": 440,
+    "class_id": "Videos1:e26e47205d26bc9a7542",
+    "gloss": "FREGRADO",
+    "usable_references": 1
+  },
+  {
+    "index": 441,
+    "class_id": "Videos1:e28d9bd6f5273e2df6a2",
+    "gloss": "AGARRAR-BOTELLA",
+    "usable_references": 2
+  },
+  {
+    "index": 442,
+    "class_id": "Videos1:e2a1179886b971226526",
+    "gloss": "AHORA",
+    "usable_references": 5
+  },
+  {
+    "index": 443,
+    "class_id": "Videos1:e39cc5cf3be9050f4314",
+    "gloss": "PEQUEÑO",
+    "usable_references": 2
+  },
+  {
+    "index": 444,
+    "class_id": "Videos1:e3be3d4ccafe799df7ff",
+    "gloss": "INCREIBLE",
+    "usable_references": 1
+  },
+  {
+    "index": 445,
+    "class_id": "Videos1:e411c512cfdacea9ab32",
+    "gloss": "IMPOSIBLE",
+    "usable_references": 4
+  },
+  {
+    "index": 446,
+    "class_id": "Videos1:e4475fc50e3f774729db",
+    "gloss": "MUCHO",
+    "usable_references": 6
+  },
+  {
+    "index": 447,
+    "class_id": "Videos1:e5ccf011d642781b1ee2",
+    "gloss": "FUERTE",
+    "usable_references": 1
+  },
+  {
+    "index": 448,
+    "class_id": "Videos1:e6205bc8ab80302276cc",
+    "gloss": "PAN",
+    "usable_references": 5
+  },
+  {
+    "index": 449,
+    "class_id": "Videos1:e632b7095b0bf32c260f",
+    "gloss": "T",
+    "usable_references": 1
+  },
+  {
+    "index": 450,
+    "class_id": "Videos1:e63520e45692c6982893",
+    "gloss": "CUATRO",
+    "usable_references": 3
+  },
+  {
+    "index": 451,
+    "class_id": "Videos1:e6dc2033a43bbb630c5e",
+    "gloss": "CAPTAR",
+    "usable_references": 5
+  },
+  {
+    "index": 452,
+    "class_id": "Videos1:e7563517a678b1baf768",
+    "gloss": "HORA",
+    "usable_references": 3
+  },
+  {
+    "index": 453,
+    "class_id": "Videos1:e77fc2c94b58c92ceb36",
+    "gloss": "DOBLAR",
+    "usable_references": 1
+  },
+  {
+    "index": 454,
+    "class_id": "Videos1:e8ed0935b3154e6a7391",
+    "gloss": "PRESTARME",
+    "usable_references": 1
+  },
+  {
+    "index": 455,
+    "class_id": "Videos1:e906a6c5beb995aff60e",
+    "gloss": "MISIO",
+    "usable_references": 1
+  },
+  {
+    "index": 456,
+    "class_id": "Videos1:eaeff6ffd56f606b9fad",
+    "gloss": "ROBAR",
+    "usable_references": 2
+  },
+  {
+    "index": 457,
+    "class_id": "Videos1:eafe4ea4cc69e5f5937d",
+    "gloss": "EMPEZAR",
+    "usable_references": 5
+  },
+  {
+    "index": 458,
+    "class_id": "Videos1:eb6c5133e60dd27e556a",
+    "gloss": "DESAPARECER",
+    "usable_references": 3
+  },
+  {
+    "index": 459,
+    "class_id": "Videos1:ebc84c38dc7646e1c55c",
+    "gloss": "DAME",
+    "usable_references": 2
+  },
+  {
+    "index": 460,
+    "class_id": "Videos1:ecba203eb3a473b7c3f3",
+    "gloss": "UNO ",
+    "usable_references": 1
+  },
+  {
+    "index": 461,
+    "class_id": "Videos1:ed17d300838787cd09bc",
+    "gloss": "CHAU",
+    "usable_references": 5
+  },
+  {
+    "index": 462,
+    "class_id": "Videos1:eda1b593aa3a6440c58c",
+    "gloss": "JEFE",
+    "usable_references": 1
+  },
+  {
+    "index": 463,
+    "class_id": "Videos1:ee1df2a09cd0af5c12d0",
+    "gloss": "CAER-ESCALERA",
+    "usable_references": 1
+  },
+  {
+    "index": 464,
+    "class_id": "Videos1:ee72adb4d6421708a824",
+    "gloss": "ANIMAL",
+    "usable_references": 1
+  },
+  {
+    "index": 465,
+    "class_id": "Videos1:eeeb2895fbe225aba0f9",
+    "gloss": "PERSONAS-JUNTAS",
+    "usable_references": 1
+  },
+  {
+    "index": 466,
+    "class_id": "Videos1:ef04dc3ae14640ae5b42",
+    "gloss": "ALLA",
+    "usable_references": 2
+  },
+  {
+    "index": 467,
+    "class_id": "Videos1:f030a55526ab1240ffe1",
+    "gloss": "CONTAR-BILLETES",
+    "usable_references": 1
+  },
+  {
+    "index": 468,
+    "class_id": "Videos1:f097b7399886156518bf",
+    "gloss": "DEBAJO",
+    "usable_references": 6
+  },
+  {
+    "index": 469,
+    "class_id": "Videos1:f179f7f2ce313951a46b",
+    "gloss": "JOVEN",
+    "usable_references": 6
+  },
+  {
+    "index": 470,
+    "class_id": "Videos1:f2491eba3dd35da0df26",
+    "gloss": "OCUPADO",
+    "usable_references": 1
+  },
+  {
+    "index": 471,
+    "class_id": "Videos1:f30405b8a2152af7e3b8",
+    "gloss": "TIA",
+    "usable_references": 1
+  },
+  {
+    "index": 472,
+    "class_id": "Videos1:f4423a90d57f4a35c46f",
+    "gloss": "CRUZAR-BOTE",
+    "usable_references": 3
+  },
+  {
+    "index": 473,
+    "class_id": "Videos1:f48a5bfd6c485617c993",
+    "gloss": "NO-HABER",
+    "usable_references": 1
+  },
+  {
+    "index": 474,
+    "class_id": "Videos1:f52158c84506146bd601",
+    "gloss": "AVION",
+    "usable_references": 4
+  },
+  {
+    "index": 475,
+    "class_id": "Videos1:f54b1cb3de6b36bca945",
+    "gloss": "ANOCHECER",
+    "usable_references": 3
+  },
+  {
+    "index": 476,
+    "class_id": "Videos1:f67ab10ad4e4c53121b6",
+    "gloss": "F",
+    "usable_references": 1
+  },
+  {
+    "index": 477,
+    "class_id": "Videos1:f6f12d007349ae2711b1",
+    "gloss": "MATEMATICA",
+    "usable_references": 1
+  },
+  {
+    "index": 478,
+    "class_id": "Videos1:f770a3e9e38cdce78445",
+    "gloss": "LLAVE",
+    "usable_references": 3
+  },
+  {
+    "index": 479,
+    "class_id": "Videos1:f7c074250e96b93f9973",
+    "gloss": "CONVERSAR",
+    "usable_references": 3
+  },
+  {
+    "index": 480,
+    "class_id": "Videos1:f802debcca3f29ee45e5",
+    "gloss": "CASARSE",
+    "usable_references": 1
+  },
+  {
+    "index": 481,
+    "class_id": "Videos1:f8057a4880f2c45c7679",
+    "gloss": "POR FAVOR",
+    "usable_references": 1
+  },
+  {
+    "index": 482,
+    "class_id": "Videos1:f877cbeb5bdeef2ec3e3",
+    "gloss": "MEZCLAR",
+    "usable_references": 2
+  },
+  {
+    "index": 483,
+    "class_id": "Videos1:f8795ae88a998dc2f917",
+    "gloss": "COMER ",
+    "usable_references": 1
+  },
+  {
+    "index": 484,
+    "class_id": "Videos1:f88ddd7b4992f2d7ca28",
+    "gloss": "FASTIDIAR",
+    "usable_references": 1
+  },
+  {
+    "index": 485,
+    "class_id": "Videos1:fc55387fea1a3075533d",
+    "gloss": "ACORDAR",
+    "usable_references": 1
+  },
+  {
+    "index": 486,
+    "class_id": "Videos1:fc9e0f31bf04d164b2d6",
+    "gloss": "ALEJAR-DE-LA PERSONA",
+    "usable_references": 1
+  },
+  {
+    "index": 487,
+    "class_id": "Videos1:fcb5f40df9be6bae66c1",
+    "gloss": "W",
+    "usable_references": 1
+  },
+  {
+    "index": 488,
+    "class_id": "Videos1:fda442d8e538242141b0",
+    "gloss": "TODA-LA-NOCHE",
+    "usable_references": 1
+  },
+  {
+    "index": 489,
+    "class_id": "Videos1:fda6e493fe337639c739",
+    "gloss": "DETENER - PARAR",
+    "usable_references": 1
+  },
+  {
+    "index": 490,
+    "class_id": "Videos1:feb1cc2991c1cd2a48c7",
+    "gloss": "ABRIR",
+    "usable_references": 1
+  },
+  {
+    "index": 491,
+    "class_id": "Videos1:ff0f9fba205739320d69",
+    "gloss": "ESCRIBIR",
+    "usable_references": 5
+  },
+  {
+    "index": 492,
+    "class_id": "Videos1:ffb4d1959c034c266ca7",
+    "gloss": "HOSPITAL",
+    "usable_references": 1
+  }
+]

@@ -25,6 +25,7 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
   const capture = useRef<Capture | null>(null)
   const [phase, setPhase] = useState<Phase>('idle')
   const [model, setModel] = useState<ModelState | null>(null)
+  const [reference, setReference] = useState(false)
   const [cameraOn, setCameraOn] = useState(false)
   const [mode, setMode] = useState<'manual' | 'auto' | 'fingers'>('manual')
   const [connecting, setConnecting] = useState(false)
@@ -69,6 +70,7 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
       if (token !== connectionGeneration.current) return
       if (!state.ready || state.contract !== CONTRACT || state.extractor_sha256 !== EXTRACTOR_SHA) throw new Error('La versión del servidor no es compatible con esta interfaz.')
       setModel(state)
+      if (!state.referencias_disponibles) setReference(false)
     } catch (e) {
       if (token === connectionGeneration.current) setConnectionError(e instanceof Error ? e.message : 'No se pudo conectar.')
     } finally {
@@ -116,7 +118,7 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
     const controller = new AbortController(); abort.current = controller
     setPhase('sending'); setMessage('Procesando la seña…')
     try {
-      const prediction = await predecirSena(payload, controller.signal)
+      const prediction = await predecirSena(payload, controller.signal, reference)
       if (token !== generation.current) return
       setResult(prediction); setMessage(prediction.mensaje)
     } catch (e) {
@@ -183,6 +185,11 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
       <Button variant={mode === 'fingers' ? 'default' : 'outline'} aria-pressed={mode === 'fingers'} disabled={phase !== 'idle'} onClick={() => { setMode('fingers'); setResult(null); setMessage('Activa la cámara. Este modo muestra los dedos sin conectar el servidor.') }}>Ver dedos</Button>
     </div>
     {mode === 'fingers' && <p className="rounded-xl border border-blue-200 bg-blue-50 p-4 text-blue-900">21 puntos por mano: muñeca y articulaciones de los cinco dedos, unidos por líneas verdes. Detecta ambas manos; este modo visualiza su posición, no identifica palabras ni cuenta dedos extendidos.</p>}
+      {mode !== 'fingers' && model?.referencias_disponibles && <label className="block rounded-xl border border-blue-200 bg-blue-50 p-4">
+        <input type="checkbox" className="mr-3 h-5 w-5 align-middle" checked={reference} disabled={phase !== 'idle'} onChange={event => { setReference(event.target.checked); setResult(null) }} />
+        Comparar con Videos1 ({model.clases_referencia?.length ?? 0} señas, experimental)
+        <span className="mt-2 block text-sm">Muestra posibles coincidencias con los videos. No confirma la seña ni tiene precisión validada con personas nuevas.</span>
+      </label>}
     <div className="flex flex-wrap gap-3">
       <Button onClick={() => void activate()} disabled={cameraOn || phase !== 'idle'}>{phase === 'camera' ? 'Esperando permiso…' : 'Activar cámara'}</Button>
       {mode !== 'fingers' && <Button variant="outline" onClick={() => void connect()} disabled={phase !== 'idle' || connecting}>{connecting ? 'Conectando…' : 'Conectar servidor'}</Button>}
@@ -197,7 +204,7 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
       {!cameraOn && <div className="absolute inset-0 flex items-center justify-center text-white">La cámara está desactivada</div>}
       {mode === 'fingers' && <FingerTracker video={video.current} enabled={cameraOn} />}
     </div>
-    {mode === 'auto' && <AutomaticRecognizer video={video.current} enabled={cameraOn && !!model?.ready} onResult={setResult} />}
+    {mode === 'auto' && <AutomaticRecognizer video={video.current} enabled={cameraOn && !!model?.ready && (!reference || !!model?.referencias_disponibles)} onResult={setResult} reference={reference} />}
     {mode === 'manual' && <div className="flex flex-wrap items-center gap-3">
       <Button onClick={() => void start()} disabled={!cameraOn || phase !== 'idle' || !model?.ready}>Iniciar seña</Button>
       <Button onClick={() => void finish()} disabled={phase !== 'capturing'}>Terminar y reconocer</Button>
@@ -205,11 +212,14 @@ export function Recognizer({ onVerEnDiccionario }: { onVerEnDiccionario?: (glosa
     </div>}
     {result && <section aria-live="polite" className="rounded-xl border bg-white p-6">
       <h2 className="font-semibold">Resultado experimental</h2>
-      <p className="my-3 text-3xl">{result.glosa ?? (result.estado === 'captura_insuficiente' ? 'Captura insuficiente' : 'No concluyente')}</p>
+      <p className="my-3 text-3xl">{result.referencias?.length ? 'Posibles coincidencias' : result.glosa ?? (result.estado === 'captura_insuficiente' ? 'Captura insuficiente' : 'No concluyente')}</p>
+      {result.referencias && <><p className="mb-3 text-sm">{result.mensaje}</p><ol className="list-inside list-decimal space-y-3">{result.referencias.map(candidate => <li key={candidate.glosa}>
+        <span className="font-semibold">{candidate.glosa}</span>{onVerEnDiccionario && <Button variant="outline" className="ml-3" onClick={() => onVerEnDiccionario(candidate.glosa)}>Buscar en diccionario</Button>}
+      </li>)}</ol></>}
       {result.confidence !== null && <p>Confianza del modelo: {(result.confidence * 100).toFixed(1)} % (no calibrada).</p>}
       {result.glosa && onVerEnDiccionario && <Button variant="outline" className="mt-3" onClick={() => onVerEnDiccionario(result.glosa!)}>Consultar en diccionario</Button>}
     </section>}
-    {mode !== 'fingers' && model && <section><h2 className="font-semibold">Vocabulario experimental</h2><p className="mt-2 text-slate-600">{model.clases.join(', ')}</p></section>}
+    {mode !== 'fingers' && model && <section><h2 className="font-semibold">Vocabulario experimental</h2><details className="mt-2 text-slate-600"><summary>Ver {(reference ? model.clases_referencia ?? [] : model.clases).length} señas</summary><p className="mt-2">{(reference ? model.clases_referencia ?? [] : model.clases).join(', ')}</p></details></section>}
     <p className="text-sm text-slate-500">{mode === 'fingers' ? 'El seguimiento de dedos se procesa en tu dispositivo. Este modo no envía puntos ni imágenes al servidor.' : 'La cámara se procesa en tu dispositivo. Se envían puntos y tiempos al servidor para reconocer la seña; no se envía el video.'}</p>
   </div>
 }

@@ -82,6 +82,7 @@ export async function listarSenas(): Promise<SenaCatalogo[]> {
 }
 
 export interface PrediccionLSP {
+  referencias?: { glosa: string; distancia: number; ejemplo_id: string }[]
   glosa: string | null
   confidence: number | null
   estado: 'resultado_experimental' | 'no_concluyente' | 'captura_insuficiente'
@@ -90,6 +91,8 @@ export interface PrediccionLSP {
 }
 
 export interface ModelState {
+  referencias_disponibles?: boolean
+  clases_referencia?: string[]
   ready: boolean
   extractor_runtime: string
   contract: string
@@ -133,8 +136,8 @@ export async function conectarModelo(signal: AbortSignal): Promise<ModelState> {
   throw new Error('El servidor está disponible, pero el modelo no está listo. Intenta conectar más tarde.')
 }
 
-export async function predecirSena(capture: import('./recognition-contract').Capture, signal: AbortSignal): Promise<PrediccionLSP> {
-  const response = await request('/api/predict', {
+export async function predecirSena(capture: import('./recognition-contract').Capture, signal: AbortSignal, reference = false): Promise<PrediccionLSP> {
+  const response = await request(reference ? '/api/predict-reference' : '/api/predict', {
     method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(capture),
   }, signal, 20000)
   if (!response.ok) {
