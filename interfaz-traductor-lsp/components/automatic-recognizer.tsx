@@ -1,106 +1,145 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import type { HolisticLandmarker } from '@mediapipe/tasks-vision'
 import { AutoSegmenter } from '@/lib/auto-segmenter'
 import { CONTRACT, EXTRACTOR_SHA, packHands } from '@/lib/recognition-contract'
 import { EXTRACTOR_RUNTIME } from '@/lib/runtime-contract'
 import { predecirSena, type PrediccionLSP } from '@/lib/api'
-import { Button } from '@/components/ui/button'
 
-export function AutomaticRecognizer({ video, enabled, onResult, reference = false }: {
-  reference?: boolean
+export type AutomaticRecognitionState = 'idle' | 'preparing' | 'waiting' | 'capturing' | 'processing'
+
+type AutomaticRecognizerProps = {
   video: HTMLVideoElement | null
   enabled: boolean
   onResult: (result: PrediccionLSP) => void
-}) {
-  const [paused, setPaused] = useState(false)
-  const [status, setStatus] = useState('Conecta el servidor y activa la cámara para comenzar.')
-  const [error, setError] = useState('')
-  const [hands, setHands] = useState(0)
-  const [attempt, setAttempt] = useState(0)
+  onStateChange: (state: AutomaticRecognitionState) => void
+  onError: (message: string) => void
+}
+
+/**
+ * Reconoce señas aisladas de forma automática mientras la cámara esté activa.
+ * No dibuja la interfaz: el resultado y los mensajes los muestra la página.
+ */
+export function AutomaticRecognizer({ video, enabled, onResult, onStateChange, onError }: AutomaticRecognizerProps) {
+  const callbacks = useRef({ onResult, onStateChange, onError })
 
   useEffect(() => {
-    if (!enabled || !video || paused) return
+    callbacks.current = { onResult, onStateChange, onError }
+  }, [onResult, onStateChange, onError])
+
+  useEffect(() => {
+    if (!enabled || !video) {
+      callbacks.current.onStateChange('idle')
+      return
+    }
+
     const controller = new AbortController()
     const segmenter = new AutoSegmenter()
     let instance: HolisticLandmarker | null = null
-    let disposed = false, raf = 0, lastTime = -1
+    let disposed = false
+    let raf = 0
+    let lastTime = -1
     let watchdog: ReturnType<typeof setTimeout> | undefined
     let lastFrameAt = performance.now()
+    let reported: AutomaticRecognitionState = 'idle'
+    const resetFrameWatchdog = () => { lastFrameAt = performance.now() }
+    document.addEventListener('visibilitychange', resetFrameWatchdog)
+
+    const report = (state: AutomaticRecognitionState) => {
+      if (reported === state) return
+      reported = state
+      callbacks.current.onStateChange(state)
+    }
+
     const cleanup = () => {
-      disposed = true; controller.abort(); cancelAnimationFrame(raf)
-      clearTimeout(watchdog); instance?.close(); instance = null
+      disposed = true
+      controller.abort()
+      cancelAnimationFrame(raf)
+      clearTimeout(watchdog)
+      document.removeEventListener('visibilitychange', resetFrameWatchdog)
+      instance?.close()
+      instance = null
     }
+
     const fail = (message: string) => {
-      cleanup(); setError(message); setStatus('Modo automático detenido.'); setPaused(true)
+      if (disposed) return
+      cleanup()
+      report('idle')
+      callbacks.current.onError(message)
     }
-    const visibility = () => {
-      if (document.hidden) { cleanup(); setPaused(true); setStatus('Pausado al cambiar de pestaña.') }
-    }
-    document.addEventListener('visibilitychange', visibility)
-    setError(''); setHands(0); setStatus('Preparando detector… la primera carga puede tardar.')
-    watchdog = setTimeout(() => fail('El detector tardó demasiado en iniciar. Comprueba la conexión y pulsa Reanudar automático.'), 60000)
+
+    report('preparing')
+    watchdog = setTimeout(() => fail('El reconocimiento tardó demasiado en iniciar. Desactiva y activa la cámara para reintentar.'), 60000)
 
     const boot = async () => {
       try {
         const { createDetector } = await import('@/lib/holistic-extractor')
         if (disposed) return
         const ready = await createDetector('/mediapipe', controller.signal)
-        if (disposed) { ready.close(); return }
-        instance = ready; clearTimeout(watchdog)
-        if (document.hidden) { visibility(); return }
+        if (disposed) {
+          ready.close()
+          return
+        }
+        instance = ready
+        clearTimeout(watchdog)
         lastFrameAt = performance.now()
-        setStatus('Esperando movimiento. Realiza una seña y termina con una pausa.')
+        report('waiting')
+
         const loop = async () => {
           if (disposed || !instance) return
           try {
+            if (document.hidden) {
+              lastFrameAt = performance.now()
+              raf = requestAnimationFrame(() => { void loop() })
+              return
+            }
             const timestamp = Math.round(video.currentTime * 1000)
-            if (performance.now() - lastFrameAt > 8000) { fail('La cámara dejó de entregar imágenes. Detén y vuelve a activar la cámara.'); return }
+            if (performance.now() - lastFrameAt > 8000) {
+              fail('La cámara dejó de entregar imágenes. Desactívala y vuelve a activarla.')
+              return
+            }
             if (video.readyState >= 2 && timestamp > lastTime && (lastTime < 0 || timestamp - lastTime >= 1000 / 15)) {
-              lastTime = timestamp; lastFrameAt = performance.now()
+              lastTime = timestamp
+              lastFrameAt = performance.now()
               const packed = packHands(instance.detectForVideo(video, timestamp))
-              setHands(Number(packed.mask.slice(0, 21).some(Boolean)) + Number(packed.mask.slice(21).some(Boolean)))
               const frames = segmenter.push({ ...packed, time: timestamp })
               if (frames) {
-                setStatus('Procesando seña… espera el resultado antes de realizar la siguiente.')
-                // No programar otro frame hasta terminar esta petición: nunca hay envíos simultáneos.
+                report('processing')
+                // No se programa otro fotograma hasta terminar esta petición.
                 const prediction = await predecirSena({
-                  contract: CONTRACT, extractor_sha256: EXTRACTOR_SHA,
+                  contract: CONTRACT,
+                  extractor_sha256: EXTRACTOR_SHA,
                   ...{ extractor_runtime: EXTRACTOR_RUNTIME },
-                  landmarks: frames.map(f => f.values), point_mask: frames.map(f => f.mask),
-                  timestamps_ms: frames.map(f => f.time - frames[0].time),
-                  width: video.videoWidth, height: video.videoHeight,
-                }, controller.signal, reference)
+                  landmarks: frames.map(frame => frame.values),
+                  point_mask: frames.map(frame => frame.mask),
+                  timestamps_ms: frames.map(frame => frame.time - frames[0].time),
+                  width: video.videoWidth,
+                  height: video.videoHeight,
+                }, controller.signal, false)
                 if (disposed) return
-                onResult(prediction); setAttempt(n => n + 1)
+                callbacks.current.onResult(prediction)
                 segmenter.resetAfterResult(Math.round(video.currentTime * 1000))
                 lastFrameAt = performance.now()
+                report('waiting')
+              } else {
+                report(segmenter.state === 'capturing' ? 'capturing' : 'waiting')
               }
-              setStatus(segmenter.state === 'capturing' ? 'Capturando seña… haz una pausa al terminar.'
-                : segmenter.state === 'rest' ? 'Resultado listo o movimiento descartado. Deja las manos quietas un momento antes de la siguiente seña.'
-                : 'Esperando movimiento. Realiza una seña y termina con una pausa.')
             }
             raf = requestAnimationFrame(() => { void loop() })
-          } catch (e) {
-            if (!disposed) fail(e instanceof Error ? e.message : 'Falló el reconocimiento automático.')
+          } catch (error) {
+            if (!disposed) fail(error instanceof Error ? error.message : 'No se pudo procesar la seña.')
           }
         }
         raf = requestAnimationFrame(() => { void loop() })
-      } catch (e) {
-        if (!disposed) fail(e instanceof Error ? e.message : 'No se pudo iniciar el detector.')
+      } catch (error) {
+        if (!disposed) fail(error instanceof Error ? error.message : 'No se pudo iniciar el reconocimiento.')
       }
     }
-    void boot()
-    return () => { cleanup(); document.removeEventListener('visibilitychange', visibility) }
-  }, [enabled, video, paused, onResult, reference])
 
-  return <section className="space-y-3 rounded-xl border border-blue-200 bg-blue-50 p-4" aria-label="Modo automático">
-    <p className="font-semibold">Automático experimental</p>
-    <p className="text-sm">Haz una seña aislada, pausa y espera el resultado. Mantén las manos quietas antes de la siguiente. Las pausas dentro de una seña pueden dividirla; usa el modo manual si ocurre.</p>
-    <p role="status">{enabled ? status : 'Activa la cámara y conecta el servidor para comenzar.'}</p>
-    <p className="text-sm">{enabled && !paused ? `${hands} mano(s) detectada(s) · ` : ''}{attempt} captura(s) procesada(s)</p>
-    {error && <p role="alert" className="text-red-800">{error}</p>}
-    <Button variant="outline" disabled={!enabled} onClick={() => { setPaused(p => !p); setStatus(paused ? 'Preparando detector…' : 'Automático pausado.') }}>{paused ? 'Reanudar automático' : 'Pausar automático'}</Button>
-  </section>
+    void boot()
+    return cleanup
+  }, [enabled, video])
+
+  return null
 }
