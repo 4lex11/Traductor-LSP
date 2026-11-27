@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prueba de letras LSP</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; color: #101b30; background: #f3f7fc; }
+    body { margin: 0; }
+    main { max-width: 52rem; padding: 2rem 1rem; margin: auto; }
+    h1 { margin: .4rem 0; font-size: clamp(1.8rem, 5vw, 2.7rem); }
+    p { line-height: 1.5; }
+    a { color: #1646a8; }
+    video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #101b30; border-radius: 1rem; transform: scaleX(-1); }
+    .controls, .results { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1rem; }
+    button { padding: .65rem 1rem; min-height: 2.65rem; border-radius: .55rem; border: 1px solid #1746a2; background: #1746a2; color: white; font: inherit; font-weight: 600; cursor: pointer; }
+    button:disabled { background: #d8e0ed; color: #41526b; border-color: #d8e0ed; cursor: default; }
+    button:focus-visible, a:focus-visible { outline: 3px solid #2d67d6; outline-offset: 3px; }
+    article { flex: 1 1 13rem; border: 1px solid #cbd6e7; border-radius: .8rem; background: white; padding: 1rem; }
+    h2 { font-size: 1rem; margin: 0; }
+    output { display: block; color: #143f95; margin-top: .4rem; font-size: 1.8rem; font-weight: 700; }
+    #estado { min-height: 1.5em; }
+    .note { color: #3e4e66; font-size: .9rem; }
+  </style>
+</head>
+<body>
+<main>
+  <a href="/">Volver a Traductor LSP</a>
+  <h1>Prueba de letras con fotos</h1>
+  <p>Haz <strong>A, B, C, D, E, I, O o U</strong> con una sola mano y mantenla quieta al pulsar «Comparar postura».</p>
+  <video id="camara" muted playsinline aria-label="Vista de la cámara"></video>
+  <div class="controls">
+    <button id="activar" type="button">Activar cámara</button>
+    <button id="comparar" type="button" disabled>Comparar postura</button>
+  </div>
+  <p id="estado" role="status">Activa la cámara para comenzar.</p>
+  <section class="results" aria-label="Coincidencias experimentales">
+    <article><h2>Solo videos PUCP</h2><output id="videos" aria-label="Coincidencias solo con videos">—</output></article>
+    <article><h2>Videos PUCP y fotos</h2><output id="fotos" aria-label="Coincidencias con videos y fotos">—</output></article>
+  </section>
+  <p class="note">Prueba experimental limitada a estas ocho letras. La cámara se procesa en tu navegador. <a href="https://github.com/Expo99/Static-Hand-Gestures-of-the-Peruvian-Sign-Language-Alphabet" target="_blank" rel="noreferrer">Fuente de las fotos</a> · <a href="./ATRIBUCION.txt">Fuentes y licencias</a></p>
+</main>
+<script type="module" src="./camara.mjs"></script>
+</body>
+</html>

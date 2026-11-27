@@ -1,9 +1,14 @@
+export function isLocalCameraHost(hostname: string) {
+  return ['127.0.0.1', 'localhost', '[::1]'].includes(hostname)
+}
+
 /** Solicitar cámara al pulsar el botón, sin depender del servidor ni del modelo. */
-export async function requestCamera(devices: Pick<MediaDevices, 'getUserMedia'> | undefined, secure: boolean) {
+export async function requestCamera(devices: Pick<MediaDevices, 'getUserMedia'> | undefined, secure: boolean, preferFullHd = false) {
   if (!secure) throw new Error('La cámara requiere HTTPS. Abre https://traductor-lsp.vercel.app directamente en tu navegador.')
   if (!devices?.getUserMedia) throw new Error('Este navegador no permite acceder a la cámara. Abre la página directamente en un navegador actualizado, fuera de vistas incrustadas.')
+  const [width, height] = preferFullHd ? [1920, 1080] : [640, 480]
   try {
-    return await devices.getUserMedia({ video: { width: { ideal: 640 }, height: { ideal: 480 }, facingMode: { ideal: 'user' } }, audio: false })
+    return await devices.getUserMedia({ video: { width: { ideal: width }, height: { ideal: height }, facingMode: { ideal: 'user' } }, audio: false })
   } catch (error) {
     if (error instanceof DOMException && error.name === 'OverconstrainedError') {
       return devices.getUserMedia({ video: true, audio: false })

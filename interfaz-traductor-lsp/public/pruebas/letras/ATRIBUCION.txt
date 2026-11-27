@@ -1,0 +1,20 @@
+Prueba experimental de letras de Lengua de Señas Peruana
+
+galeria-fotos.json
+Expo99, Static Hand Gestures of the Peruvian Sign Language Alphabet.
+https://github.com/Expo99/Static-Hand-Gestures-of-the-Peruvian-Sign-Language-Alphabet/tree/351a609dfba4d38203a5bd46306cecb7887dc4dc
+CC BY-SA 4.0: https://creativecommons.org/licenses/by-sa/4.0/
+Adaptación: 80 descriptores bidimensionales extraídos con MediaPipe Hand Landmarker
+para ocho letras. Los descriptores de este archivo se comparten bajo CC BY-SA 4.0.
+
+galeria-videos.json
+Rodríguez-Mondoñedo, Miguel; Pérez-Silva, Jorge; Velasquez, Héctor; Oporto, Sabina;
+Cerna, Francisco; Ramos, César; Vasquez, Carlos; Bejarano, Gisella (2024).
+Lengua de Señas Peruana (LSP) - PUCP 305 (glosas), V1.
+https://hdl.handle.net/20.500.12534/JU4OLG
+CC BY-NC 4.0: https://creativecommons.org/licenses/by-nc/4.0/
+Adaptación: 47 descriptores bidimensionales extraídos de intervalos anotados.
+
+vision.mjs
+Google MediaPipe Tasks Vision 1.2.0, Apache-2.0 (LICENSE-MediaPipe.txt).
+https://github.com/google-ai-edge/mediapipe

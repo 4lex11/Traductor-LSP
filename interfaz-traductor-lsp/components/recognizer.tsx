@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
+import type { NormalizedLandmark } from '@mediapipe/tasks-vision'
 import { AlertCircle, Camera, CameraOff, Hand } from 'lucide-react'
 import { conectarModelo, type PrediccionLSP } from '@/lib/api'
 import { CONTRACT, EXTRACTOR_SHA } from '@/lib/recognition-contract'
@@ -9,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import { AutomaticRecognizer, type AutomaticRecognitionState } from '@/components/automatic-recognizer'
 import { FingerTracker } from '@/components/finger-tracker'
 import { cn } from '@/lib/utils'
+import { drawPoseOverlay } from '@/lib/pose-overlay'
 
 type CameraState = 'off' | 'starting' | 'on'
 type ConnectionState = 'connecting' | 'ready' | 'error'
@@ -33,7 +35,7 @@ function resultMessage(
   if (connection === 'error') return connectionError || 'No se pudo conectar con el servidor.'
   if (camera === 'starting') return 'Activando cámara…'
   if (camera === 'off') return 'Activa la cámara para comenzar.'
-  if (result?.glosa) return result.glosa
+  if (result?.estado === 'resultado_experimental' && result.glosa) return result.glosa
   if (result?.estado === 'captura_insuficiente') return 'No se reconoció una seña.'
   if (result?.estado === 'no_concluyente') return 'Seña no reconocida.'
   if (recognition === 'preparing') return 'Preparando el reconocimiento…'
@@ -42,8 +44,9 @@ function resultMessage(
   return 'Esperando una seña…'
 }
 
-export function Recognizer({ onVerEnDiccionario: _onVerEnDiccionario }: { onVerEnDiccionario?: (glosa: string) => void }) {
+export function Recognizer() {
   const videoRef = useRef<HTMLVideoElement | null>(null)
+  const poseCanvas = useRef<HTMLCanvasElement>(null)
   const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null)
   const stream = useRef<MediaStream | null>(null)
   const cameraGeneration = useRef(0)
@@ -56,9 +59,14 @@ export function Recognizer({ onVerEnDiccionario: _onVerEnDiccionario }: { onVerE
   const [cameraError, setCameraError] = useState('')
   const [recognitionError, setRecognitionError] = useState('')
   const [recognitionState, setRecognitionState] = useState<AutomaticRecognitionState>('idle')
+  const [ahoraTrial, setAhoraTrial] = useState(false)
   const [result, setResult] = useState<PrediccionLSP | null>(null)
   const [showTracking, setShowTracking] = useState(true)
   const [videoAspect, setVideoAspect] = useState<number | null>(null)
+
+  const handlePose = useCallback((pose: readonly NormalizedLandmark[], width: number, height: number) => {
+    if (poseCanvas.current) drawPoseOverlay(poseCanvas.current, pose, width, height)
+  }, [])
 
   const attachVideo = useCallback((node: HTMLVideoElement | null) => {
     videoRef.current = node
@@ -72,12 +80,15 @@ export function Recognizer({ onVerEnDiccionario: _onVerEnDiccionario }: { onVerE
     connectionAbort.current = controller
     setConnectionState('connecting')
     setConnectionError('')
+    setAhoraTrial(false)
     try {
       const state = await conectarModelo(controller.signal)
       if (token !== connectionGeneration.current) return
       if (!state.ready || state.contract !== CONTRACT || state.extractor_sha256 !== EXTRACTOR_SHA) {
         throw new Error('La versión del servidor no es compatible.')
       }
+      setAhoraTrial(state.prueba_ahora_disponible === true &&
+        new URLSearchParams(window.location.search).get('prueba') === 'ahora')
       setConnectionState('ready')
     } catch (error) {
       if (token !== connectionGeneration.current) return
@@ -113,7 +124,7 @@ export function Recognizer({ onVerEnDiccionario: _onVerEnDiccionario }: { onVerE
     setCameraState('starting')
     if (connectionState === 'error') void connect()
     try {
-      const media = await requestCamera(navigator.mediaDevices, window.isSecureContext)
+      const media = await requestCamera(navigator.mediaDevices, window.isSecureContext, true)
       if (token !== cameraGeneration.current) {
         media.getTracks().forEach(track => track.stop())
         return
@@ -176,7 +187,7 @@ export function Recognizer({ onVerEnDiccionario: _onVerEnDiccionario }: { onVerE
   const cameraOn = cameraState === 'on'
   const recognitionEnabled = cameraOn && connectionState === 'ready' && !!videoElement
   const message = resultMessage(cameraState, connectionState, recognitionState, result, connectionError)
-  const isRecognized = !!result?.glosa
+  const isRecognized = result?.estado === 'resultado_experimental' && !!result.glosa
 
   return (
     <div className="mx-auto w-full max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
@@ -215,7 +226,7 @@ export function Recognizer({ onVerEnDiccionario: _onVerEnDiccionario }: { onVerE
           >
             <span className="flex items-center gap-2">
               <Hand aria-hidden="true" className="size-5 text-blue-700" />
-              Mostrar seguimiento de dedos
+              Mostrar seguimiento de dedos, brazos y cabeza
             </span>
             <span className="flex shrink-0 items-center gap-2">
               <span className="hidden text-xs font-medium text-slate-600 min-[380px]:inline">{showTracking ? 'Activado' : 'Desactivado'}</span>
@@ -267,7 +278,11 @@ export function Recognizer({ onVerEnDiccionario: _onVerEnDiccionario }: { onVerE
             }}
           />
           {cameraOn && showTracking && videoElement && (
-            <FingerTracker key={`seguimiento-${showTracking}`} video={videoElement} enabled />
+            <>
+              <canvas ref={poseCanvas} aria-hidden="true" data-tracking="pose"
+                className="pointer-events-none absolute inset-0 h-full w-full object-contain" />
+              <FingerTracker video={videoElement} enabled />
+            </>
           )}
           {!cameraOn && (
             <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-slate-950 px-6 text-center text-white">
@@ -287,7 +302,9 @@ export function Recognizer({ onVerEnDiccionario: _onVerEnDiccionario }: { onVerE
           aria-atomic="true"
           className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Resultado</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+            {ahoraTrial ? 'Prueba de AHORA' : 'Resultado'}
+          </p>
           <p className={cn(
             'mt-2 text-2xl font-bold leading-tight sm:text-3xl',
             isRecognized ? 'text-slate-950' : 'text-slate-600',
@@ -300,7 +317,9 @@ export function Recognizer({ onVerEnDiccionario: _onVerEnDiccionario }: { onVerE
       <AutomaticRecognizer
         video={videoElement}
         enabled={recognitionEnabled}
+        ahoraTrial={ahoraTrial}
         onResult={handleResult}
+        onPose={handlePose}
         onStateChange={handleRecognitionState}
         onError={handleRecognitionError}
       />

@@ -35,7 +35,7 @@ def prepare(raw, mask, times, width, height):
         values.append(normalized)
         masks.append(present & valid)
     relative = np.asarray(times, dtype=np.float64)
-    relative -= relative[0]
+    relative = relative - relative[0]
     data = dict(hands=np.asarray(values)[None], hands_mask=np.asarray(masks)[None],
                 times_ms=relative[None], lengths=np.array([len(raw)]),
                 frame_mask=np.ones((1, len(raw)), dtype=bool), y=np.array([0]))
@@ -43,8 +43,20 @@ def prepare(raw, mask, times, width, height):
     return x, lengths, float(mask.any(axis=1).mean()), float(np.asarray(masks).any(axis=1).mean())
 
 
+def mirror_single_hand(raw, mask):
+    """Refleja X y cambia de lado solo si se observó una única mano en el clip."""
+    present = np.asarray(mask, dtype=bool).reshape(-1, 2, 21)
+    seen = present.any(axis=(0, 2))
+    if seen.sum() != 1:
+        return None
+    mirrored_mask = present[:, ::-1].reshape(-1, 42)
+    mirrored = np.asarray(raw, dtype=np.float64).reshape(-1, 2, 21, 3)[:, ::-1].copy()
+    mirrored[..., 0] = np.where(present[:, ::-1], 1 - mirrored[..., 0], 0)
+    return mirrored.reshape(-1, 126), mirrored_mask
+
+
 class Recognizer:
-    def __init__(self, path):
+    def __init__(self, path, *, mirror_single_hand_enabled=False):
         metadata = json.loads(path.with_suffix('.json').read_text(encoding='utf-8'))
         if digest(path) != metadata['sha256']:
             raise ValueError('El hash del modelo no coincide')
@@ -72,6 +84,9 @@ class Recognizer:
         for row in mapping['clases']:
             self.classes[mapping['label_to_idx'][row['clase_fuente_id']]] = row['glosa_original']
         self.identifier = metadata['id']
+        self.mirror_single_hand_enabled = mirror_single_hand_enabled
+        if self.mirror_single_hand_enabled:
+            self.identifier += '-mano-indistinta'
         self.threshold = checkpoint['settings']['confidence_threshold']
 
     def predict(self, request, timings=None):
@@ -89,6 +104,20 @@ class Recognizer:
             probabilities = torch.softmax(self.model(x, lengths), dim=1)[0].numpy()
         if timings is not None:
             timings['inference'] = (perf_counter() - started) * 1000
+        if self.mirror_single_hand_enabled:
+            mirrored = mirror_single_hand(request.landmarks, request.point_mask)
+            if mirrored is not None:
+                started = perf_counter()
+                reflected, reflected_lengths, _, reflected_quality = prepare(
+                    *mirrored, request.timestamps_ms, request.width, request.height)
+                if reflected_quality >= .5:
+                    with torch.inference_mode():
+                        reflected_probabilities = torch.softmax(self.model(reflected, reflected_lengths), dim=1)[0].numpy()
+                    # El desempate por clase mantiene la decisión si se invierten ambos recorridos.
+                    probabilities = max((probabilities, reflected_probabilities),
+                                        key=lambda scores: (float(scores.max()), -int(scores.argmax())))
+                if timings is not None:
+                    timings['mirror'] = (perf_counter() - started) * 1000
         index = int(probabilities.argmax())
         confidence = float(probabilities[index])
         accepted = confidence >= self.threshold

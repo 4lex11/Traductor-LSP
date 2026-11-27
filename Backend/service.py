@@ -1,10 +1,12 @@
 """API experimental independiente de los datasets originales."""
 from contextlib import asynccontextmanager
+import json
 import logging
 import os
 from pathlib import Path
 from threading import Lock
 from typing import Annotated, Literal
+import unicodedata
 from fastapi import FastAPI, HTTPException, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -14,15 +16,29 @@ import torch
 from .inference import CONTRACT, EXTRACTOR_SHA, EXTRACTOR_RUNTIME, Recognizer
 
 BASE_DIR = Path(__file__).resolve().parent
+CATALOG_INDEX = BASE_DIR.parent / 'interfaz-traductor-lsp/public/catalog/index.json'
 lock = Lock()
+
+def catalog_glosses(reference):
+    def key(word):
+        return unicodedata.normalize('NFC', word.strip()).casefold()
+
+    entries = json.loads(CATALOG_INDEX.read_text(encoding='utf-8'))
+    names = {key(entry['palabra']): entry['palabra'] for entry in entries}
+    return {item['gloss']: names[key(item['gloss'])] for item in reference.classes
+            if item['usable_references'] and key(item['gloss']) in names}
 
 @asynccontextmanager
 async def lifespan(app):
     app.state.recognizer = None
     app.state.reference_model = None
+    app.state.catalog_glosses = {}
     torch.set_num_threads(1)
     try:
-        app.state.recognizer = Recognizer(Path(os.environ.get('LSP_MODEL_PATH', str(BASE_DIR / 'assets/model.pt'))))
+        app.state.recognizer = Recognizer(
+            Path(os.environ.get('LSP_MODEL_PATH', str(BASE_DIR / 'assets/model.pt'))),
+            mirror_single_hand_enabled=os.environ.get('LSP_MIRROR_SINGLE_HAND') == '1',
+        )
     except Exception:
         logging.exception('No se pudo cargar el modelo experimental')
     reference_dir = Path(os.environ.get('LSP_REFERENCE_MODEL_DIR', str(BASE_DIR / 'assets/videos1_reference')))
@@ -32,6 +48,11 @@ async def lifespan(app):
             app.state.reference_model = Videos1ReferenceModel(reference_dir)
         except Exception:
             logging.exception('No se pudo cargar el banco de referencias Videos1')
+    if app.state.reference_model is not None and CATALOG_INDEX.is_file():
+        try:
+            app.state.catalog_glosses = catalog_glosses(app.state.reference_model)
+        except (OSError, ValueError, KeyError, TypeError):
+            logging.exception('No se pudo vincular el diccionario con el banco de referencias')
     yield
     app.state.recognizer = None
     app.state.reference_model = None
@@ -108,8 +129,10 @@ def state():
     model = getattr(app.state, 'recognizer', None)
     reference = getattr(app.state, 'reference_model', None)
     return dict(ready=model is not None, experimental=True, extractor_parity_validated=model.parity_validated if model else False, extractor_runtime=EXTRACTOR_RUNTIME, contract=CONTRACT, extractor_sha256=EXTRACTOR_SHA,
+                prueba_ahora_disponible=model is not None and reference is not None and ahora_retry_enabled(),
                 modelo=model.identifier if model else None, clases=model.classes if model else [],
                 referencias_disponibles=reference is not None,
+                clases_diccionario_comparables=len(set(getattr(app.state, 'catalog_glosses', {}).values())),
                 clases_referencia=[c['gloss'] for c in reference.classes if c['usable_references'] > 0] if reference else [],
                 mensaje='Prototipo experimental de baja precisión.' if model else 'Modelo no disponible.')
 
@@ -130,8 +153,13 @@ def classes():
         raise HTTPException(503, 'Modelo no disponible')
     return {'clases': info['clases'], 'total': len(info['clases']), 'experimental': True}
 
+
+def ahora_retry_enabled():
+    return os.environ.get('LSP_AHORA_RETRY') == '1' or os.environ.get('LSP_AHORA_RETRY_LOCAL') == '1'
+
+
 @app.post('/api/predict')
-def predict(request: LandmarksRequest, response: Response):
+def predict(request: LandmarksRequest, response: Response, prueba_ahora: bool = False):
     model = getattr(app.state, 'recognizer', None)
     if model is None:
         raise HTTPException(503, 'Modelo no disponible.')
@@ -140,6 +168,13 @@ def predict(request: LandmarksRequest, response: Response):
     try:
         timings = {}
         result = model.predict(request, timings)
+        if prueba_ahora and ahora_retry_enabled():
+            reference = getattr(app.state, 'reference_model', None)
+            if reference is not None:
+                try:
+                    result = retry_ahora(model, reference, request, result)
+                except (RuntimeError, ValueError):
+                    logging.exception('Falló la prueba local de AHORA')
         # Duraciones internas; no incluyen red, validación HTTP ni espera de arranque.
         response.headers['Server-Timing'] = ', '.join(f'{name};dur={duration:.3f}' for name, duration in timings.items())
         return result
@@ -147,18 +182,56 @@ def predict(request: LandmarksRequest, response: Response):
         lock.release()
 
 
+def retry_ahora(model, bank, request: LandmarksRequest, original):
+    if original['estado'] != 'no_concluyente':
+        return original
+    scores = original['probabilidades']
+    if not scores or model.classes[scores.index(max(scores))] != 'ahora':
+        return original
+    visible = [i for i, frame in enumerate(request.point_mask) if any(frame)]
+    if not visible:
+        return original
+    first, last = visible[0], visible[-1]
+    if (first == 0 and last == len(request.point_mask) - 1) or last - first < 5:
+        return original
+    if request.timestamps_ms[last] - request.timestamps_ms[first] < 500:
+        return original
+    span = slice(first, last + 1)
+    cropped = request.model_copy(update={
+        'landmarks': request.landmarks[span],
+        'point_mask': request.point_mask[span],
+        'timestamps_ms': request.timestamps_ms[span],
+    })
+    candidate = model.predict(cropped)
+    if candidate['estado'] != 'resultado_experimental' or candidate['glosa'] != 'ahora':
+        return original
+    matches = bank.predict(cropped.landmarks, cropped.point_mask, cropped.timestamps_ms,
+                           cropped.width, cropped.height)
+    if any(item['glosa'].casefold() == 'ahora' for item in matches['candidatos']):
+        return candidate
+    return original
+
+
 @app.post('/api/predict-reference')
-def predict_reference(request: LandmarksRequest):
+def predict_reference(request: LandmarksRequest, catalogo: bool = False):
     model = getattr(app.state, 'reference_model', None)
     if model is None:
         raise HTTPException(503, 'Las referencias de Videos1 todavía no están disponibles.')
+    catalog = getattr(app.state, 'catalog_glosses', {}) if catalogo else None
+    if catalogo and not catalog:
+        raise HTTPException(503, 'El diccionario no está disponible para comparar señas.')
     if not lock.acquire(blocking=False):
         raise HTTPException(429, 'Servidor ocupado. Intenta nuevamente.', headers={'Retry-After': '2'})
     try:
-        result = model.predict(request.landmarks, request.point_mask, request.timestamps_ms, request.width, request.height)
+        filters = {'allowed_glosses': catalog} if catalogo else {}
+        result = model.predict(request.landmarks, request.point_mask, request.timestamps_ms,
+                               request.width, request.height, **filters)
         insufficient = result['estado'] == 'captura_insuficiente'
+        candidates = result['candidatos']
+        if catalog is not None:
+            candidates = [{**candidate, 'glosa': catalog[candidate['glosa']]} for candidate in candidates]
         return dict(estado='captura_insuficiente' if insufficient else 'no_concluyente', glosa=None, confidence=None,
-                    experimental=True, referencias=result['candidatos'],
+                    experimental=True, referencias=candidates,
                     mensaje='No se detectaron manos suficientes.' if insufficient else result['mensaje'])
     finally:
         lock.release()

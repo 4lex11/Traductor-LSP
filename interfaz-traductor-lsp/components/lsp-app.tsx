@@ -12,7 +12,7 @@ import {
   ChevronDown,
   CircleHelp,
   Clipboard,
-  Clock3,
+  ExternalLink,
   FileText,
   Hand,
   Info,
@@ -22,7 +22,6 @@ import {
   MessageSquare,
   Pause,
   Play,
-  Plus,
   RotateCcw,
   Search,
   Settings,
@@ -34,18 +33,10 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { buscarSena, listarSenas, type SenaCatalogo, type ResultadoLSP } from '@/lib/api'
+import { buscarSena, buscarSenaCatalogo, listarSenas, listarSenasCatalogo, type SenaCatalogo, type ResultadoLSP } from '@/lib/api'
+import { dictionaryCategories, dictionaryCategory, dictionarySearchText } from '@/lib/dictionary-categories'
 
 type View = 'inicio' | 'traductor' | 'texto' | 'diccionario' | 'admin' | 'ayuda'
-
-const dictionary = [
-  { word: 'Hola', category: 'Saludos', description: 'Saludo cotidiano para iniciar una conversación.', color: 'bg-blue-50 text-blue-600' },
-  { word: 'Gracias', category: 'Expresiones cotidianas', description: 'Expresión de agradecimiento.', color: 'bg-teal-50 text-teal-600' },
-  { word: 'Ayuda', category: 'Solicitudes', description: 'Solicitud de apoyo o asistencia.', color: 'bg-violet-50 text-violet-600' },
-  { word: '¿Cómo estás?', category: 'Preguntas frecuentes', description: 'Pregunta sobre el estado de una persona.', color: 'bg-amber-50 text-amber-600' },
-  { word: 'Esperar', category: 'Atención administrativa', description: 'Indicación para aguardar un momento.', color: 'bg-rose-50 text-rose-600' },
-  { word: 'Por favor', category: 'Expresiones cotidianas', description: 'Expresión de cortesía al solicitar algo.', color: 'bg-cyan-50 text-cyan-600' },
-]
 
 const navItems: { id: View; label: string; icon: typeof LayoutDashboard }[] = [
   { id: 'inicio', label: 'Inicio', icon: LayoutDashboard },
@@ -86,22 +77,39 @@ export function LspApp() {
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="icon" className="hidden text-slate-500 hover:text-blue-600 sm:inline-flex" aria-label="Accesibilidad"><Accessibility /></Button>
             <Button variant="outline" className="hidden border-slate-200 text-slate-700 sm:inline-flex" onClick={() => navigate('admin')}><Settings data-icon="inline-start" /> Administración</Button>
-            <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMobileMenu(!mobileMenu)} aria-label="Abrir menú"><Menu /></Button>
+            <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMobileMenu(open => !open)} aria-label={mobileMenu ? 'Cerrar menú' : 'Abrir menú'} aria-expanded={mobileMenu} aria-controls="menu-movil"><Menu /></Button>
           </div>
         </div>
-        {mobileMenu && <nav className="border-t border-slate-100 bg-white p-3 lg:hidden" aria-label="Menú móvil">{navItems.map((item) => <NavButton key={item.id} item={item} active={view === item.id} onClick={() => navigate(item.id)} mobile />)}</nav>}
+        <nav id="menu-movil" hidden={!mobileMenu} className="border-t border-slate-100 bg-white p-3 lg:hidden" aria-label="Menú móvil">{navItems.map((item) => <NavButton key={item.id} item={item} active={view === item.id} onClick={() => navigate(item.id)} mobile />)}</nav>
       </header>
       <main>
         {view === 'inicio' && <Home onNavigate={navigate} />}
-        {view === 'traductor' && <Translator onVerEnDiccionario={verEnDiccionario} />}
+        {view === 'traductor' && <Translator />}
         {view === 'texto' && <TextToLsp />}
         {view === 'diccionario' && (
           <Dictionary initialWord={selectedWordForDict} onWordConsumed={() => setSelectedWordForDict(null)} />
         )}
-        {view === 'admin' && <Admin />}
+        {view === 'admin' && <Admin onVerEnDiccionario={verEnDiccionario} />}
         {view === 'ayuda' && <Help />}
       </main>
-      <footer className="border-t border-slate-200 bg-white"><div className="mx-auto flex max-w-[1280px] flex-col gap-3 px-5 py-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8"><span>© 2026 LSP · Herramienta académica de apoyo</span><a href="/catalog/ATRIBUCION.txt" className="underline" target="_blank" rel="noreferrer">Fuentes y licencias de los videos</a><span className="flex items-center gap-2"><ShieldCheck className="size-4 text-teal-600" /> Tus datos no se almacenan</span></div></footer>
+      <footer className="border-t border-slate-200 bg-white">
+        <div className="mx-auto flex max-w-[1280px] flex-col gap-4 px-5 py-6 text-sm text-slate-600 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between lg:px-8">
+          <span>© 2026 LSP · Herramienta académica de apoyo</span>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+            <a href="/catalog/ATRIBUCION.txt" className="underline" target="_blank" rel="noreferrer">Fuentes y licencias de los videos</a>
+            <a
+              href="https://forms.gle/Q1JTtCwEAT3CCYEq7"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-blue-600 px-3 font-semibold text-white hover:bg-blue-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+            >
+              Calificar la página <ExternalLink className="size-4" aria-hidden="true" />
+              <span className="sr-only"> (se abre en otra pestaña)</span>
+            </a>
+          </div>
+          <span className="flex items-center gap-2"><ShieldCheck className="size-4 text-teal-600" /> La app no almacena tus capturas</span>
+        </div>
+      </footer>
     </div>
   )
 }
@@ -308,6 +316,7 @@ function Dictionary({
   onWordConsumed?: () => void
 }) {
   const [term, setTerm] = useState('')
+  const [category, setCategory] = useState('')
   const [page, setPage] = useState(0)
   const [items, setItems] = useState<SenaCatalogo[]>([])
   const [loading, setLoading] = useState(true)
@@ -316,13 +325,17 @@ function Dictionary({
   const [videoIndex, setVideoIndex] = useState(0)
   const [detailLoading, setDetailLoading] = useState(false)
   const [detailError, setDetailError] = useState('')
+  const dialogRef = useRef<HTMLDialogElement>(null)
+  const searchRef = useRef<HTMLInputElement>(null)
+  const openerRef = useRef<HTMLButtonElement | null>(null)
+  const detailRequest = useRef(0)
 
   useEffect(() => {
     let active = true
-    listarSenas()
+    listarSenasCatalogo()
       .then((data) => {
         if (active) {
-          setItems(data)
+          setItems(data.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')))
           if (initialWord) {
             setTerm(initialWord)
             void abrirSena(initialWord)
@@ -335,46 +348,92 @@ function Dictionary({
     return () => { active = false }
   }, [initialWord])
 
-  // Mostrar el catálogo real completo; una lista fija ocultaba casi todas las señas.
-  const lista = items
-    .filter(item => item.nombre.toLocaleLowerCase('es').includes(term.trim().toLocaleLowerCase('es')))
-    .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'))
+  const query = dictionarySearchText(term)
+  const lista = items.filter(item =>
+    (!category || dictionaryCategory(item.nombre) === category) &&
+    dictionarySearchText(item.nombre).includes(query),
+  )
   const pages = Math.max(1, Math.ceil(lista.length / 24))
   const currentPage = Math.min(page, pages - 1)
   const visibleItems = lista.slice(currentPage * 24, (currentPage + 1) * 24)
+  const categoriesPresent = new Set(items.map(item => dictionaryCategory(item.nombre)))
+  const filtersActive = Boolean(query || category)
 
-  async function abrirSena(palabra: string) {
+  function clearFilters() {
+    setTerm('')
+    setCategory('')
+    setPage(0)
+    searchRef.current?.focus()
+  }
+
+  async function abrirSena(palabra: string, opener: HTMLButtonElement | null = null) {
+    const request = ++detailRequest.current
+    const dialog = dialogRef.current
+    if (!dialog) return
+    if (!dialog.open) {
+      openerRef.current = opener
+      dialog.showModal()
+    }
     setDetailError('')
     setDetailLoading(true)
     setSelected(null)
     setVideoIndex(0)
     try {
-      setSelected(await buscarSena(palabra))
+      const result = await buscarSenaCatalogo(palabra)
+      if (detailRequest.current === request) setSelected(result)
     } catch (err) {
-      setDetailError(err instanceof Error ? err.message : 'No se pudo abrir el video')
+      if (detailRequest.current === request) setDetailError(err instanceof Error ? err.message : 'No se pudo abrir el video')
     } finally {
-      setDetailLoading(false)
+      if (detailRequest.current === request) setDetailLoading(false)
     }
+  }
+
+  function cerrarSena() {
+    detailRequest.current++
+    dialogRef.current?.close()
+    setDetailLoading(false)
+    setDetailError('')
+    setSelected(null)
+    const opener = openerRef.current
+    const focusTarget = opener?.isConnected ? opener : searchRef.current
+    focusTarget?.focus({ preventScroll: true })
+    openerRef.current = null
   }
 
   return (
     <div className="mx-auto max-w-[1280px] px-5 py-12 lg:px-8">
       <PageIntro eyebrow="Catálogo visual" title="Diccionario de LSP" />
-      <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-row sm:items-center">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-3 size-4 text-slate-400" />
-          <input value={term} onChange={e => { setTerm(e.target.value); setPage(0) }} placeholder="Buscar una seña" aria-label="Buscar en el diccionario" className="h-10 w-full rounded-lg border border-slate-200 pl-9 pr-3 text-sm outline-none focus:border-blue-500" />
+      <div className="grid gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:grid-cols-[minmax(0,1fr)_minmax(12rem,16rem)_auto] sm:items-end">
+        <div>
+          <label htmlFor="dictionary-search" className="mb-2 block text-sm font-medium text-slate-800">Buscar en el diccionario</label>
+          <div className="relative">
+            <Search aria-hidden="true" className="pointer-events-none absolute left-3 top-3.5 size-4 text-slate-500" />
+            <input id="dictionary-search" ref={searchRef} value={term} onChange={e => { setTerm(e.target.value); setPage(0) }} placeholder="Escribe una palabra o glosa" className="h-11 w-full rounded-lg border border-slate-300 pl-9 pr-3 text-sm focus-visible:outline-2 focus-visible:outline-blue-600" />
+          </div>
         </div>
+        <div>
+          <label htmlFor="dictionary-category" className="mb-2 block text-sm font-medium text-slate-800">Categoría</label>
+          <select id="dictionary-category" value={category} onChange={e => { setCategory(e.target.value); setPage(0) }}
+            className="h-11 w-full rounded-lg border border-slate-300 bg-white px-3 text-sm text-slate-800 focus-visible:outline-2 focus-visible:outline-blue-600">
+            <option value="">Todas las categorías</option>
+            {dictionaryCategories.filter(name => categoriesPresent.has(name)).map(name => <option key={name} value={name}>{name}</option>)}
+          </select>
+        </div>
+        <Button variant="outline" className="h-11" disabled={!filtersActive} onClick={clearFilters}>Limpiar filtros</Button>
       </div>
-      <p role="status" className="mt-4 text-sm text-slate-500">{loading ? 'Cargando catálogo…' : `${lista.length} resultados de ${items.length} entradas del catálogo`}</p>
+      {!error && (
+        <p role="status" className="mt-4 text-sm text-slate-600">
+          {loading ? 'Cargando catálogo…' : `${lista.length} ${lista.length === 1 ? 'resultado' : 'resultados'} de ${items.length} entradas del catálogo`}
+        </p>
+      )}
       {error && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-4 text-sm text-red-700">{error}</p>}
       {!loading && !error && <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {visibleItems.map(item => <article key={item.nombre} className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
           <div className="flex aspect-[1.6] items-center justify-center bg-slate-900"><Video className="size-12 text-blue-300" /></div>
           <div className="p-5">
             <h2 className="font-semibold text-slate-900">{item.nombre.replaceAll('-', ' ')}</h2>
-            <p className="mt-1 text-sm text-slate-500">{item.cantidad_videos} video(s) disponibles</p>
-            <Button variant="outline" className="mt-4 w-full" onClick={() => void abrirSena(item.nombre)}>Ver videos <ArrowRight data-icon="inline-end" /></Button>
+            <p className="mt-1 text-sm text-slate-600">{dictionaryCategory(item.nombre)} · {item.cantidad_videos} {item.cantidad_videos === 1 ? 'video' : 'videos'}</p>
+            <Button variant="outline" className="mt-4 w-full" onClick={e => void abrirSena(item.nombre, e.currentTarget)}>Ver videos <ArrowRight data-icon="inline-end" /></Button>
           </div>
         </article>)}
       </div>}
@@ -383,12 +442,18 @@ function Dictionary({
         <span className="text-sm text-slate-600">Página {currentPage + 1} de {pages}</span>
         <Button variant="outline" disabled={currentPage === pages - 1} onClick={() => setPage(currentPage + 1)}>Siguiente</Button>
       </nav>}
-      {!loading && !error && lista.length === 0 && <p className="mt-6 rounded-xl border border-dashed p-8 text-center text-slate-500">No hay señas que coincidan. Modifica o borra la búsqueda.</p>}
-      {(selected || detailLoading || detailError) && <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 p-4" onClick={() => { setSelected(null); setDetailError('') }}>
-        <section role="dialog" aria-modal="true" aria-label="Video de la seña" className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-white p-5 shadow-xl sm:p-7" onClick={e => e.stopPropagation()}>
+      {!loading && !error && lista.length === 0 && <p className="mt-6 rounded-xl border border-dashed p-8 text-center text-slate-600">No hay señas que coincidan. Cambia la categoría o modifica la búsqueda.</p>}
+      <dialog
+        ref={dialogRef}
+        aria-label="Video de la seña"
+        className="m-auto max-h-[90vh] w-[calc(100%-2rem)] max-w-3xl overflow-y-auto rounded-2xl bg-white p-0 text-slate-800 shadow-xl backdrop:bg-slate-950/70"
+        onCancel={e => { e.preventDefault(); cerrarSena() }}
+        onClick={e => { if (e.target === e.currentTarget) cerrarSena() }}
+      >
+        <div className="p-5 sm:p-7">
           <div className="mb-4 flex items-center justify-between gap-3">
             <h2 className="text-xl font-bold text-slate-900">{selected?.palabra || 'Referencia de LSP'}</h2>
-            <Button variant="ghost" size="icon" aria-label="Cerrar" onClick={() => { setSelected(null); setDetailError('') }}><X /></Button>
+            <Button variant="ghost" size="icon" aria-label="Cerrar" autoFocus onClick={cerrarSena}><X /></Button>
           </div>
           {detailLoading && <p role="status">Cargando video…</p>}
           {detailError && <p role="alert" className="text-red-700">{detailError}</p>}
@@ -405,14 +470,94 @@ function Dictionary({
             {selected.videos.length > 1 && <p className="mt-3 text-xs text-slate-500">Referencias agrupadas por coincidencia de etiqueta. La equivalencia entre fuentes aún no está validada.</p>}
             <p className="mt-4 text-sm text-amber-700">Referencia del catálogo. La etiqueta proviene del dataset y aún requiere revisión lingüística.</p>
           </>}
-        </section>
-      </div>}
+        </div>
+      </dialog>
     </div>
   )
 }
 
-function Admin() { return <div className="mx-auto max-w-[1200px] px-5 py-12 lg:px-8"><PageIntro eyebrow="Gestión del catálogo" title="Administración" description="Panel preparado para una futura autenticación. Registrar una seña no implica que el modelo de Machine Learning ya pueda reconocerla." /><div className="mb-6 flex items-center gap-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800"><Settings className="size-4" /><span>Vista de demostración · La autenticación y persistencia se incorporarán en una siguiente fase.</span></div><div className="grid gap-5 sm:grid-cols-3"><Stat label="Señas registradas" value="48" icon={BookOpen} /><Stat label="Pendientes de validar" value="12" icon={Clock3} /><Stat label="Clases del modelo" value="30" icon={Sparkles} /></div><div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"><div className="flex flex-col gap-4 border-b border-slate-100 p-5 sm:flex-row sm:items-center sm:justify-between"><div><h2 className="font-semibold text-slate-900">Catálogo de señas</h2><p className="mt-1 text-sm text-slate-500">Gestiona el contenido y su estado de validación.</p></div><Button className="bg-blue-600"><Plus data-icon="inline-start" />Registrar nueva seña</Button></div><div className="overflow-x-auto"><table className="w-full min-w-[650px] text-left text-sm"><thead className="bg-slate-50 text-xs uppercase tracking-wide text-slate-400"><tr><th className="px-5 py-3 font-medium">Palabra / glosa</th><th className="px-5 py-3 font-medium">Categoría</th><th className="px-5 py-3 font-medium">Referencia</th><th className="px-5 py-3 font-medium">Estado</th><th className="px-5 py-3 font-medium">Acciones</th></tr></thead><tbody className="divide-y divide-slate-100">{dictionary.slice(0, 5).map((item, i) => <tr key={item.word}><td className="px-5 py-4 font-medium text-slate-800">{item.word}</td><td className="px-5 py-4 text-slate-500">{item.category}</td><td className="px-5 py-4 text-slate-500">{i < 3 ? 'Video' : 'Pendiente'}</td><td className="px-5 py-4"><span className={cn('rounded-full px-2.5 py-1 text-xs font-medium', i < 3 ? 'bg-teal-50 text-teal-700' : 'bg-amber-50 text-amber-700')}>{i < 3 ? 'Validada' : 'Por validar'}</span></td><td className="px-5 py-4"><button className="text-sm font-medium text-blue-600 hover:underline">Editar</button></td></tr>)}</tbody></table></div></div></div> }
+function Admin({ onVerEnDiccionario }: { onVerEnDiccionario: (palabra: string) => void }) {
+  const [items, setItems] = useState<SenaCatalogo[] | null>(null)
+  const [error, setError] = useState('')
+  const [term, setTerm] = useState('')
+  const [page, setPage] = useState(0)
 
-function Stat({ label, value, icon: Icon }: { label: string; value: string; icon: typeof BookOpen }) { return <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"><div className="flex items-center justify-between"><span className="flex size-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600"><Icon className="size-5" /></span><span className="text-2xl font-bold text-slate-900">{value}</span></div><p className="mt-4 text-sm text-slate-500">{label}</p></div> }
+  useEffect(() => {
+    let active = true
+    listarSenasCatalogo()
+      .then(data => {
+        if (active) setItems(data.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')))
+      })
+      .catch(() => {
+        if (active) setError('No se pudo cargar el catálogo.')
+      })
+    return () => { active = false }
+  }, [])
+
+  const query = term.trim().toLocaleLowerCase('es')
+  const matches = items?.filter(item => item.nombre.toLocaleLowerCase('es').includes(query)) ?? []
+  const pageSize = 24
+  const pages = Math.ceil(matches.length / pageSize)
+  const visible = matches.slice(page * pageSize, (page + 1) * pageSize)
+
+  return (
+    <div className="mx-auto max-w-[1200px] px-5 py-12 lg:px-8">
+      <PageIntro eyebrow="Catálogo de señas" title="Administración" description="Consulta las entradas del diccionario y abre sus videos de referencia." />
+      <section aria-label="Señas del catálogo" className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <div className="border-b border-slate-100 p-5">
+          <label htmlFor="buscar-sena-admin" className="mb-2 block text-sm font-medium text-slate-800">Buscar una seña</label>
+          <div className="relative max-w-md">
+            <Search aria-hidden="true" className="absolute left-3 top-3 size-4 text-slate-400" />
+            <input
+              id="buscar-sena-admin"
+              value={term}
+              onChange={event => { setTerm(event.target.value); setPage(0) }}
+              className="h-10 w-full rounded-lg border border-slate-300 pl-9 pr-3 text-sm focus-visible:outline-2 focus-visible:outline-blue-600"
+            />
+          </div>
+          {!error && (
+            <p role="status" className="mt-3 text-sm text-slate-600">
+              {items ? `${matches.length} de ${items.length} señas` : 'Cargando catálogo…'}
+            </p>
+          )}
+          {error && <p role="alert" className="mt-3 text-sm text-red-700">{error}</p>}
+        </div>
+        {visible.length > 0 && (
+          <table className="w-full text-left text-sm">
+            <thead className="bg-slate-50 text-slate-700">
+              <tr>
+                <th scope="col" className="px-5 py-3 font-medium">Palabra / glosa</th>
+                <th scope="col" className="px-5 py-3 font-medium">Videos</th>
+                <th scope="col" className="px-5 py-3 font-medium">Diccionario</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {visible.map(item => (
+                <tr key={item.nombre}>
+                  <th scope="row" className="px-5 py-3 font-medium text-slate-800">{item.nombre.replaceAll('-', ' ')}</th>
+                  <td className="px-5 py-3 text-slate-600">{item.cantidad_videos}</td>
+                  <td className="px-5 py-3">
+                    <Button variant="link" className="h-auto px-0 py-1 text-blue-700" onClick={() => onVerEnDiccionario(item.nombre)}
+                      aria-label={`Ver videos de ${item.nombre.replaceAll('-', ' ')}`}>
+                      Ver videos
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+        {items && matches.length === 0 && <p className="p-5 text-sm text-slate-600">No hay señas que coincidan con la búsqueda.</p>}
+        {pages > 1 && (
+          <nav aria-label="Páginas de Administración" className="flex items-center justify-center gap-3 border-t border-slate-100 p-4">
+            <Button variant="outline" disabled={page === 0} onClick={() => setPage(page - 1)}>Anterior</Button>
+            <span className="text-sm text-slate-600">Página {page + 1} de {pages}</span>
+            <Button variant="outline" disabled={page === pages - 1} onClick={() => setPage(page + 1)}>Siguiente</Button>
+          </nav>
+        )}
+      </section>
+    </div>
+  )
+}
 
 function Help() { const faqs = [['¿Cómo activo la cámara?', 'En el Traductor LSP, presiona “Activar cámara” y acepta el permiso del navegador. La cámara solo funciona mientras la página está abierta.'],['¿Qué hago si no reconoce una seña?', 'Asegúrate de tener buena iluminación, las manos visibles y un fondo despejado. Recuerda que el MVP solo incluye un vocabulario limitado.'],['¿Puedo buscar cualquier palabra?', 'El diccionario contiene referencias de demostración para un conjunto acotado de expresiones. Si no encontramos una palabra, te mostraremos un aviso.'],['¿Se guardan mis imágenes?', 'No. El prototipo no almacena imágenes, videos ni capturas de los usuarios de forma persistente.']]; return <div className="mx-auto max-w-[900px] px-5 py-12 lg:px-8"><PageIntro eyebrow="Centro de ayuda" title="Estamos para ayudarte" description="Encuentra respuestas rápidas sobre el uso del prototipo y sus alcances." /><div className="grid gap-4">{faqs.map(([q,a]) => <details key={q} className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-slate-800"><span className="flex items-center gap-3"><CircleHelp className="size-5 text-blue-600" />{q}</span><ChevronDown className="size-4 text-slate-400 transition group-open:rotate-180" /></summary><p className="mt-4 max-w-2xl pl-8 text-sm leading-7 text-slate-500">{a}</p></details>)}</div><div className="mt-8 rounded-2xl bg-slate-900 p-6 text-white sm:p-8"><div className="flex gap-4"><ShieldCheck className="size-6 shrink-0 text-teal-300" /><div><h2 className="font-semibold">Privacidad y accesibilidad</h2><p className="mt-2 text-sm leading-7 text-slate-300">Este proyecto debe validarse posteriormente con usuarios reales de LSP. Diseñamos el flujo con foco en claridad, teclado, contraste y mensajes comprensibles.</p></div></div></div></div> }

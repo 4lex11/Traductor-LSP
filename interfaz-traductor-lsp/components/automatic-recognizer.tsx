@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import type { HolisticLandmarker } from '@mediapipe/tasks-vision'
-import { AutoSegmenter } from '@/lib/auto-segmenter'
+import type { HolisticLandmarker, NormalizedLandmark } from '@mediapipe/tasks-vision'
+import { AutoSegmenter, type HandFrame } from '@/lib/auto-segmenter'
 import { CONTRACT, EXTRACTOR_SHA, packHands } from '@/lib/recognition-contract'
 import { EXTRACTOR_RUNTIME } from '@/lib/runtime-contract'
 import { predecirSena, type PrediccionLSP } from '@/lib/api'
@@ -12,7 +12,9 @@ export type AutomaticRecognitionState = 'idle' | 'preparing' | 'waiting' | 'capt
 type AutomaticRecognizerProps = {
   video: HTMLVideoElement | null
   enabled: boolean
+  ahoraTrial: boolean
   onResult: (result: PrediccionLSP) => void
+  onPose: (pose: readonly NormalizedLandmark[], width: number, height: number) => void
   onStateChange: (state: AutomaticRecognitionState) => void
   onError: (message: string) => void
 }
@@ -21,12 +23,12 @@ type AutomaticRecognizerProps = {
  * Reconoce señas aisladas de forma automática mientras la cámara esté activa.
  * No dibuja la interfaz: el resultado y los mensajes los muestra la página.
  */
-export function AutomaticRecognizer({ video, enabled, onResult, onStateChange, onError }: AutomaticRecognizerProps) {
-  const callbacks = useRef({ onResult, onStateChange, onError })
+export function AutomaticRecognizer({ video, enabled, ahoraTrial, onResult, onPose, onStateChange, onError }: AutomaticRecognizerProps) {
+  const callbacks = useRef({ onResult, onPose, onStateChange, onError })
 
   useEffect(() => {
-    callbacks.current = { onResult, onStateChange, onError }
-  }, [onResult, onStateChange, onError])
+    callbacks.current = { onResult, onPose, onStateChange, onError }
+  }, [onResult, onPose, onStateChange, onError])
 
   useEffect(() => {
     if (!enabled || !video) {
@@ -43,7 +45,11 @@ export function AutomaticRecognizer({ video, enabled, onResult, onStateChange, o
     let watchdog: ReturnType<typeof setTimeout> | undefined
     let lastFrameAt = performance.now()
     let reported: AutomaticRecognitionState = 'idle'
-    const resetFrameWatchdog = () => { lastFrameAt = performance.now() }
+    const clearPose = () => callbacks.current.onPose([], 0, 0)
+    const resetFrameWatchdog = () => {
+      lastFrameAt = performance.now()
+      clearPose()
+    }
     document.addEventListener('visibilitychange', resetFrameWatchdog)
 
     const report = (state: AutomaticRecognitionState) => {
@@ -60,6 +66,7 @@ export function AutomaticRecognizer({ video, enabled, onResult, onStateChange, o
       document.removeEventListener('visibilitychange', resetFrameWatchdog)
       instance?.close()
       instance = null
+      clearPose()
     }
 
     const fail = (message: string) => {
@@ -86,6 +93,17 @@ export function AutomaticRecognizer({ video, enabled, onResult, onStateChange, o
         lastFrameAt = performance.now()
         report('waiting')
 
+        const predictFrames = (frames: HandFrame[]) => predecirSena({
+          contract: CONTRACT,
+          extractor_sha256: EXTRACTOR_SHA,
+          ...{ extractor_runtime: EXTRACTOR_RUNTIME },
+          landmarks: frames.map(frame => frame.values),
+          point_mask: frames.map(frame => frame.mask),
+          timestamps_ms: frames.map(frame => frame.time - frames[0].time),
+          width: video.videoWidth,
+          height: video.videoHeight,
+        }, controller.signal, ahoraTrial ? 'ahora' : false)
+
         const loop = async () => {
           if (disposed || !instance) return
           try {
@@ -102,21 +120,14 @@ export function AutomaticRecognizer({ video, enabled, onResult, onStateChange, o
             if (video.readyState >= 2 && timestamp > lastTime && (lastTime < 0 || timestamp - lastTime >= 1000 / 15)) {
               lastTime = timestamp
               lastFrameAt = performance.now()
-              const packed = packHands(instance.detectForVideo(video, timestamp))
+              const detected = instance.detectForVideo(video, timestamp)
+              const packed = packHands(detected)
+              callbacks.current.onPose(detected.poseLandmarks?.[0] ?? [], video.videoWidth, video.videoHeight)
               const frames = segmenter.push({ ...packed, time: timestamp })
               if (frames) {
                 report('processing')
                 // No se programa otro fotograma hasta terminar esta petición.
-                const prediction = await predecirSena({
-                  contract: CONTRACT,
-                  extractor_sha256: EXTRACTOR_SHA,
-                  ...{ extractor_runtime: EXTRACTOR_RUNTIME },
-                  landmarks: frames.map(frame => frame.values),
-                  point_mask: frames.map(frame => frame.mask),
-                  timestamps_ms: frames.map(frame => frame.time - frames[0].time),
-                  width: video.videoWidth,
-                  height: video.videoHeight,
-                }, controller.signal, false)
+                const prediction = await predictFrames(frames)
                 if (disposed) return
                 callbacks.current.onResult(prediction)
                 segmenter.resetAfterResult(Math.round(video.currentTime * 1000))
@@ -139,7 +150,7 @@ export function AutomaticRecognizer({ video, enabled, onResult, onStateChange, o
 
     void boot()
     return cleanup
-  }, [enabled, video])
+  }, [enabled, video, ahoraTrial])
 
   return null
 }

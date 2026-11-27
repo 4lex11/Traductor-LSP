@@ -1,6 +1,11 @@
 import { EXTRACTOR_RUNTIME } from './runtime-contract'
 const API_URL = (process.env.NEXT_PUBLIC_LSP_API_URL || 'http://localhost:8000').replace(/\/$/, '')
 const STATIC_CATALOG = process.env.NEXT_PUBLIC_LSP_CATALOG === 'static'
+// Vocabulario del clasificador más BIEN/MEJOR como referencia del diccionario.
+const DICTIONARY_GLOSSES = new Set([
+  'ahora', 'escribir', 'decir', 'sentir', 'pensar', 'bien', 'bien/mejor', 'diferente', 'no',
+  'hacer', 'igual', 'casa', 'fuerte', 'dos', 'ver', 'niño', 'saber', 'yo',
+])
 
 let catalogRequest: Promise<ResultadoLSP[]> | null = null
 function staticCatalog() {
@@ -31,14 +36,27 @@ export interface ResultadoLSP {
   total: number
 }
 
+async function buscarEnCatalogo(palabra: string, getEntries: () => Promise<ResultadoLSP[]>): Promise<ResultadoLSP> {
+  const consulta = palabra.trim().toLocaleLowerCase('es')
+  if (!consulta) throw new Error('Escribe una palabra para buscar.')
+  const found = (await getEntries()).find(entry => entry.palabra.toLocaleLowerCase('es') === consulta)
+  if (!found) throw new Error('Esta seña no está disponible en el diccionario.')
+  return found
+}
+
+async function catalogoVisible() {
+  const entries = await staticCatalog()
+  return entries.filter(entry => DICTIONARY_GLOSSES.has(entry.palabra))
+}
+
+export function buscarSenaCatalogo(palabra: string): Promise<ResultadoLSP> {
+  return buscarEnCatalogo(palabra, catalogoVisible)
+}
+
 export async function buscarSena(palabra: string): Promise<ResultadoLSP> {
   const consulta = palabra.trim()
   if (!consulta) throw new Error('Escribe una palabra para buscar.')
-  if (STATIC_CATALOG) {
-    const found = (await staticCatalog()).find(entry => entry.palabra.toLocaleLowerCase('es') === consulta.toLocaleLowerCase('es'))
-    if (!found) throw new Error('Esta seña no está disponible en el catálogo de demostración.')
-    return found
-  }
+  if (STATIC_CATALOG) return buscarEnCatalogo(consulta, staticCatalog)
 
   let response: Response
   try {
@@ -69,8 +87,16 @@ export interface SenaCatalogo {
   cantidad_videos: number
 }
 
+export async function listarSenasCatalogo(): Promise<SenaCatalogo[]> {
+  return (await catalogoVisible()).map(toCatalogItem)
+}
+
+function toCatalogItem(entry: ResultadoLSP): SenaCatalogo {
+  return {nombre: entry.palabra, cantidad_videos: entry.total}
+}
+
 export async function listarSenas(): Promise<SenaCatalogo[]> {
-  if (STATIC_CATALOG) return (await staticCatalog()).map(entry => ({nombre: entry.palabra, cantidad_videos: entry.total}))
+  if (STATIC_CATALOG) return (await staticCatalog()).map(toCatalogItem)
   let response: Response
   try {
     response = await fetch(`${API_URL}/api/senas`)
@@ -82,6 +108,7 @@ export async function listarSenas(): Promise<SenaCatalogo[]> {
 }
 
 export interface PrediccionLSP {
+  sugerencia_recorte?: string
   referencias?: { glosa: string; distancia: number; ejemplo_id: string }[]
   glosa: string | null
   confidence: number | null
@@ -91,8 +118,11 @@ export interface PrediccionLSP {
 }
 
 export interface ModelState {
+  prueba_ahora_disponible?: boolean
+  modo_prueba_pucp?: true
   referencias_disponibles?: boolean
   clases_referencia?: string[]
+  clases_diccionario_comparables?: number
   ready: boolean
   extractor_runtime: string
   contract: string
@@ -136,8 +166,11 @@ export async function conectarModelo(signal: AbortSignal): Promise<ModelState> {
   throw new Error('El servidor está disponible, pero el modelo no está listo. Intenta conectar más tarde.')
 }
 
-export async function predecirSena(capture: import('./recognition-contract').Capture, signal: AbortSignal, reference = false): Promise<PrediccionLSP> {
-  const response = await request(reference ? '/api/predict-reference' : '/api/predict', {
+export async function predecirSena(capture: import('./recognition-contract').Capture, signal: AbortSignal, mode: boolean | 'catalogo' | 'ahora' = false): Promise<PrediccionLSP> {
+  const path = mode === 'ahora' ? '/api/predict?prueba_ahora=true'
+    : mode === 'catalogo' ? '/api/predict-reference?catalogo=true'
+    : mode ? '/api/predict-reference' : '/api/predict'
+  const response = await request(path, {
     method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(capture),
   }, signal, 20000)
   if (!response.ok) {

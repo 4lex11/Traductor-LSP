@@ -17,7 +17,7 @@ class Videos1ReferenceModel:
             self.data={k:d[k].copy() for k in d.files}
         self.classes=json.loads((directory/'label_map.json').read_text(encoding='utf-8'))
 
-    def predict(self, raw, mask, times, width, height, count=5):
+    def predict(self, raw, mask, times, width, height, count=5, *, allowed_glosses=None):
         mask=np.asarray(mask,bool)
         if not len(mask) or mask.any(axis=1).mean()<.5:
             return dict(estado='captura_insuficiente',candidatos=[],precision_validada=False)
@@ -29,7 +29,9 @@ class Videos1ReferenceModel:
             label=int(self.data['labels'][i])
             if label in seen:continue
             seen.add(label)
-            candidates.append(dict(glosa=self.classes[label]['gloss'],distancia=float(distances[i]),
+            gloss=self.classes[label]['gloss']
+            if allowed_glosses is not None and gloss not in allowed_glosses:continue
+            candidates.append(dict(glosa=gloss,distancia=float(distances[i]),
                                    ejemplo_id=str(self.data['ids'][i])))
             if len(candidates)>=count:break
         return dict(estado='referencias_experimentales',candidatos=candidates,precision_validada=False,
